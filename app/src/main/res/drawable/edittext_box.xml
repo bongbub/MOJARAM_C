@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#00000000"/> <!-- 박스의 배경색 -->
+    <corners android:radius="2dp" /> <!-- 박스 모서리의 반지름 -->
+    <stroke android:width="2dp" android:color="#E2E2E2" /> <!-- 테두리의 두께와 색 -->
+</shape>
