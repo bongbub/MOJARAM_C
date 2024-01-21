@@ -34,7 +34,7 @@
         android:background="@drawable/edittext_box"
         android:ems="10"
         android:hint="아이디"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:padding="8dp"
         android:paddingStart="50dp"
         android:translationX="50dp"
