@@ -71,6 +71,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
 
+    //firebase Register 연동
     private fun Register(userid:String, password: String) {
 
         mAuth.createUserWithEmailAndPassword(userid, password)
