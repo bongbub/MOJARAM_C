@@ -19,8 +19,10 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/bottomnavi"
         android:layout_below="@+id/toolbar"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="-8dp"
         android:background="@color/gray">
 
         <LinearLayout
@@ -223,7 +225,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/image6"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/welcomecoupon"
+                            android:text="@string/welcome"
                             android:textColor="@color/black"
                             android:textSize="13dp" />
                     </RelativeLayout>
@@ -350,6 +352,7 @@
                 android:layout_marginBottom="7dp"
                 android:backgroundTint="@color/gray"
                 app:tabGravity="center"
+                app:tabIconTintMode="add"
                 app:tabIndicatorColor="@color/black"
                 app:tabSelectedTextColor="@color/black"
                 app:tabTextAppearance="@style/tab_text">
@@ -368,12 +371,11 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
+                android:layout_height="wrap_content"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
-                android:background="@color/white" />
+                android:background="@color/white"/>
         </LinearLayout>
     </ScrollView>
 
