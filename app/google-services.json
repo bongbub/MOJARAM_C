@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "310606663886",
+    "firebase_url": "https://mojaram-f34a2-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "mojaram-f34a2",
+    "storage_bucket": "mojaram-f34a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310606663886:android:5a34a5dedaf0501fd4009f",
+        "android_client_info": {
+          "package_name": "com.example.mojaram"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNSJGg5TxZWIZivhotkGxO6bHw1kzWfhI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
