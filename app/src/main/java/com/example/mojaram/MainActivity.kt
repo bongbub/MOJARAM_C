@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         val btnM: Button = findViewById(R.id.btn_m)
         val btnS: Button = findViewById(R.id.btn_s)
 
+
         // Firebase Auth 인증 객체 초기화
         mAhth = Firebase.auth
 
@@ -89,4 +90,5 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, Findqw::class.java)
         startActivity(intent)
     }
+
 }
