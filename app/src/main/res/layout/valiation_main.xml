@@ -1,81 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/gray"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.085"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/scroll"
         android:background="@color/white"
         android:theme="?attr/actionBarTheme"/>
 
     <ScrollView
         android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.83"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/bottomnavi"
+        android:fillViewport="true"
         android:background="@color/gray">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/gray"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mainbox"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:background="@drawable/linear_shape"
-                android:orientation="vertical">
+                app:layout_constraintBottom_toTopOf="@+id/tablayout"
+                app:layout_constraintDimensionRatio="h, 1.2:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="1">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintGuide_percent="0.04"/>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintGuide_percent="0.96"/>
 
                 <TextView
                     android:id="@+id/textRecommendName"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="12dp"
                     android:text="@string/recommendName"
                     android:textColor="@color/black"
                     android:textSize="27sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/textRecommendSitu"
+                    app:layout_constraintEnd_toEndOf="@id/guideline2"
+                    app:layout_constraintStart_toStartOf="@id/guideline1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed"/>
 
                 <TextView
                     android:id="@+id/textRecommendSitu"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.1"
+                    app:layout_constraintBottom_toTopOf="@+id/textRecommendHair"
+                    app:layout_constraintEnd_toEndOf="@id/guideline2"
+                    app:layout_constraintStart_toStartOf="@id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/textRecommendName"
                     android:text="@string/recommendSitu"
                     android:textColor="@color/black"
                     android:textSize="27sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/textRecommendHair"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginBottom="10dp"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.1"
                     android:text="@string/recommendHair"
                     android:textColor="@color/black"
                     android:textSize="27sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/guideline2"
+                    app:layout_constraintStart_toStartOf="@id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/textRecommendSitu" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintGuide_percent="0.36"
+                    />
 
                 <GridLayout
                     android:id="@+id/grid"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.43"
                     android:columnCount="5"
                     android:orientation="horizontal"
                     android:rowCount="2"
-                    android:useDefaultMargins="false">
+                    android:useDefaultMargins="false"
+                    app:layout_constraintVertical_chainStyle="spread_inside"
+                    app:layout_constraintBottom_toTopOf="@+id/editText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/guideline3">
 
                     <RelativeLayout
                         android:layout_width="0dp"
@@ -223,7 +289,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/image6"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/welcomecoupon"
+                            android:text="@string/welcome"
                             android:textColor="@color/black"
                             android:textSize="13dp" />
                     </RelativeLayout>
@@ -328,28 +394,37 @@
                 </GridLayout>
 
                 <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginBottom="23dp"
+                    android:id="@+id/editText"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.13"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/grid"
                     android:background="@drawable/search_shape"
                     android:drawableStart="@drawable/ic_baseline_search_24"
                     android:drawablePadding="5dp"
                     android:hint="@string/search"
                     android:padding="10dp"
-                    android:textSize="17sp" />
-            </LinearLayout>
+                    android:textSize="17sp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tablayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="7dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:backgroundTint="@color/gray"
+                app:layout_constraintBottom_toTopOf="@+id/viewpager"
+                app:layout_constraintDimensionRatio="h, 6:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mainbox"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="1"
                 app:tabGravity="center"
+                app:tabIconTintMode="add"
                 app:tabIndicatorColor="@color/black"
                 app:tabSelectedTextColor="@color/black"
                 app:tabTextAppearance="@style/tab_text">
@@ -357,35 +432,41 @@
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:foreground="@color/gray"
                     android:text="@string/location_recommend" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:foreground="@color/gray"
                     android:text="@string/style_recommend" />
             </com.google.android.material.tabs.TabLayout>
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:background="@color/white" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tablayout"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnavi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.085"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/white"
-        android:layout_alignParentBottom="true"
         app:itemTextColor="@color/black"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/navigation_items">
+        app:menu="@menu/navigation_items"/>
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
