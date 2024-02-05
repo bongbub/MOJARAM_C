@@ -71,6 +71,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
+    implementation("com.naver.maps:map-sdk:3.16.2")
 
 
     testImplementation("junit:junit:4.13.2")
