@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         id = findViewById(R.id.id)
         pwd = findViewById(R.id.editTextTextPassword)
-        val btnM: Button = findViewById(R.id.btn_m)
+        val btnM: Button = findViewById(R.id.btn_my1)
         val btnS: Button = findViewById(R.id.btn_s)
 
 
