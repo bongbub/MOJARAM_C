@@ -20,7 +20,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 
+
 class LoginActivity : AppCompatActivity(){
+
 
     private lateinit var homeFragment: homeFragment
     private lateinit var likeFragment: likeFragment
@@ -55,18 +57,6 @@ class LoginActivity : AppCompatActivity(){
 
         btn_nav.setupWithNavController(navController)
 
-        val banner: LinearLayout = findViewById(R.id.vrhairEX) // 텍스트레이아웃 네임
-        val gridban: GridLayout = findViewById(R.id.grid)  //그리드(배너)
-
-        //클릭이벤트
-        banner.setOnClickListener{
-            val intent = Intent(this, vrPage::class.java)
-            startActivity(intent)
-        }
-        gridban.setOnClickListener{
-            val intent = Intent(this, vrPage::class.java)
-            startActivity(intent)
-        }
     }
 
 }
