@@ -20,7 +20,7 @@
     <string name="summer">- 무더운 여름, 바캉스를 시원하게 만들어 주는 짧은 머···</string>
     <string name="home">홈</string>
     <string name="location">내주변</string>
-    <string name="stylebook">가발 상품</string>
+    <string name="stylebook">스타일북</string>
     <string name="reservation">찜</string>
     <string name="me">마이</string>
     <string name="hairshop">맞춤가발샵</string>
@@ -35,4 +35,7 @@
     <string name="tip">가발관리TIP</string>
     <string name="location_recommend">안양동 추천</string>
     <string name="style_recommend">스타일 추천</string>
+    <string name="title_activity_vr_page">vrPage</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

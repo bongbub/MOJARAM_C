@@ -31,8 +31,9 @@ class MainActivity : AppCompatActivity() {
 
         id = findViewById(R.id.id)
         pwd = findViewById(R.id.editTextTextPassword)
-        val btnM: Button = findViewById(R.id.btn_m)
+        val btnM: Button = findViewById(R.id.btn_my1)
         val btnS: Button = findViewById(R.id.btn_s)
+
 
         // Firebase Auth 인증 객체 초기화
         mAhth = Firebase.auth
@@ -89,4 +90,5 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, Findqw::class.java)
         startActivity(intent)
     }
+
 }

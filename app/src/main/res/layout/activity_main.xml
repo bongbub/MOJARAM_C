@@ -7,6 +7,7 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -25,7 +26,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/gray"
             android:orientation="vertical">
 
@@ -34,6 +35,12 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/linear_shape"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/vrhairEX"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textRecommendName"
@@ -66,6 +73,7 @@
                     android:textColor="@color/black"
                     android:textSize="27sp"
                     android:textStyle="bold" />
+                </LinearLayout>
 
                 <GridLayout
                     android:id="@+id/grid"
@@ -77,31 +85,6 @@
                     android:rowCount="2"
                     android:useDefaultMargins="false">
 
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1"
-                        android:layout_marginBottom="13dp">
-
-                        <ImageView
-                            android:id="@+id/image1"
-                            android:layout_width="25dp"
-                            android:layout_height="35dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="6dp"
-                            android:background="@drawable/hairshop"
-                            android:scaleType="centerInside" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/image1"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/hairshop"
-                            android:textColor="@color/black"
-                            android:textSize="12sp" />
-                    </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="0dp"
@@ -109,221 +92,13 @@
                         android:layout_columnWeight="1">
 
                         <ImageView
-                            android:id="@+id/image2"
-                            android:layout_width="25dp"
-                            android:layout_height="35dp"
+                            android:id="@+id/mainBanner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
                             android:layout_alignParentTop="true"
                             android:layout_centerHorizontal="true"
                             android:layout_marginBottom="6dp"
-                            android:background="@drawable/nailshop"
-                            android:scaleType="centerInside" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/image2"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/nailshop"
-                            android:textColor="@color/black"
-                            android:textSize="12sp" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1">
-
-                        <ImageView
-                            android:id="@+id/image3"
-                            android:layout_width="37dp"
-                            android:layout_height="35dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="6dp"
-                            android:background="@drawable/oneshop"
-                            android:scaleType="centerInside" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/image3"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/oneshop"
-                            android:textColor="@color/black"
-                            android:textSize="12sp" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1">
-
-                        <ImageView
-                            android:id="@+id/image4"
-                            android:layout_width="30dp"
-                            android:layout_height="35dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="6dp"
-                            android:background="@drawable/barbershop"
-                            android:scaleType="centerInside" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/image4"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/barbershop"
-                            android:textColor="@color/black"
-                            android:textSize="12sp" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1">
-
-                        <ImageView
-                            android:id="@+id/image5"
-                            android:layout_width="50dp"
-                            android:layout_height="35dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginBottom="6dp"
-                            android:background="@drawable/art"
-                            android:scaleType="centerInside" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/image5"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/art"
-                            android:textColor="@color/black"
-                            android:textSize="12sp" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1">
-
-                        <ImageView
-                            android:id="@+id/image6"
-                            android:layout_width="55dp"
-                            android:layout_height="35dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="6dp"
-                            android:background="@drawable/welcome" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/image6"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/welcomecoupon"
-                            android:textColor="@color/black"
-                            android:textSize="13dp" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1">
-
-                        <ImageView
-                            android:id="@+id/image7"
-                            android:layout_width="50dp"
-                            android:layout_height="35dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginLeft="7dp"
-                            android:layout_marginBottom="6dp"
-                            android:background="@drawable/sale" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/image7"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/sale"
-                            android:textColor="@color/black"
-                            android:textSize="13sp" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1">
-
-                        <ImageView
-                            android:id="@+id/image8"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="6dp"
-                            android:background="@drawable/thismonth" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/image8"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/thismonth"
-                            android:textColor="@color/black"
-                            android:textSize="13sp" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1">
-
-                        <ImageView
-                            android:id="@+id/image9"
-                            android:layout_width="50dp"
-                            android:layout_height="35dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginLeft="6dp"
-                            android:layout_marginBottom="6dp"
-                            android:background="@drawable/add" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/image9"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/add"
-                            android:textColor="@color/black"
-                            android:textSize="13sp" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_columnWeight="1">
-
-                        <ImageView
-                            android:id="@+id/image10"
-                            android:layout_width="30dp"
-                            android:layout_height="35dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="6dp"
-                            android:background="@drawable/tip" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/image10"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/tip"
-                            android:textColor="@color/black"
-                            android:textSize="13sp" />
+                            android:background="@drawable/mainbanner" />
                     </RelativeLayout>
                 </GridLayout>
 
@@ -377,15 +152,30 @@
         </LinearLayout>
     </ScrollView>
 
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"/>
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/my_nav" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomnavi"
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:layout_alignParentBottom="true"
         app:itemTextColor="@color/black"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/navigation_items">
-
+        app:menu="@menu/navigation_items"
+        tools:ignore="ExtraText">
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 </RelativeLayout>
