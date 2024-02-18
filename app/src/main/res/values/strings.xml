@@ -36,6 +36,8 @@
     <string name="location_recommend">안양동 추천</string>
     <string name="style_recommend">스타일 추천</string>
     <string name="title_activity_vr_page">vrPage</string>
+    <string name="likeshop">찜한 매장</string>
+    <string name="likehair">찜한 스타일</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
