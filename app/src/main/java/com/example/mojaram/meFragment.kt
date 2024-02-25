@@ -7,13 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class MeFragment : Fragment() {
+class meFragment : Fragment() {
 
     companion object{
         const val TAG: String = "마이페이지 로그"
 
-        fun newInstance() : MeFragment {
-            return MeFragment()
+        fun newInstance() : meFragment {
+            return meFragment()
         }
     }
 

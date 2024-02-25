@@ -73,6 +73,10 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
     implementation("com.naver.maps:map-sdk:3.16.2")
     implementation("com.google.android.material:material:1.4.0")
+    implementation("com.google.android.gms:play-services-location:21.1.0")
+    implementation("androidx.core:core-ktx:1.7.0")
+    implementation("androidx.fragment:fragment-ktx:1.4.1") //데이터 바인딩 피그먼트에서 사용하기
+    implementation("androidx.databinding:databinding-runtime:4.2.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

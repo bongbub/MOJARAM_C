@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_like" />
     <fragment
         android:id="@+id/meFragment"
-        android:name="com.example.mojaram.MeFragment"
+        android:name="com.example.mojaram.meFragment"
         android:label="fragment_me"
         tools:layout="@layout/fragment_me" />
 </navigation>

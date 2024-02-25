@@ -1,20 +1,12 @@
 package com.example.mojaram
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
-import android.widget.GridLayout
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.mojaram.ui.login.vrPage
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -27,7 +19,7 @@ class LoginActivity : AppCompatActivity(){
     private lateinit var homeFragment: homeFragment
     private lateinit var likeFragment: likeFragment
     private lateinit var mapFragment: mapFragment
-    private lateinit var meFragment: MeFragment
+    private lateinit var meFragment: meFragment
     private lateinit var hairFragment: hairFragment
 
 

@@ -18,7 +18,7 @@ class mapFragment : Fragment() {
             return mapFragment()
         }
     }
-    
+
     //메모리에 올라갔을 때
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -37,8 +37,12 @@ class mapFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         Log.d(TAG, "맵화면 oncreateview 실행")
-        val view = inflater.inflate(R.layout.fragment_map,container,false)
+        val view = inflater.inflate(R.layout.activity_map,container,false)
         return view
+
+    }
+
+    fun getMapAsync(mapActivity: MapActivity) {
 
     }
 
