@@ -68,6 +68,14 @@
                 android:textColor="@color/black"
                 android:textSize="10sp"/>
 
+            <TextView
+                android:id="@+id/shop_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/slategray"
+                android:textSize="10sp"
+                android:text= "운영시간 : 10:00~17:00"/>
+
 
         </LinearLayout>
         
@@ -87,6 +95,8 @@
                 android:textColor="@color/white"
                 android:textSize="11sp"/>
 
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -94,13 +104,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/shop_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/slategray"
-                android:textSize="10sp"
-                android:text= "운영시간 : 10:00~17:00"/>
 
         </LinearLayout>
 
