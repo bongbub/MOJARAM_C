@@ -84,11 +84,11 @@
                         <ImageView
                             android:id="@+id/mainBanner"
                             android:layout_width="wrap_content"
-                            android:layout_height="100dp"
+                            android:layout_height="wrap_content"
                             android:layout_alignParentTop="true"
                             android:layout_centerHorizontal="true"
                             android:layout_marginBottom="6dp"
-                            android:background="@drawable/mainbanner" />
+                            android:background="@drawable/m_m_bannerer" />
                     </RelativeLayout>
                 </GridLayout>
 
@@ -131,9 +131,12 @@
             </com.google.android.material.tabs.TabLayout>
 
             <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewpager"
+                android:id="@+id/viewpager2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <View
                 android:layout_width="match_parent"
