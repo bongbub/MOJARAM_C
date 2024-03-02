@@ -1,6 +1,9 @@
 package com.example.mojaram
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.media.session.MediaSessionManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -13,6 +16,8 @@ import com.example.mojaram.ui.login.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.FirebaseUser
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +28,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var id: EditText
     private lateinit var pwd: EditText
+
+    // 자동로그인 및 로그아웃 기능을 위한 Session Manager 객체 생성
+    private lateinit var sessionManager: MediaSessionManager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Mojaram)
@@ -37,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         // Firebase Auth 인증 객체 초기화
         mAhth = Firebase.auth
+
 
 
         btnM.setOnClickListener {
@@ -89,6 +99,17 @@ class MainActivity : AppCompatActivity() {
     fun onFindPwdClick(view: View?) {
         val intent = Intent(this, Findqw::class.java)
         startActivity(intent)
+    }
+
+
+    // 자동로그인 기능을 위해 추가 (그냥 로그인 하면 무조건 되기 때문에 체크박스가 체킹됐을 때만 로그인되게 바꿔ㅜ야함)
+    override fun onStart() {
+        super.onStart()
+        if (mAhth.currentUser != null) {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 }
