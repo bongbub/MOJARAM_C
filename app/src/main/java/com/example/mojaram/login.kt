@@ -2,6 +2,8 @@ package com.example.mojaram
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.content.Intent
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -48,6 +50,7 @@ class LoginActivity : AppCompatActivity(){
         val btn_nav: BottomNavigationView=findViewById(R.id.bottom_navigation)
 
         btn_nav.setupWithNavController(navController)
+
 
     }
 

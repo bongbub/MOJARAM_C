@@ -26,5 +26,7 @@ class hairFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_hair, container, false)
         return view
+
+
     }
 }

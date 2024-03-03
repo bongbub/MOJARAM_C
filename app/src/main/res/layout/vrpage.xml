@@ -7,20 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.login.vrPage">
 
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            />
-
-
-    </LinearLayout>
-
+        android:text="가상체험 페이지"
+        android:textSize="50sp"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="308dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

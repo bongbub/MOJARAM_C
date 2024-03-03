@@ -8,9 +8,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
+import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.KeyEventDispatcher.Component
 import com.example.mojaram.ui.login.SignUpActivity
 // FirebaseAuth 사용하기 위해 import
 import com.google.firebase.auth.FirebaseAuth
@@ -29,24 +32,55 @@ class MainActivity : AppCompatActivity() {
     private lateinit var id: EditText
     private lateinit var pwd: EditText
 
-    // 자동로그인 및 로그아웃 기능을 위한 Session Manager 객체 생성
-    private lateinit var sessionManager: MediaSessionManager
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Mojaram)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        // Firebase Auth 인증 객체 초기화
+        mAhth = Firebase.auth
+
         id = findViewById(R.id.id)
         pwd = findViewById(R.id.editTextTextPassword)
         val btnM: Button = findViewById(R.id.btn_my1)
         val btnS: Button = findViewById(R.id.btn_s)
+        // activity_login.xml 파일에 있는 checkbox
+        val check_Box: CheckBox = findViewById(R.id.checkBox)
 
 
-        // Firebase Auth 인증 객체 초기화
-        mAhth = Firebase.auth
 
+        // SharedPreferences를 사용해서 로그인 상태 저장하기
+        val sharedPreferences = getSharedPreferences("loginPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        // 자동 로그인 상태 가져오기
+        val autoLogin = sharedPreferences.getBoolean("autoLogin", false)
+        check_Box.isChecked = autoLogin
+
+        val listener = CompoundButton.OnCheckedChangeListener{buttonView, isChecked ->
+            if(isChecked){
+                // 체크 되었을 때
+                editor.putBoolean("autoLogin", true)
+                editor.apply()
+            }
+            else{
+                // 체크 해제 되었을 때
+                editor.putBoolean("autoLogin", false)
+                editor.apply()
+            }
+        }
+
+        // checkbox에 리스너 등록하기
+        check_Box.setOnCheckedChangeListener(listener)
+
+        // 자동로그인 여부 확인하기
+        if(autoLogin && mAhth.currentUser != null){
+            // 자동로그인 상태이면서, 로그인이 되는 경우 메인화면 이동
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
 
         btnM.setOnClickListener {
@@ -54,9 +88,6 @@ class MainActivity : AppCompatActivity() {
             // text로 변환
             var emailID = id.text.toString()
             var passwd = pwd.text.toString()
-
-            //val intent = Intent(this, com.example.mojaram.LoginActivity::class.java)
-            //startActivity(intent)
 
             // firebase Register
             login(emailID, passwd)
@@ -102,14 +133,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    // 자동로그인 기능을 위해 추가 (그냥 로그인 하면 무조건 되기 때문에 체크박스가 체킹됐을 때만 로그인되게 바꿔ㅜ야함)
-    override fun onStart() {
-        super.onStart()
-        if (mAhth.currentUser != null) {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }
+
 
 }
