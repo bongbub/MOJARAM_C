@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import com.example.mojaram.databinding.FragmentMyReviewsBinding
 
 class meFragment : Fragment() {
 
@@ -28,6 +30,12 @@ class meFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_me, container, false)
         return view
+
+        val myreviewPage : Button = view.findViewById(R.id.btn_my1)
+
+        myreviewPage.setOnClickListener{
+            val intent = Intent(requireContext(), FragmentMyReviewsBinding)
+        }
     }
 }
 

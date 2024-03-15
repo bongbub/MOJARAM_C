@@ -35,7 +35,7 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:layout_editor_absoluteX="10dp">
+        tools:layout_editor_absoluteX="0dp">
 
         <EditText
             android:id="@+id/editTextUsername"
@@ -55,7 +55,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="30dp"
-            android:hint="아이디를 입력하세요"
+            android:hint="이메일을 입력하세요"
             android:padding="10dp" />
 
         <EditText
@@ -86,121 +86,51 @@
             android:textStyle="bold"
             app:backgroundTint="#565656" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <!-- 네이버 로그인 버튼 -->
-            <Button
-                android:id="@+id/Naverbtn"
-                android:layout_width="250dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/button_background"
-                android:gravity="center"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text="네이버 로그인"
-                android:textColor="#FFFFFF"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                app:backgroundTint="#34AD37"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <!-- 네이버 로고 -->
-            <ImageView
-                android:id="@+id/NaverLogo"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/naver_logo"
-                app:layout_constraintBottom_toBottomOf="@+id/Naverbtn"
-                app:layout_constraintStart_toStartOf="@+id/Naverbtn"
-                app:layout_constraintTop_toTopOf="@+id/Naverbtn" />
-
-            <!-- 구글 로그인 버튼 -->
-
-            <!-- 구글 로고 -->
-            <Button
-                android:id="@+id/Googlebtn"
-                style="@style/Widget.Material3.Button"
-                android:layout_width="250dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/button_background"
-                android:gravity="center"
-                android:insetTop="0dp"
-                android:text="구글 로그인"
-                android:textColor="#FFFFFF"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                app:backgroundTint="#DADADA"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/Naverbtn"
-                app:layout_constraintTop_toBottomOf="@+id/Naverbtn" />
+        <LinearLayout
+            android:id="@+id/login_social_login_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_phone_number_login_layout">
 
             <ImageView
-                android:id="@+id/GoogleLogo"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/google_logo"
-                app:layout_constraintBottom_toBottomOf="@+id/Googlebtn"
-                app:layout_constraintStart_toStartOf="@+id/Googlebtn"
-                app:layout_constraintTop_toTopOf="@+id/Googlebtn" />
-
-            <!-- 카카오톡 로그인 버튼 -->
-
-            <!-- 카카오톡 로고 -->
-            <Button
-                android:id="@+id/Kakaobtn"
-                android:layout_width="250dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/button_background"
-                android:gravity="center"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text="카카오톡 로그인"
-                android:textColor="#FFFFFF"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                app:backgroundTint="#FEE712"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/Naverbtn"
-                app:layout_constraintTop_toBottomOf="@+id/Googlebtn" />
+                android:id="@+id/login_naver_login_iv"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/naver_44" />
 
             <ImageView
-                android:id="@+id/KakaoLogo"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/kakao_logo"
-                app:layout_constraintBottom_toBottomOf="@+id/Kakaobtn"
-                app:layout_constraintStart_toStartOf="@+id/Kakaobtn"
-                app:layout_constraintTop_toTopOf="@+id/Kakaobtn" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:id="@+id/login_kakako_login_iv"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/kakako_44" />
 
-
+            <ImageView
+                android:id="@+id/login_apple_login_iv"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/apple_44" />
+        </LinearLayout>
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="140dp"
-        android:layout_height="116dp"
+        android:layout_width="70dp"
+        android:layout_height="62dp"
         android:layout_marginStart="135dp"
-        android:layout_marginTop="26dp"
         android:layout_marginEnd="136dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="144dp"
         android:src="@drawable/logo_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextContainer"
-        app:layout_constraintVertical_bias="0.108" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextContainer" />
 </androidx.constraintlayout.widget.ConstraintLayout>

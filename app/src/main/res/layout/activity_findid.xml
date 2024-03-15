@@ -4,18 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Findid">
+    tools:context=".MainActivity">
 
 
     <TextView
-        android:id="@+id/findid"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="아이디 찾기 화면입니다"
-        android:textSize="35dp"
+        android:text="MOJARAM"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="55dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.205" />
+
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="140dp"
+        android:background="@drawable/edittext_box"
+        android:ems="10"
+        android:hint="이메일"
+        android:inputType="textPassword"
+        android:padding="8dp"
+        android:paddingStart="50dp"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/btn_idfind"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/btn_idfind"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="105dp"
+        android:background="@drawable/button_background"
+        android:gravity="center"
+        android:insetTop="0dp"
+        android:text="아이디 찾기"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:backgroundTint="#565656"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="218dp"
+        android:layout_marginBottom="24dp"
+        android:text="이메일을 입력해주세요"
+        android:textColor="#FF0000"
+        app:layout_constraintBottom_toTopOf="@+id/btn_idfind"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+    <TextView
+        android:id="@+id/Findpw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="272dp"
+        android:clickable="true"
+        android:text="비밀번호 찾기"
+        android:onClick="onFindPwdClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="272dp"
+        android:text="|"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Findpw"
+        app:layout_constraintStart_toEndOf="@+id/btn_s" />
+
+    <TextView
+        android:id="@+id/btn_s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="123dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="272dp"
+        android:clickable="true"
+        android:onClick="onFindIdClick"
+        android:text="회원가입"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
