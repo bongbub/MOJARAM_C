@@ -1,17 +1,13 @@
-<!-- res/layout/fragment_reservation_history.xml -->
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReservationHistoryFragment">
+    tools:context=".ReservationHistory">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <!-- Add your UI components for the "예약 내역 확인" page here -->
 
         <TextView
             android:id="@+id/reservationHistoryTitle"
@@ -25,8 +21,6 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"/>
-
-        <!-- Add more UI components as needed -->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

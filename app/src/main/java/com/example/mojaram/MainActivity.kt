@@ -82,6 +82,8 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
+        // FragmentManager등록?
+
 
         btnM.setOnClickListener {
 
