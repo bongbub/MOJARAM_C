@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mojaram.R
@@ -34,6 +35,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var editTextid: EditText
     private lateinit var editTextPassword: EditText
     private lateinit var btnSignUp: Button
+    private lateinit var dpSpinner:EditText
 
     // Firebase Realtime Database 연동을 위한 객체
     private lateinit var mDbRef: DatabaseReference
@@ -54,25 +56,27 @@ class SignUpActivity : AppCompatActivity() {
         editTextid = findViewById(R.id.editTextid)
         editTextPassword = findViewById(R.id.editTextPassword)
         btnSignUp = findViewById(R.id.btnSignUp)
+        dpSpinner = findViewById(R.id.dpSpinner)
 
         btnSignUp.setOnClickListener {
             // 회원가입 버튼을 클릭했을 때의 동작을 구현하세요.
-            val username = editTextUsername.text.toString()
+            val nickname = editTextUsername.text.toString()
             val userid = editTextid.text.toString()
             val password = editTextPassword.text.toString()
+            val birth = dpSpinner.text.toString()
 
             // 여기에 실제 회원가입 로직을 추가하세요.
             // 예를 들어, 서버에 데이터를 전송하거나 로컬 DB에 저장하는 코드를 작성할 수 있습니다.
             // 실제 로직은 서버 통신이나 데이터베이스 저장 등으로 구현해야 합니다.
 
             // 회원가입 정보 Firebase RealtimeDatabase 연동
-            Register(userid, password)
+            Register(userid, password, nickname, birth)
         }
     }
 
 
     //firebase Register 연동
-    private fun Register(userid:String, password: String) {
+    private fun Register(userid:String, password: String, nickname: String, birth: String) {
 
         mAuth.createUserWithEmailAndPassword(userid, password)
             .addOnCompleteListener(this) { task ->
@@ -90,7 +94,7 @@ class SignUpActivity : AppCompatActivity() {
 
                     // User Class에 데이터를 담아서
                     // Realtime Database로 전송
-                    addUserToDB(userid, password, mAuth.currentUser?.uid!!)
+                    addUserToDB(userid, password, nickname, birth, mAuth.currentUser?.uid!!)
                 } else {
                     Toast.makeText(
                         this,
@@ -102,8 +106,9 @@ class SignUpActivity : AppCompatActivity() {
             }
     }
 
-    private fun addUserToDB(userid: String, password: String, uId: String){
-        mDbRef.child("user").child(uId).setValue(User(userid, password, uId))
+    private fun addUserToDB(userid: String, password: String, uId: String, nickname: String, birth: String){
+        mDbRef.child("user").child(uId).setValue(User(userid, password, nickname,birth))
+        // uId(유저 고유 토큰) 하위로 child를 만들어서 각 정보들을 저장한다.
     }
 
     /*
