@@ -75,12 +75,6 @@
             android:layout_marginLeft="10dp"
             android:hint="예약자"/>
 
-        <DatePicker
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            />
-
 
         <EditText
             android:id="@+id/startDate"
