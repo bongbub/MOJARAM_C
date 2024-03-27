@@ -50,6 +50,13 @@ class homeFragment : Fragment() {
             requireActivity().finish()
         }
 
+        val testbtnbtn : Button = rootView.findViewById(R.id.testbtnbtn)
+        testbtnbtn.setOnClickListener{
+            val intent = Intent(requireContext(), Reservation::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
+
 
         viewPager2.apply {
             adapter = MyPageradapter(context as FragmentActivity)
