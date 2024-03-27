@@ -69,6 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <EditText
+            android:id="@+id/reserName"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
@@ -82,7 +83,15 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:hint="예약일시(및 시간 캘린더랑 time그거 써서하기)"/>
+            android:hint="예약일"/>
+
+        <EditText
+            android:id="@+id/starttime"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:hint="예약 시간"/>
+
 
 
     </LinearLayout>
