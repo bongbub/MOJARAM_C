@@ -74,13 +74,18 @@
                         android:layout_marginBottom="0dp"
                         android:background="@drawable/button_background"
                         android:gravity="center"
-                        android:text="임시 로그아웃버튼"/>
+                        android:text="임시 로그아웃버튼"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:id="@+id/testbtnbtn"
-                        android:text="임시 예약버튼"/>
+                        android:text="임시 예약버튼"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
