@@ -44,7 +44,7 @@ class meFragment : Fragment() {
         Log.d(TAG, "MeFregment - onViewCreated() called")
 
         val navController = findNavController(view)
-
+        /*
         // 리뷰 내역
         binding.btnMy1.setOnClickListener {
             navController.navigate(R.id.action_me_to_myreviews)
@@ -73,7 +73,9 @@ class meFragment : Fragment() {
             val intent = Intent(requireContext(), settingsPage::class.java)
             startActivity(intent)
 
-        }
+        }*/
     }
+
+
 
 }
