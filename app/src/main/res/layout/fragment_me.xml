@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/fragment_container"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="com.example.mojaram.meFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fgcontainer_me_to_myRiviews"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                app:navGraph="@navigation/me_to_myreviews_nav"
+                app:defaultNavHost="true"/>
+
+        <com.google.android.material.navigation.NavigationView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:ignore="com.example.mojaram.MeFragment">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            android:layout_gravity="start|top"/>
 
                 <TextView
                     android:id="@+id/textView3"
@@ -109,6 +121,8 @@
                     style="@style/Widget.Material3.Button"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
                     android:layout_marginStart="60dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="105dp"
@@ -148,6 +162,8 @@
                     style="@style/Widget.Material3.Button"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
                     android:layout_marginStart="60dp"
                     android:layout_marginTop="9dp"
                     android:layout_marginEnd="105dp"
@@ -187,6 +203,8 @@
                     style="@style/Widget.Material3.Button"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
                     android:layout_marginStart="60dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginEnd="105dp"
@@ -226,6 +244,8 @@
                     style="@style/Widget.Material3.Button"
                     android:layout_width="200dp"
                     android:layout_height="40dp"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
                     android:layout_marginStart="60dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="105dp"
@@ -336,5 +356,4 @@
                     app:layout_constraintTop_toTopOf="@+id/btn_my5" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </FrameLayout>
+</FrameLayout>
