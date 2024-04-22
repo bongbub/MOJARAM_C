@@ -42,6 +42,7 @@ class homeFragment : Fragment() {
 
         // 임시 로그아웃 버튼 가져오기
         val logoutBtn: Button = rootView.findViewById(R.id.testLogoutBtn)
+
         // 로구아웃 구현해보기
         logoutBtn.setOnClickListener{
             mAuth.signOut()  //Firebase 로그아웃
@@ -49,6 +50,7 @@ class homeFragment : Fragment() {
             startActivity(intent)
             requireActivity().finish()
         }
+
 
         val testbtnbtn : Button = rootView.findViewById(R.id.testbtnbtn)
         testbtnbtn.setOnClickListener{
