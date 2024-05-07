@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
@@ -45,8 +46,9 @@
             android:name=".Findid"
             android:exported="false" />
         <activity
-            android:name=".GoogleMapExample"
-            android:exported="false" />
+            android:name=".MapActivity"
+            android:exported="false"
+            android:label="@string/title_activity_map"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -56,9 +58,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MapActivity"
-            android:exported="false"></activity>
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"

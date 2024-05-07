@@ -13,13 +13,13 @@ import androidx.databinding.DataBindingUtil
 import com.example.mojaram.databinding.ActivityMapBinding
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.LocationTrackingMode
+import com.naver.maps.map.MapFragment
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.FusedLocationSource
 import java.util.Locale
 
-// OnMapReadyCallback을 상속 받는다.
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private val LOCATION_PERMISSION_REQUEST_CODE = 5000
 
@@ -34,10 +34,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private val TAG = MapActivity::class.simpleName
     private val marker = Marker()
 
-    // onCreate에서 권한을 확인하며 위치 권한이 없을 경우 사용자에게 권한 요청
+    // onCreate에서 권한을 확인하며 위치 권한이 없을 경우 사용자에게 권한을 요청한다.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_map)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_map)
 
         if (!hasPermission()) {
@@ -45,23 +44,18 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         } else {
             initMapView()
         }
-        val fragmentManager = supportFragmentManager
-        val transaction = fragmentManager.beginTransaction()
-        val fragment = mapFragment.newInstance()
-        transaction.replace(R.id.map_fragment, fragment)
-        transaction.commit()
     }
 
     private fun initMapView() {
         val fm = supportFragmentManager
-        val mapFragment = fm.findFragmentById(R.id.map_fragment) as mapFragment?
-            ?: mapFragment.newInstance().also {
+        val mapFragment = fm.findFragmentById(R.id.map_fragment) as MapFragment?
+            ?: MapFragment.newInstance().also {
                 fm.beginTransaction().add(R.id.map_fragment, it).commit()
             }
 
         // fragment의 getMapAsync() 메서드로 OnMapReadyCallback 콜백을 등록하면 비동기로 NaverMap 객체를 얻을 수 있다.
-        mapFragment.getMapAsync(this@MapActivity)
-        locationSource = FusedLocationSource(this@MapActivity, LOCATION_PERMISSION_REQUEST_CODE)
+        mapFragment.getMapAsync(this)
+        locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
     }
 
     // hasPermission()에서는 위치 권한이 있을 경우 true를, 없을 경우 false를 반환한다.
@@ -78,12 +72,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(naverMap: NaverMap) {
         this.naverMap = naverMap
-        // 현재 위치
-        naverMap.locationSource = locationSource
-        // 현재 위치 버튼 기능
-        naverMap.uiSettings.isLocationButtonEnabled = true
-        // 위치를 추적하면서 카메라도 따라 움직인다.
-        naverMap.locationTrackingMode = LocationTrackingMode.Follow
+        naverMap.locationSource = locationSource //현재 위치
+        naverMap.uiSettings.isLocationButtonEnabled = true //현재 위치 버튼 기능
+        naverMap.locationTrackingMode = LocationTrackingMode.Follow // 위치 추적하면서 카메라도 움직임
 
         naverMap.setOnMapClickListener { point, coord ->
             marker(coord.latitude, coord.longitude)
