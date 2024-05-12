@@ -58,7 +58,7 @@ class Reservation : AppCompatActivity() {
             val res_time = resertime.text.toString()
 
             // 실제 데이터베이스에 저장
-            Reservefun(reser_day, username, res_time)
+            Reservefun(username, reser_day, res_time)
         }
 
 
@@ -86,10 +86,11 @@ class Reservation : AppCompatActivity() {
         }
     }
 
-    private fun Reservefun (username :String, day:String, res_time:String){
+    private fun Reservefun (username :String, reser_day:String, res_time:String){
+
         val reserveData = hashMapOf(
             "username" to username,
-            "day" to day,
+            "day" to reser_day,
             "res_time" to res_time
         )
         mDbRef.child("Reserve").child(username).setValue(reserveData)
