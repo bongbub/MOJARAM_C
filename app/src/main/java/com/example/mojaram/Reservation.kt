@@ -11,16 +11,26 @@ import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContentProviderCompat.requireContext
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import java.util.Calendar
 
 class Reservation : AppCompatActivity() {
+
+    // Firebase Realtime Database 연동을 위한 객체
+    private lateinit var mDbRef: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reservation)
 
+        // Firebase RealtimeDatabase 초기화
+        mDbRef = Firebase.database.reference
+
         val cal = Calendar.getInstance()
 
-        val startDate: EditText = findViewById(R.id.startDate)
+        val startDate: TextView = findViewById(R.id.startDate)
 
         val datePickerListener = DatePickerDialog.OnDateSetListener{view, year, month, dayOfMonth ->
             startDate.setText("${year}/${month}/${dayOfMonth}")
@@ -37,6 +47,21 @@ class Reservation : AppCompatActivity() {
         dialogBtn.setOnClickListener{
             showDialog(resertime)
         }
+
+        // 예약 버튼을 눌렀을 때 데이터베이스에 정보 저장
+        val reserbtn : Button = findViewById(R.id.reservebtn)
+        val customer_name : EditText = findViewById(R.id.reserName)
+        reserbtn.setOnClickListener{
+            // 이름, 날짜, 시간 정보 받아오기
+            val reser_day = startDate.text.toString()
+            val username = customer_name.text.toString()
+            val res_time = resertime.text.toString()
+
+            // 실제 데이터베이스에 저장
+            Reservefun(reser_day, username, res_time)
+        }
+
+
     }
     // 다이어로그 호출
     private fun showDialog(resertime:TextView) {
@@ -60,4 +85,16 @@ class Reservation : AppCompatActivity() {
             show()
         }
     }
+
+    private fun Reservefun (username :String, day:String, res_time:String){
+        val reserveData = hashMapOf(
+            "username" to username,
+            "day" to day,
+            "res_time" to res_time
+        )
+        mDbRef.child("Reserve").child(username).setValue(reserveData)
+    }
+
+
+
 }

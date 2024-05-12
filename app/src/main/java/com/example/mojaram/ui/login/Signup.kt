@@ -78,15 +78,10 @@ class SignUpActivity : AppCompatActivity() {
         dpSpinner = findViewById(R.id.dpSpinner)
 
 
-
-
-
-
-
         btnSignUp.setOnClickListener {
             // 회원가입 버튼을 클릭했을 때의 동작을 구현하세요.
             val nickname = editTextUsername.text.toString()
-            val userid = editTextid.text.toString()
+            val useremail = editTextid.text.toString()
             val password = editTextPassword.text.toString()
             //val birth = dpSpinner.text.toString()
 
@@ -95,15 +90,15 @@ class SignUpActivity : AppCompatActivity() {
             // 실제 로직은 서버 통신이나 데이터베이스 저장 등으로 구현해야 합니다.
 
             // 회원가입 정보 Firebase RealtimeDatabase 연동
-            Register(userid, password, nickname)
+            Register(useremail, password, nickname)
         }
     }
 
 
     //firebase Register 연동
-    private fun Register(userid:String, password: String, nickname: String) {
+    private fun Register(useremail:String, password: String, nickname: String) {
 
-        mAuth.createUserWithEmailAndPassword(userid, password)
+        mAuth.createUserWithEmailAndPassword(useremail, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(
@@ -119,11 +114,11 @@ class SignUpActivity : AppCompatActivity() {
 
                     // User Class에 데이터를 담아서
                     // Realtime Database로 전송
-                    addUserToDB(userid, password, nickname, mAuth.currentUser?.uid!!)
+                    addUserToDB(useremail, password, nickname, mAuth.currentUser?.uid!!)
                 } else {
                     Toast.makeText(
                         this,
-                        "회원가입에 실패하였습니다. 다시 시도해주세요.",
+                        "회원가입에 실패하였습니다. 다시 시도해주세요. 비밀번호는 6자 이상이어야 합니다.",
                         Toast.LENGTH_SHORT
                     ).show()
                     Log.d("Sign Up", "Error: ${task.exception}")
@@ -131,9 +126,9 @@ class SignUpActivity : AppCompatActivity() {
             }
     }
 
-    private fun addUserToDB(userid: String, password: String, uId: String, nickname: String){
-        mDbRef.child("user").child(uId).setValue(User(userid, password, nickname,uId))
-        // uId(유저 고유 토큰) 하위로 child를 만들어서 각 정보들을 저장한다.
+    private fun addUserToDB(useremail: String, password: String, uId: String, nickname: String){
+        mDbRef.child("user").child(useremail).setValue(User(useremail, nickname,password,uId))
+        //  이메일ㅎ 하위로 child를 만들어서 각 정보들을 저장한다.
     }
 
 
