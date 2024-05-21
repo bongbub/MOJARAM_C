@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_hair" />
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.mojaram.MapFragment"
+        android:name="com.example.mojaram.map.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
     <fragment
