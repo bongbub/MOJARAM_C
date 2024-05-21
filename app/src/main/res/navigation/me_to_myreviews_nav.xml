@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/meFragment"
-        android:name="com.example.mojaram.meFragment"
+        android:name="com.example.mojaram.MeFragment"
         android:label="meFragment"
         tools:layout="@layout/fragment_me" />
 

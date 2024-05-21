@@ -1,10 +1,7 @@
 package com.example.mojaram.ui.login
 
-import android.app.DatePickerDialog
 import android.content.Intent
-import android.media.MediaPlayer.OnCompletionListener
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
 import android.widget.DatePicker
@@ -13,23 +10,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mojaram.R
-import com.example.mojaram.MainActivity
-import com.example.mojaram.LoginActivity
+import com.example.mojaram.LogInActivity
 import com.example.mojaram.User
-import com.google.android.gms.common.internal.Objects.ToStringHelper
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
 // Firebase 연동을 위한 import
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
-import java.time.Year
 import java.util.Calendar
 
 
@@ -108,7 +96,7 @@ class SignUpActivity : AppCompatActivity() {
                     ).show()
                     val intent: Intent = Intent(
                         this@SignUpActivity,
-                        MainActivity::class.java
+                        LogInActivity::class.java
                     )
                     startActivity(intent)
 

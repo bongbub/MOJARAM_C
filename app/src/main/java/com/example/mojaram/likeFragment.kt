@@ -23,7 +23,7 @@ class likeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View?{
-        Log.d(meFragment.TAG, "likeFregment - OnCreateView() called")
+        Log.d(MeFragment.TAG, "likeFregment - OnCreateView() called")
 
         val view = inflater.inflate(R.layout.fragment_like, container, false)
         return view

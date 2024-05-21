@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.mojaram.homeFragment"
+        android:name="com.example.mojaram.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/hairFragment"
-        android:name="com.example.mojaram.hairFragment"
+        android:name="com.example.mojaram.HairFragment"
         android:label="fragment_hair"
         tools:layout="@layout/fragment_hair" />
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.mojaram.mapFragment"
+        android:name="com.example.mojaram.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
     <fragment
@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_like" />
     <fragment
         android:id="@+id/meFragment"
-        android:name="com.example.mojaram.meFragment"
+        android:name="com.example.mojaram.MeFragment"
         android:label="fragment_me"
         tools:layout="@layout/fragment_me" />
 </navigation>

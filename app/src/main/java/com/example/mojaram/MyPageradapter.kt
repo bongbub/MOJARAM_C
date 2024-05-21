@@ -13,7 +13,7 @@ class MyPageradapter(fa: FragmentActivity):FragmentStateAdapter(fa) {
         return when (position){
             0 -> view01()
             1 -> view02()
-            else -> homeFragment()
+            else -> HomeFragment()
         }
     }
 }
