@@ -3,6 +3,7 @@ package com.example.mojaram
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.mojaram.home.HomeFragment
 
 class MyPageradapter(fa: FragmentActivity):FragmentStateAdapter(fa) {
     private val NUM_PAGES = 2

@@ -41,6 +41,12 @@
     <string name="likehair">찜한 스타일</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="salon_recommendation">추천 매장</string>
+    <string name="show_all_salons"><![CDATA[전체보기 >]]></string>
+    <string name="do_ai_camera">AI 가상 헤어 체험 하기</string>
+    <string name="take_picture">사진 촬영</string>
+    <string name="select_picture">사진 선택</string>
+    <string name="community">커뮤니티</string>
 
 
     <string-array name="selectreservetime">
