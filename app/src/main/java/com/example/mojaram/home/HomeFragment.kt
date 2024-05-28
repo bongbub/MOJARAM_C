@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.example.mojaram.databinding.FragmentHomeBinding
+import com.example.mojaram.salon.SalonDetailActivity
 import com.example.mojaram.utils.AutoClearedValue
 import com.example.mojaram.utils.FileUtils
 import com.example.mojaram.utils.UNDER_TIRAMISU_READ_EXTERNAL_STORAGE
@@ -53,7 +54,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun setHairSalonRecommendationList() {
-        binding.recyclerviewSalons.adapter = HairSalonListAdapter()
+        binding.recyclerviewSalons.adapter = HairSalonListAdapter(
+            onClickItem = {
+                startActivity(Intent(requireContext(), SalonDetailActivity::class.java))
+            }
+        )
 
         var dummyData = (0..10).map {
             HairSalonListEntity(

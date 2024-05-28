@@ -19,11 +19,15 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorRateMovie">#ffb300</color>
+    <color name="yellow_fa">#FAF0BA</color>
     <color name="colorVoteCount">#ff4081</color>
     <color name="green_a8e">#A8E8AE</color>
     <color name="red">#fd7683</color>
     <color name="alpha10_black">#1A000000</color>
+    <color name="alpha20_black">#33000000</color>
     <color name="background_color">#f8f8f8</color>
     <color name="black_gray3">#c4c4c4</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="alpha80_black">#CC000000</color>
 
 </resources>

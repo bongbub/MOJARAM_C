@@ -9,7 +9,9 @@ import coil.load
 import com.example.mojaram.databinding.ItemSalonRecommendationBinding
 import com.example.mojaram.utils.DiffCallback
 
-class HairSalonListAdapter: ListAdapter<HairSalonListEntity, HairSalonListAdapter.HairSalonViewHolder>(
+class HairSalonListAdapter(
+    private val onClickItem: () -> Unit
+): ListAdapter<HairSalonListEntity, HairSalonListAdapter.HairSalonViewHolder>(
     DiffCallback<HairSalonListEntity>()
 ) {
     class HairSalonViewHolder(val binding: ItemSalonRecommendationBinding): RecyclerView.ViewHolder(binding.root)
@@ -22,6 +24,9 @@ class HairSalonListAdapter: ListAdapter<HairSalonListEntity, HairSalonListAdapte
     override fun onBindViewHolder(holder: HairSalonViewHolder, position: Int) {
         val data = getItem(holder.absoluteAdapterPosition)
         holder.binding.run {
+            root.setOnClickListener {
+                onClickItem()
+            }
             textviewName.text = data.name
             textviewLikeCount.text = data.likeCount.toString()
             checkboxLike.isChecked = data.liked

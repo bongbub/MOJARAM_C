@@ -29,11 +29,5 @@ class Recomm_shop : Fragment() {
 
         val reserbtn : Button = rootview.findViewById(R.id.reservation_btn)
 
-        // 예약 버튼 누를 시 예약화면(Reservation.kt)전환
-        reserbtn.setOnClickListener{
-            val intent = Intent(requireContext(), Reservation::class.java)
-            startActivity(intent)
-            requireActivity().finish()
-        }
     }
 }
