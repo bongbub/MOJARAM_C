@@ -26,8 +26,8 @@
         android:label="fragment_like"
         tools:layout="@layout/fragment_like" />
     <fragment
-        android:id="@+id/meFragment"
-        android:name="com.example.mojaram.MeFragment"
-        android:label="fragment_me"
-        tools:layout="@layout/fragment_me" />
+        android:id="@+id/myPageFragment"
+        android:name="com.example.mojaram.mypage.MyPageFragment"
+        android:label="fragment_my_page"
+        tools:layout="@layout/fragment_my_page" />
 </navigation>
