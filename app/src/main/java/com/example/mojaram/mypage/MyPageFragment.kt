@@ -1,5 +1,6 @@
 package com.example.mojaram.mypage
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,5 +23,12 @@ class MyPageFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navToProfileSetting()
+    }
+
+    private fun navToProfileSetting() {
+        binding.cardviewMyInfo.setOnClickListener {
+            startActivity(Intent(requireContext(), ProfileSettingActivity::class.java))
+        }
     }
 }

@@ -94,4 +94,5 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation("io.coil-kt:coil:2.4.0")
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
 }

@@ -92,7 +92,6 @@
 
         </androidx.cardview.widget.CardView>
 
-
         <View
             android:id="@+id/view_border"
             android:layout_width="0dp"

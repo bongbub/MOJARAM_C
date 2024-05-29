@@ -70,6 +70,9 @@
         <activity android:name=".reservation.ReservationActivity"
             android:exported="false"/>
 
+        <activity android:name=".mypage.ProfileSettingActivity"
+            android:exported="false"/>
+
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="rqlm1i5tra" />
