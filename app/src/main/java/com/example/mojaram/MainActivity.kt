@@ -10,7 +10,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.mojaram.home.HomeFragment
 import com.example.mojaram.map.MapFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(){
     private lateinit var navController: NavController
 
