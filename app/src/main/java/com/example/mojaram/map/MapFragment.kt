@@ -1,6 +1,7 @@
 package com.example.mojaram.map
 
 import android.Manifest
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,10 +10,10 @@ import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.repeatOnLifecycle
+import coil.load
 import com.example.mojaram.R
 import com.example.mojaram.databinding.FragmentMapBinding
+import com.example.mojaram.salon.SalonDetailActivity
 import com.example.mojaram.utils.AutoClearedValue
 import com.example.mojaram.utils.collectWhenStarted
 import com.example.mojaram.utils.showToast
@@ -48,21 +49,13 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         it.root
     }
 
-    companion object {
-        private const val LOCATION_PERMISSION_REQUEST_CODE = 5000
-        private val LOCATION_PERMISSIONS = arrayOf(
-            Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.ACCESS_COARSE_LOCATION
-        )
-    }
-
     override fun onMapReady(map: NaverMap) {
         this.naverMap = map
         naverMap.locationSource = locationSource //현재 위치
         naverMap.uiSettings.isLocationButtonEnabled = true //현재 위치 버튼 기능
         naverMap.locationTrackingMode = LocationTrackingMode.Follow // 위치 추적하면서 카메라도 움직임
         naverMap.setOnMapClickListener { point, coord ->
-
+            viewModel.changeSelectedSalon(null)
         }
         viewModel.getShopData(naverMap)
     }
@@ -71,6 +64,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState)
 
         updateSalons()
+        navToSalonDetail()
     }
 
     private fun initMapView() {
@@ -91,9 +85,29 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                 binding.textviewOperationTime.text = salon.operationTime
                 binding.textviewSalonAddress.text = salon.address
                 binding.layoutSelectedSalon.visibility = View.VISIBLE
+                binding.imageviewSalon.load(salon.image)
             } else {
                 binding.layoutSelectedSalon.visibility = View.GONE
             }
         }
+    }
+
+    private fun navToSalonDetail() {
+        binding.layoutSelectedSalon.setOnClickListener {
+            Intent(requireContext(), SalonDetailActivity::class.java).let {
+                it.putExtra(SALON_DETAIL_KEY, viewModel.selectedSalon.value)
+                startActivity(it)
+            }
+        }
+    }
+
+
+    companion object {
+        const val SALON_DETAIL_KEY = "SALON_DETAIL_KEY"
+        private const val LOCATION_PERMISSION_REQUEST_CODE = 5000
+        private val LOCATION_PERMISSIONS = arrayOf(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+        )
     }
 }
