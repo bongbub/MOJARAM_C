@@ -101,6 +101,11 @@ class SignUpActivity : AppCompatActivity() {
             // 성별 판별
             val userGender = if(checkMale.isChecked) "남성" else "여성"
 
+            if (nickname.isEmpty() || useremail.isEmpty() || password.isEmpty() || userbirth.isEmpty()) {
+                Toast.makeText(this, "모든 필드를 입력해 주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
 
             // 회원가입 정보 Firebase RealtimeDatabase 연동
             Register(nickname, useremail, password, userType, userGender, userbirth)
@@ -132,7 +137,7 @@ class SignUpActivity : AppCompatActivity() {
 
                     // User Class에 데이터를 담아서
                     // Firestore로 전송
-                    addUserToFirestore(nickname, useremail, password, nickname, userType, userGender, userbirth, mAuth.currentUser?.uid!!)
+                    addUserToFirestore(nickname, useremail, password, userType, userGender, userbirth, mAuth.currentUser?.uid!!)
                 } else {
                     Toast.makeText(
                         this,
@@ -144,7 +149,7 @@ class SignUpActivity : AppCompatActivity() {
             }
     }
 
-    private fun addUserToFirestore(useremail: String, password: String, uId: String, nickname: String, userType: String, userGender: String, userbirth: String){
+    private fun addUserToFirestore(useremail: String, password: String, nickname: String, userType: String, userGender: String, userbirth: String, uId: String){
         val user = User(useremail, nickname, password, userType, userGender,userbirth, uId)
         db.collection("users").document(userType).collection(userGender).document(useremail).set(user)
             .addOnSuccessListener {

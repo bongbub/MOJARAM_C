@@ -7,8 +7,10 @@ data class User(
     // 닉네임(이름) 받고, 생년월일 받기
     var userType: String? = null,
     var userGender: String? = null,
-    var userbirth : String? = null
+    var userbirth : String? = null,
+    var uId : String? = null
+
 
 ){
-    constructor():this("","","","","","")
+    constructor():this("","","","","","","")
 }
