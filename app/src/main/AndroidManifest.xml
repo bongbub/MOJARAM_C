@@ -21,6 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mojaram"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name=".admin.AdminMain"
             android:exported="false" />
@@ -68,6 +69,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".salon.SalonDetailActivity"
             android:exported="false" />
@@ -76,6 +78,9 @@
             android:exported="false" />
         <activity
             android:name=".mypage.ProfileSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LogInActivity"
             android:exported="false" />
 
         <meta-data
