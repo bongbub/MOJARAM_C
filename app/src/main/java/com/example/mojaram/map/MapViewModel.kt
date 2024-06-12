@@ -40,7 +40,7 @@ class MapViewModel @Inject constructor(
                     marker.map = naverMap
                     marker.icon = OverlayImage.fromResource(R.drawable.salon_marker)
                     marker.onClickListener = Overlay.OnClickListener {
-                        _selectedSalon.value = salon
+                        changeSelectedSalon(salon)
                         true
                     }
                     marker
@@ -49,5 +49,9 @@ class MapViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun changeSelectedSalon(salon: SalonModel?) {
+        _selectedSalon.value = salon
     }
 }

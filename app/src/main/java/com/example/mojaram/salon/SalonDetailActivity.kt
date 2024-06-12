@@ -4,8 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import coil.load
 import com.example.mojaram.R
 import com.example.mojaram.databinding.ActivitySalonDetailBinding
+import com.example.mojaram.map.MapFragment
+import com.example.mojaram.map.SalonModel
 import com.example.mojaram.reservation.ReservationActivity
 import kotlin.math.abs
 
@@ -17,6 +20,7 @@ class SalonDetailActivity: AppCompatActivity() {
         binding = ActivitySalonDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        loadSalonData()
         listenScrollState()
         clickReserve()
     }
@@ -51,6 +55,19 @@ class SalonDetailActivity: AppCompatActivity() {
     private fun clickReserve() {
         binding.textviewReservation.setOnClickListener {
             startActivity(Intent(this, ReservationActivity::class.java))
+        }
+    }
+
+    private fun loadSalonData() {
+        intent.getParcelableExtra(
+            MapFragment.SALON_DETAIL_KEY,
+            SalonModel::class.java
+        )?.let { salon ->
+            binding.textviewSalonName.text = salon.shopName
+            binding.textviewSalonNameCollapse.text = salon.shopName
+            binding.textviewWorkTimeValue.text = salon.operationTime
+            binding.textviewInfoValue.text = salon.address
+            binding.imageviewSalon.load(salon.image)
         }
     }
 }

@@ -22,6 +22,7 @@ class FirebaseDataSource @Inject constructor(
                     snapshots.map { snapshot ->
                         SalonModel(
                             shopId = snapshot.data?.get(SHOP_ID) as Long,
+                            image = snapshot.data?.get(SHOP_IMAGE) as String,
                             shopName = snapshot.data?.get(SHOP_NAME) as String,
                             shopKeyWord = (snapshot.data?.get(SHOP_KEYWORD) as String)
                                 .replace(" ", "")
@@ -42,6 +43,7 @@ class FirebaseDataSource @Inject constructor(
         private const val LATITUDE = "shop_lat"
         private const val LONGITUDE = "shop_long"
         private const val SHOP_NAME = "shop_name"
+        private const val SHOP_IMAGE = "shop_img"
         private const val SHOP_ADDRESS = "shop_addr"
         private const val SHOP_ID = "shop_id"
         private const val SHOP_KEYWORD = "shop_keyword"

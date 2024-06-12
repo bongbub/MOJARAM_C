@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
@@ -34,7 +34,7 @@
                         android:scaleType="centerCrop"
                         app:layout_constraintDimensionRatio="1.6:1"
                         tools:background="@drawable/salon_dummy_pic"
-                        android:background="@drawable/salon_dummy_pic"
+                        android:background="@color/white"
                         app:layout_collapseMode="parallax"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,6 @@
                         android:layout_height="0dp"
                         android:scaleType="centerCrop"
                         app:layout_constraintDimensionRatio="1.6:1"
-                        android:background="@drawable/gradient_black_alpha"
                         app:layout_collapseMode="parallax"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -126,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:text="살롱드라피네 양재역점"
                     android:textColor="@color/black"
-                    android:textSize="16dp"
+                    android:textSize="18dp"
                     android:fontFamily="@font/spoqa_han_sans_neo_medium"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -147,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:text="4.9"
                     android:textColor="@color/black"
-                    android:textSize="12dp"
+                    android:textSize="14dp"
                     android:fontFamily="@font/spoqa_han_sans_neo_medium"
                     app:layout_constraintTop_toTopOf="@id/imageview_star"
                     app:layout_constraintBottom_toBottomOf="@id/imageview_star"
@@ -160,7 +159,7 @@
                     android:layout_height="wrap_content"
                     android:text="/ 5.0"
                     android:textColor="@color/moredarkgray"
-                    android:textSize="12dp"
+                    android:textSize="14dp"
                     android:fontFamily="@font/spoqa_han_sans_neo_medium"
                     app:layout_constraintTop_toTopOf="@id/imageview_star"
                     app:layout_constraintBottom_toBottomOf="@id/imageview_star"
@@ -180,8 +179,8 @@
 
                 <ImageView
                     android:id="@+id/imageview_work_time"
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:background="@drawable/ic_schedule"
                     android:layout_marginTop="15dp"
                     app:layout_constraintTop_toBottomOf="@id/view_border"
@@ -193,8 +192,8 @@
                     android:layout_height="wrap_content"
                     android:text="영업시간"
                     android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:layout_marginStart="5dp"
+                    android:textSize="16dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/spoqa_han_sans_neo_regular"
                     app:layout_constraintTop_toTopOf="@id/imageview_work_time"
                     app:layout_constraintBottom_toBottomOf="@id/imageview_work_time"
@@ -206,7 +205,7 @@
                     android:layout_height="wrap_content"
                     android:text="11:00 ~ 21:30"
                     android:textColor="@color/doubledarkgray"
-                    android:textSize="12dp"
+                    android:textSize="14dp"
                     android:fontFamily="@font/spoqa_han_sans_neo_medium"
                     app:layout_constraintTop_toBottomOf="@id/textview_work_time"
                     app:layout_constraintStart_toStartOf="@id/imageview_work_time"
@@ -215,8 +214,8 @@
 
                 <ImageView
                     android:id="@+id/imageview_info"
-                    android:layout_width="14dp"
-                    android:layout_height="14dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:background="@drawable/ic_shop"
                     android:layout_marginTop="20dp"
                     app:layout_constraintTop_toBottomOf="@id/textview_work_time_value"
@@ -228,8 +227,8 @@
                     android:layout_height="wrap_content"
                     android:text="매장정보"
                     android:textColor="@color/black"
-                    android:textSize="12dp"
-                    android:layout_marginStart="5dp"
+                    android:textSize="16dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/spoqa_han_sans_neo_regular"
                     app:layout_constraintTop_toTopOf="@id/imageview_info"
                     app:layout_constraintBottom_toBottomOf="@id/imageview_info"
@@ -239,36 +238,86 @@
                     android:id="@+id/textview_info_value"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/spoqa_han_sans_neo_medium"
                     android:text="@string/dummy_salon_info"
                     android:textColor="@color/doubledarkgray"
-                    android:textSize="12dp"
-                    android:fontFamily="@font/spoqa_han_sans_neo_medium"
-                    app:layout_constraintTop_toBottomOf="@id/textview_info"
-                    app:layout_constraintStart_toStartOf="@id/imageview_info"
+                    android:textSize="14dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginTop="6dp" />
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/imageview_info"
+                    app:layout_constraintTop_toBottomOf="@id/textview_info" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layout_buttons"
                     android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:background="@color/alpha10_black"
+                    android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/textview_info_value"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="20dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="좋아요, 위치, 전화, 공유 등"
-                        android:fontFamily="@font/spoqa_han_sans_neo_medium"
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/gray"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <include
+                        android:id="@+id/button_like"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        layout="@layout/button_salon_detail"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/button_location"
+                        app:buttonIcon="@{@drawable/mojaram_heart}"
+                        app:buttonName="@{`96`}"/>
+
+                    <include
+                        android:id="@+id/button_location"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        layout="@layout/button_salon_detail"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/button_like"
+                        app:layout_constraintEnd_toStartOf="@id/button_phone"
+                        app:buttonIcon="@{@drawable/mojaram_marker}"
+                        app:buttonName="@{`위치`}"/>
+
+                    <include
+                        android:id="@+id/button_phone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        layout="@layout/button_salon_detail"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/button_location"
+                        app:layout_constraintEnd_toStartOf="@id/button_share"
+                        app:buttonIcon="@{@drawable/mojaram_phone}"
+                        app:buttonName="@{`전화`}"/>
+
+                    <include
+                        android:id="@+id/button_share"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        layout="@layout/button_salon_detail"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/button_phone"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:buttonIcon="@{@drawable/mojaram_share}"
+                        app:buttonName="@{`공유`}"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -278,7 +327,7 @@
                     android:layout_height="wrap_content"
                     android:text="리뷰"
                     android:textColor="@color/black"
-                    android:textSize="12dp"
+                    android:textSize="16dp"
                     android:fontFamily="@font/spoqa_han_sans_neo_regular"
                     app:layout_constraintTop_toBottomOf="@id/layout_buttons"
                     app:layout_constraintStart_toStartOf="@id/layout_buttons"
@@ -288,9 +337,9 @@
                     android:id="@+id/textview_review_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="120"
+                    android:text="0"
                     android:textColor="@color/doubledarkgray"
-                    android:textSize="12dp"
+                    android:textSize="16dp"
                     android:fontFamily="@font/spoqa_han_sans_neo_medium"
                     app:layout_constraintTop_toTopOf="@id/textview_review"
                     app:layout_constraintBottom_toBottomOf="@id/textview_review"
@@ -300,8 +349,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layout_reviews"
                     android:layout_width="0dp"
-                    android:layout_height="400dp"
-                    android:background="@color/alpha10_black"
+                    android:layout_height="150dp"
                     app:layout_constraintVertical_bias="0.0"
                     app:layout_constraintTop_toBottomOf="@id/textview_review"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -314,8 +362,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="리뷰 리스트"
-                        android:fontFamily="@font/spoqa_han_sans_neo_medium"
+                        android:text="작성된 리뷰가 없어요."
+                        android:textSize="16dp"
+                        android:fontFamily="@font/spoqa_han_sans_neo_regular"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
