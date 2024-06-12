@@ -101,15 +101,12 @@ class SignUpActivity : AppCompatActivity() {
             // 성별 판별
             val userGender = if(checkMale.isChecked) "남성" else "여성"
 
-            /*
+
             if (nickname.isEmpty() || useremail.isEmpty() || password.isEmpty() || userbirth.isEmpty()) {
                 Toast.makeText(this, "모든 필드를 입력해 주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             Log.d("SignUpActivity", "Email: $useremail")
-
-             */
-
 
             // 회원가입 정보 Firebase RealtimeDatabase 연동
             Register(nickname, useremail, password, userType, userGender, userbirth) //여기 순서 중요

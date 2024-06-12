@@ -44,6 +44,7 @@ class ProfileSettingActivity: AppCompatActivity() {
             // 로그아웃 버튼을 눌렀을 때 로그아웃
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, LogInActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //로그인 액비 시작 전에 현재 액비 클리어 하고 새로운 테스크
             Log.d("ProfilesettingActivity","Logout")
             startActivity(intent)
             finish()
