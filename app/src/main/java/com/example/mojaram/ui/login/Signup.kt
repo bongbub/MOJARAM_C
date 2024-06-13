@@ -97,9 +97,9 @@ class SignUpActivity : AppCompatActivity() {
             val password = editTextPassword.text.toString().trim()
             val userbirth = Userbirthday.text.toString().trim()
             // 등급 판별
-            val userType = if(radioAdmin.isChecked) "관리자" else "일반회원"  // 어드민 라디오를 체크하면 관리자 판별
+            val userType = if(radioAdmin.isChecked) "admin" else "customer"  // 어드민 라디오를 체크하면 관리자 판별
             // 성별 판별
-            val userGender = if(checkMale.isChecked) "남성" else "여성"
+            val userGender = if(checkMale.isChecked) "male" else "female"
 
 
             if (nickname.isEmpty() || useremail.isEmpty() || password.isEmpty() || userbirth.isEmpty()) {
@@ -149,7 +149,8 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun addUserToFirestore(nickname: String, useremail: String, password: String, userType: String, userGender: String, userbirth: String, uId: String){
         val user = User(useremail, nickname,  password, userType, userGender,userbirth, uId)
-        db.collection("users").document(userType).collection(userGender).document(useremail).set(user)
+        val collection = if(userType == "admin") "user_admin" else "user_customer"
+        db.collection(collection).document(useremail).set(user)
             .addOnSuccessListener {
                 Log.d("Firestore","파이어스토어 회원 정보 업로드 완료")
             }

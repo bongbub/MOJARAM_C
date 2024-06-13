@@ -11,11 +11,14 @@ import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mojaram.admin.AdminMain
 import com.example.mojaram.data.PreferenceManager
 import com.example.mojaram.ui.login.SignUpActivity
+import com.example.mojaram.utils.showToast
 // FirebaseAuth 사용하기 위해 import
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -28,6 +31,7 @@ class LogInActivity : AppCompatActivity() {
 
     // Firebase Auth 인증 서비스 객체 생성
     private lateinit var mAhth: FirebaseAuth
+    private val db = Firebase.firestore
 
     private lateinit var id: EditText
     private lateinit var pwd: EditText
@@ -49,7 +53,6 @@ class LogInActivity : AppCompatActivity() {
         val check_Box: CheckBox = findViewById(R.id.checkBox)
 
 
-
         // SharedPreferences를 사용해서 로그인 상태 저장하기
         val sharedPreferences = getSharedPreferences("loginPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
@@ -58,13 +61,12 @@ class LogInActivity : AppCompatActivity() {
         val autoLogin = sharedPreferences.getBoolean("autoLogin", false)
         check_Box.isChecked = autoLogin
 
-        val listener = CompoundButton.OnCheckedChangeListener{buttonView, isChecked ->
-            if(isChecked){
+        val listener = CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
                 // 체크 되었을 때
                 editor.putBoolean("autoLogin", true)
                 editor.apply()
-            }
-            else{
+            } else {
                 // 체크 해제 되었을 때
                 editor.putBoolean("autoLogin", false)
                 editor.apply()
@@ -75,7 +77,7 @@ class LogInActivity : AppCompatActivity() {
         check_Box.setOnCheckedChangeListener(listener)
 
         // 자동로그인 여부 확인하기
-        if(autoLogin && mAhth.currentUser != null){
+        if (autoLogin && mAhth.currentUser != null) {
             // 자동로그인 상태이면서, 로그인이 되는 경우 메인화면 이동
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -102,41 +104,61 @@ class LogInActivity : AppCompatActivity() {
     }
 
     // firebase login
-    fun login(emailID: String, pwd:String){
-
+    private fun login(emailID: String, pwd: String) {
         mAhth.signInWithEmailAndPassword(emailID, pwd)
-            .addOnCompleteListener(this) { task->
-                if(task.isSuccessful){
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
                     preferenceManager.saveUserId(task.result.user?.uid ?: "")
                     preferenceManager.saveUserName(task.result.user?.displayName ?: "")
-                    // 로그인이 성공했을 때
-                    val intent: Intent = Intent(this@LogInActivity,
-                        MainActivity::class.java) // LoginActivity(로그인화면)으로 이동
-                    startActivity(intent) // 실행
 
-                    Toast.makeText(this,"성공적으로 로그인 하였습니다.",
-                        Toast.LENGTH_SHORT).show()
-                    finish() // 성공 시 액티비티 파괴
-
-                }else{
-                    // 로그인에 실패했을 때
-                    Toast.makeText(this,"로그인에 실패하였습니다.",
-                        Toast.LENGTH_SHORT).show()
-                    Log.d("Login Error", "Error: {${task.exception}")
+                    val user = mAhth.currentUser
+                    user?.let {
+                        checkUserType(emailID) { userType ->
+                            when (userType) {
+                                "admin" -> navigateToAdminMain()
+                                "customer" -> navigateToMain()
+                                else -> showToast("사용자 타입을 확인할 수 없습니다.")
+                            }
+                        }
+                    }
+                } else {
+                    showToast("로그인에 실패하였습니다.")
+                    Log.d("Login Error", "Error: ${task.exception}")
                 }
             }
     }
-    fun onFindIdClick(view: View?) {
-        val intent = Intent(this, Findid::class.java)
-        startActivity(intent)
+
+    private fun checkUserType(emailID: String, callback: (String?) -> Unit) {
+        val userTypes = listOf("user_admin", "user_customer")
+        for (userType in userTypes) {
+            db.collection(userType).document(emailID).get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        callback(if (userType == "user_admin") "admin" else "customer")
+                        return@addOnSuccessListener
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Log.w("Firestore", "사용자 정보 가져오기 실패", e)
+                    callback(null)
+                }
+        }
     }
 
-    fun onFindPwdClick(view: View?) {
-        val intent = Intent(this, Findqw::class.java)
+    private fun navigateToAdminMain() {
+        val intent = Intent(this@LogInActivity, AdminMain::class.java)
         startActivity(intent)
+        finish()
+        showToast("성공적으로 로그인 하였습니다.")
     }
 
+    private fun navigateToMain() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 
-
-
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 }
