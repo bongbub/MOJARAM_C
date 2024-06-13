@@ -76,4 +76,17 @@ class SalonDetailActivity: AppCompatActivity() {
             binding.imageviewSalon.load(salon.image)
         }
     }
+
+    private fun loadSalonData() {
+        intent.getParcelableExtra(
+            MapFragment.SALON_DETAIL_KEY,
+            SalonModel::class.java
+        )?.let { salon ->
+            binding.textviewSalonName.text = salon.shopName
+            binding.textviewSalonNameCollapse.text = salon.shopName
+            binding.textviewWorkTimeValue.text = salon.operationTime
+            binding.textviewInfoValue.text = salon.address
+            binding.imageviewSalon.load(salon.image)
+        }
+    }
 }

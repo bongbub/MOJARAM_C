@@ -118,8 +118,8 @@
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
-                android:id="@+id/textview_reservation"
+            <Button
+                android:id="@+id/btn_confirm_reservation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="예약하기"
