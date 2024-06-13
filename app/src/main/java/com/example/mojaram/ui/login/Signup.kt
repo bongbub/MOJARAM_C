@@ -146,7 +146,6 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
     }
-
     private fun addUserToFirestore(nickname: String, useremail: String, password: String, userType: String, userGender: String, userbirth: String, uId: String){
         val user = User(useremail, nickname,  password, userType, userGender,userbirth, uId)
         val collection = if(userType == "admin") "user_admin" else "user_customer"

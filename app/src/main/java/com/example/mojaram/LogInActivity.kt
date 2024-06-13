@@ -83,10 +83,6 @@ class LogInActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
-        // FragmentManager등록?
-
-
         btnM.setOnClickListener {
 
             // text로 변환
