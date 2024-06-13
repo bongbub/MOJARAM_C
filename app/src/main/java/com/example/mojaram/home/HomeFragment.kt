@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.example.mojaram.LogInActivity
 import com.example.mojaram.databinding.FragmentHomeBinding
 import com.example.mojaram.map.MapFragment
 import com.example.mojaram.map.SalonModel
@@ -29,6 +30,7 @@ import com.example.mojaram.utils.UPPER_TIRAMISU_READ_EXTERNAL_STORAGE
 import com.example.mojaram.utils.UPPER_TIRAMISU_TAKE_PICTURE_PERMISSIONS
 import com.example.mojaram.utils.checkIsUpperSdkVersion
 import com.example.mojaram.utils.collectWhenStarted
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.StorageReference
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
@@ -42,6 +44,7 @@ class HomeFragment : Fragment() {
     private val PICK_IMAGE_REQUEST = 1 //이미지 선택
     private var cameraFileUri: Uri? = null
     private val fileUtils = FileUtils()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,6 +60,7 @@ class HomeFragment : Fragment() {
         setHairSalonRecommendationList()
         selectPicture()
         takePicture()
+
     }
 
     private fun setHairSalonRecommendationList() {
