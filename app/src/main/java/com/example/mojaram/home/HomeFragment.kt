@@ -16,7 +16,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.mojaram.databinding.FragmentHomeBinding
+import com.example.mojaram.map.MapFragment
+import com.example.mojaram.map.SalonModel
 import com.example.mojaram.salon.SalonDetailActivity
 import com.example.mojaram.utils.AutoClearedValue
 import com.example.mojaram.utils.FileUtils
@@ -25,13 +28,16 @@ import com.example.mojaram.utils.UNDER_TIRAMISU_TAKE_PICTURE_PERMISSIONS
 import com.example.mojaram.utils.UPPER_TIRAMISU_READ_EXTERNAL_STORAGE
 import com.example.mojaram.utils.UPPER_TIRAMISU_TAKE_PICTURE_PERMISSIONS
 import com.example.mojaram.utils.checkIsUpperSdkVersion
+import com.example.mojaram.utils.collectWhenStarted
 import com.google.firebase.storage.StorageReference
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import kotlin.random.Random
 
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
     private var binding by AutoClearedValue<FragmentHomeBinding>()
+    private val viewModel by viewModels<HomeViewModel>()
     private lateinit var storageRef: StorageReference
     private val PICK_IMAGE_REQUEST = 1 //이미지 선택
     private var cameraFileUri: Uri? = null
@@ -55,22 +61,21 @@ class HomeFragment : Fragment() {
 
     private fun setHairSalonRecommendationList() {
         binding.recyclerviewSalons.adapter = HairSalonListAdapter(
-            onClickItem = {
-                startActivity(Intent(requireContext(), SalonDetailActivity::class.java))
+            onClickItem = { salonModel ->
+                Intent(requireContext(), SalonDetailActivity::class.java).let {
+                    it.putExtra(
+                        MapFragment.SALON_DETAIL_KEY,
+                        salonModel
+                    )
+                    startActivity(it)
+                }
             }
         )
 
-        var dummyData = (0..10).map {
-            HairSalonListEntity(
-                id = Random.nextInt(0, 10000),
-                name = LoremIpsum(3).values.joinToString(" "),
-                image = "https://picsum.photos/id/${Random.nextInt(0, 500)}/300/300",
-                likeCount = Random.nextInt(0, 120),
-                liked = Random.nextBoolean()
-            )
-        }
+        collectWhenStarted(viewModel.recommendations) { recommendations ->
+            (binding.recyclerviewSalons.adapter as HairSalonListAdapter).submitList(recommendations)
 
-        (binding.recyclerviewSalons.adapter as HairSalonListAdapter).submitList(dummyData)
+        }
     }
 
     private fun selectPicture() {
@@ -121,8 +126,6 @@ class HomeFragment : Fragment() {
             requestCameraPermission.launch(permissions)
         }
     }
-
-
 
 
     private fun openFileChooser() {

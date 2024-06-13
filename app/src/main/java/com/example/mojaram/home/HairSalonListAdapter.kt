@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.mojaram.databinding.ItemSalonRecommendationBinding
+import com.example.mojaram.map.SalonModel
 import com.example.mojaram.utils.DiffCallback
 
 class HairSalonListAdapter(
-    private val onClickItem: () -> Unit
+    private val onClickItem: (SalonModel) -> Unit
 ): ListAdapter<HairSalonListEntity, HairSalonListAdapter.HairSalonViewHolder>(
     DiffCallback<HairSalonListEntity>()
 ) {
@@ -25,13 +26,13 @@ class HairSalonListAdapter(
         val data = getItem(holder.absoluteAdapterPosition)
         holder.binding.run {
             root.setOnClickListener {
-                onClickItem()
+                onClickItem(data.salonInfo)
             }
-            textviewName.text = data.name
+            textviewName.text = data.salonInfo.shopName
             textviewLikeCount.text = data.likeCount.toString()
             checkboxLike.isChecked = data.liked
-            if(data.image.isNotEmpty()) {
-                imageviewSalon.load(data.image)
+            if(data.salonInfo.image.isNotEmpty()) {
+                imageviewSalon.load(data.salonInfo.image)
             }
         }
     }

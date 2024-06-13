@@ -11,6 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 fun Int.checkIsUpperSdkVersion(): Boolean {
     return Build.VERSION.SDK_INT >= this
@@ -58,3 +60,5 @@ inline fun <T, R> R.collectFlow(flow: Flow<T>, state: Lifecycle.State, crossinli
 inline fun <T, R> R.collectWhenStarted(flow: Flow<T>, crossinline block: suspend (T) -> Unit) {
     collectFlow(flow, Lifecycle.State.STARTED, block)
 }
+
+val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.KOREAN)

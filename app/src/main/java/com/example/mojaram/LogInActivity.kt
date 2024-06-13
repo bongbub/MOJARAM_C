@@ -11,14 +11,19 @@ import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.mojaram.data.PreferenceManager
 import com.example.mojaram.ui.login.SignUpActivity
 // FirebaseAuth 사용하기 위해 import
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class LogInActivity : AppCompatActivity() {
+    @Inject
+    lateinit var preferenceManager: PreferenceManager
 
 
     // Firebase Auth 인증 서비스 객체 생성
@@ -102,6 +107,8 @@ class LogInActivity : AppCompatActivity() {
         mAhth.signInWithEmailAndPassword(emailID, pwd)
             .addOnCompleteListener(this) { task->
                 if(task.isSuccessful){
+                    preferenceManager.saveUserId(task.result.user?.uid ?: "")
+                    preferenceManager.saveUserName(task.result.user?.displayName ?: "")
                     // 로그인이 성공했을 때
                     val intent: Intent = Intent(this@LogInActivity,
                         MainActivity::class.java) // LoginActivity(로그인화면)으로 이동

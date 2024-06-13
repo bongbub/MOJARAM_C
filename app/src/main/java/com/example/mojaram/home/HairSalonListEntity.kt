@@ -1,9 +1,9 @@
 package com.example.mojaram.home
 
+import com.example.mojaram.map.SalonModel
+
 data class HairSalonListEntity(
-    val id: Int,
-    val name: String,
+    val salonInfo: SalonModel,
     val liked: Boolean,
-    val image: String,
     val likeCount: Int
 )

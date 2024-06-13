@@ -33,7 +33,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     private lateinit var locationSource: FusedLocationSource
     private val locationPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
         if(permissions.all { it.value }) {
-            initMapView()
         } else {
             requireContext().showToast("지도 기능을 사용하려면 위치 권한을 허용해주세요.")
         }
@@ -46,14 +45,15 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     ): View = FragmentMapBinding.inflate(inflater, container, false).let {
         binding = it
         locationPermissionLauncher.launch(LOCATION_PERMISSIONS)
+        initMapView()
         it.root
     }
 
     override fun onMapReady(map: NaverMap) {
         this.naverMap = map
-        naverMap.locationSource = locationSource //현재 위치
-        naverMap.uiSettings.isLocationButtonEnabled = true //현재 위치 버튼 기능
-        naverMap.locationTrackingMode = LocationTrackingMode.Follow // 위치 추적하면서 카메라도 움직임
+        naverMap.locationSource = locationSource
+        naverMap.uiSettings.isLocationButtonEnabled = true
+        naverMap.locationTrackingMode = LocationTrackingMode.Follow
         naverMap.setOnMapClickListener { point, coord ->
             viewModel.changeSelectedSalon(null)
         }
@@ -72,7 +72,6 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             ?: MapFragment.newInstance().also {
                 childFragmentManager.beginTransaction().add(R.id.map_container, it).commit()
             }
-
         mapFragment.getMapAsync(this)
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
     }

@@ -14,6 +14,7 @@ import kotlin.math.abs
 
 class SalonDetailActivity: AppCompatActivity() {
     private lateinit var binding: ActivitySalonDetailBinding
+    private var salonDetail: SalonModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +55,11 @@ class SalonDetailActivity: AppCompatActivity() {
 
     private fun clickReserve() {
         binding.textviewReservation.setOnClickListener {
-            startActivity(Intent(this, ReservationActivity::class.java))
+            Intent(this, ReservationActivity::class.java).let {
+                it.putExtra(MapFragment.SALON_DETAIL_KEY, salonDetail)
+                startActivity(it)
+            }
+
         }
     }
 
@@ -63,6 +68,7 @@ class SalonDetailActivity: AppCompatActivity() {
             MapFragment.SALON_DETAIL_KEY,
             SalonModel::class.java
         )?.let { salon ->
+            salonDetail = salon
             binding.textviewSalonName.text = salon.shopName
             binding.textviewSalonNameCollapse.text = salon.shopName
             binding.textviewWorkTimeValue.text = salon.operationTime
