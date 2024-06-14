@@ -109,7 +109,8 @@ class HomeFragment : Fragment() {
 
     private fun takePicture() {
         val cameraLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { isSaved ->
-
+            if(isSaved) {
+            }
         }
 
         var requestCameraPermission = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->

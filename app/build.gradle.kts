@@ -5,7 +5,6 @@ plugins {
     id("com.google.gms.google-services")
     id("dagger.hilt.android.plugin")
     id("com.google.devtools.ksp")
-
 }
 
 android {
@@ -88,6 +87,7 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("com.google.firebase:firebase-analytics:22.0.0")
+    implementation("androidx.activity:activity:1.8.0")
 
     implementation("androidx.cardview:cardview:1.0.0") //카드뷰
     // 소셜 로그인
