@@ -4,9 +4,9 @@ data class Reservation(
     val date: String,
     val reservationTimes: List<String>,
     val userId: String,
-    var shopId: String = ""
+    var shopId: Long = 0
 ) {
-    constructor() : this("", emptyList(), "", "")
+    constructor(): this("", emptyList(), "", 0)
 }
 
 //package com.example.mojaram.model

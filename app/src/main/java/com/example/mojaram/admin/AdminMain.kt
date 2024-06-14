@@ -27,59 +27,125 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 class AdminMain : AppCompatActivity() {
-
+    private lateinit var binding: ActivityAdminMainBinding
     private lateinit var recyclerView: RecyclerView
-    private lateinit var userArrayList: ArrayList<Reservation>
     private lateinit var adminAdapter: AdminAdapter
-    private lateinit var db: FirebaseFirestore
+    private lateinit var reservationList: ArrayList<Reservation>
+    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_admin_main)
-        val binding: ActivityAdminMainBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_admin_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_admin_main)
 
         FirebaseApp.initializeApp(this)
         Log.d("AdminMain", "FirebaseApp initialized")
 
-        recyclerView = findViewById(R.id.recyclerviewReservation)
+        recyclerView = binding.recyclerviewReservation
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
 
-        userArrayList = arrayListOf()
-
-        adminAdapter = AdminAdapter(userArrayList)
-
+        reservationList = ArrayList()
+        adminAdapter = AdminAdapter(reservationList)
         recyclerView.adapter = adminAdapter
 
+        firestore = FirebaseFirestore.getInstance()
         EventChangeListener()
-
     }
 
     private fun EventChangeListener() {
-        db = FirebaseFirestore.getInstance()
+        firestore = FirebaseFirestore.getInstance()
         Log.d("AdminMain", "Firestore instance initialized")
 
-        db.collection("reservation")
+        firestore.collection("reservatoin")
             .addSnapshotListener { value, error ->
                 if (error != null) {
                     Log.e("Firebase Error", error.message.toString())
                     return@addSnapshotListener
                 }
+                reservationList.clear()
 
                 for (dc in value?.documentChanges!!) {
-                    if (dc.type == DocumentChange.Type.ADDED) {
-                        var reservation = dc.document.toObject(Reservation::class.java)
-                        // shopId를 Long으로 변환하여 String으로 할당
+                    when (dc.type) {
+                        DocumentChange.Type.ADDED -> {
+                            var reservation = dc.document.toObject(Reservation::class.java)
+                            reservation.shopId = dc.document.getLong("shopId") ?: 0
+                            reservationList.add(reservation)
+                            Log.d("Firestore", "Added reservation: $reservation")
+                        }
 
-                        reservation.shopId = dc.document.getLong("shopId")?.toString() ?: ""
-                        userArrayList.add(reservation)
+                        DocumentChange.Type.MODIFIED -> {
+                            var reservation = dc.document.toObject(Reservation::class.java)
+                            reservation.shopId = dc.document.getLong("shopId") ?: 0
+                            // Perform any necessary update logic if needed
+                            Log.d("Firestore", "Modified reservation: $reservation")
+                        }
+
+                        DocumentChange.Type.REMOVED -> {
+                            var reservation = dc.document.toObject(Reservation::class.java)
+                            // Perform any necessary removal logic if needed
+                            Log.d("Firestore", "Removed reservation: $reservation")
+                        }
                     }
                 }
 
                 adminAdapter.notifyDataSetChanged()
             }
     }
+
+
+//    private lateinit var recyclerView: RecyclerView
+//    private lateinit var userArrayList: ArrayList<Reservation>
+//    private lateinit var adminAdapter: AdminAdapter
+//    private lateinit var db: FirebaseFirestore
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+////        setContentView(R.layout.activity_admin_main)
+//        val binding: ActivityAdminMainBinding =
+//            DataBindingUtil.setContentView(this, R.layout.activity_admin_main)
+//
+//        FirebaseApp.initializeApp(this)
+//        Log.d("AdminMain", "FirebaseApp initialized")
+//
+//        recyclerView = findViewById(R.id.recyclerviewReservation)
+//        recyclerView.layoutManager = LinearLayoutManager(this)
+//        recyclerView.setHasFixedSize(true)
+//
+//        userArrayList = arrayListOf()
+//
+//        adminAdapter = AdminAdapter(userArrayList)
+//
+//        recyclerView.adapter = adminAdapter
+//
+//        // Initialize Firestore
+//        db = FirebaseFirestore.getInstance()
+//        EventChangeListener()
+//
+//    }
+//
+//    private fun EventChangeListener() {
+//        db = FirebaseFirestore.getInstance()
+//        Log.d("AdminMain", "Firestore instance initialized")
+//
+//        db.collection("reservatoin")
+//            .addSnapshotListener { value, error ->
+//                if (error != null) {
+//                    Log.e("Firebase Error", error.message.toString())
+//                    return@addSnapshotListener
+//                }
+//                userArrayList.clear()
+//
+//                for (dc in value?.documentChanges!!) {
+//                    if (dc.type == DocumentChange.Type.ADDED) {
+//                        var reservation = dc.document.toObject(Reservation::class.java)
+//                        reservation.shopId = dc.document.getLong("shopId") ?: 0
+//                        userArrayList.add(reservation)
+//                    }
+//                }
+//
+//                adminAdapter.notifyDataSetChanged()
+//            }
+//    }
 }
 //        db.collection("reservatoin")
 //            .addSnapshotListener(object : EventListener<QuerySnapshot> {

@@ -35,26 +35,11 @@
                     android:text="예약 목록 확인"
                     android:textStyle="bold"
                     android:textSize="20sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="test1"
-                    android:id="@+id/test1"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="test2"
-                    android:id="@+id/test2"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="test3"
-                    android:id="@+id/test3"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerviewReservation"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:clipToPadding="false"
                     android:paddingTop="16dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
