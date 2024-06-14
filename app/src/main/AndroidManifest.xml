@@ -20,6 +20,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mojaram"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ai.CreateStyleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ai.ExampleActivity"
+            android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -69,14 +75,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".salon.SalonDetailActivity"
-            android:exported="false"/>
-
-        <activity android:name=".reservation.ReservationActivity"
-            android:exported="false"/>
-
-        <activity android:name=".mypage.ProfileSettingActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".salon.SalonDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".reservation.ReservationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.ProfileSettingActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"

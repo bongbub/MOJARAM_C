@@ -264,4 +264,5 @@
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.dagger:dagger:2.48" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.dagger:hilt-core:2.48" level="project" />
   </component>
+  <component name="TestModuleProperties" production-module="mojaram.app.main" />
 </module>
