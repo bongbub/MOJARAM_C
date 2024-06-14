@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="15dp"
+    android:paddingVertical="20dp" >
+
+    <TextView
+        android:id="@+id/reserv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="06/24" />
+
+    <TextView
+        android:id="@+id/reserv_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingHorizontal="10dp"
+        android:text="예약시간" />
+
+    <TextView
+        android:id="@+id/reserv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="김똥개" />
+
+</LinearLayout>

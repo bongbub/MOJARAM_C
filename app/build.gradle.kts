@@ -103,6 +103,8 @@ dependencies {
     implementation("io.coil-kt:coil:2.4.0")
     implementation("com.google.android.flexbox:flexbox:3.0.0")
 
+    implementation("com.github.bumptech.glide:glide:4.7.1")
+
     implementation("com.google.dagger:hilt-android:2.48")
     ksp("com.google.dagger:hilt-android-compiler:2.48")
 }
