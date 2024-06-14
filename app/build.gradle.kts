@@ -89,6 +89,7 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("com.google.firebase:firebase-analytics:22.0.0")
 
+    implementation("androidx.cardview:cardview:1.0.0") //카드뷰
     // 소셜 로그인
     implementation ("com.google.android.gms:play-services-auth:20.7.0")
     implementation ("com.facebook.android:facebook-login:latest.release")
