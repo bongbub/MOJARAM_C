@@ -1,48 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="10dp"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/shopimageArea"
-        android:layout_width="80dp"
-        android:layout_height="80dp" />
+        android:id="@+id/imageview_salon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@color/background_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/textview_salon_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="매장명"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toRightOf="@id/imageview_salon"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        <TextView
-            android:id="@+id/shopnameArea"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="center_vertical"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textview_salon_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="매장주소"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toRightOf="@id/imageview_salon"
+        app:layout_constraintTop_toBottomOf="@id/textview_salon_name"/>
 
-        <TextView
-            android:id="@+id/shopaddArea"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:textColor="@color/black"
-            android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/shopkeywardArea"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

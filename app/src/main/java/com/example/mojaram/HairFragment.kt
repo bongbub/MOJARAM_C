@@ -1,58 +1,63 @@
 package com.example.mojaram
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.example.mojaram.databinding.FragmentHairBinding
+import com.example.mojaram.home.HairSalonListAdapter
+import com.example.mojaram.home.HomeViewModel
+import com.example.mojaram.map.MapFragment
+import com.example.mojaram.salon.SalonDetailActivity
+import com.example.mojaram.utils.AutoClearedValue
+import com.example.mojaram.utils.collectWhenStarted
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HairFragment : Fragment() {
-
-    companion object{
-        const val TAG: String = "상품페이지 로그"
-
-        fun newInstance() : HairFragment {
-            return HairFragment()
-        }
-    }
-
-    private lateinit var listView: ListView
-    private lateinit var adapter: ShopListAdapter
-    private lateinit var shopList: MutableList<ShopListData>
+    private var binding by AutoClearedValue<FragmentHairBinding>()
+    private val viewModel by viewModels<HomeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View?{
-        Log.d(MeFragment.TAG, "HairFregment - OnCreateView() called")
+    ): View {
+        binding = FragmentHairBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        val view = inflater.inflate(R.layout.fragment_hair, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setShopRecommendationList()
+    }
 
-        // ListView 초기화
-        listView = view.findViewById(R.id.shoplistView)
-
-        // 샘플 데이터 생성
-        shopList = arrayListOf(
-            ShopListData("모터치 노원", "서울 노원구 동일로 218길 29 우진빌딩", "#가발 #붙임머리", ContextCompat.getDrawable(requireContext(), R.drawable.shop_image1)!!),
-            ShopListData("위그온 디자이너가발 노원점", "서울 노원구 노해로 457 6층", "#가발 #맞춤가발 #항암가발 #여자 #남자", ContextCompat.getDrawable(requireContext(), R.drawable.shop_image2)!!),
-            ShopListData("박승철위그스투디오 강북노원점", "서울 노원구 동일로 1417 3층", "#가발 #맞춤가발 #항암가발 #여자 #남자", ContextCompat.getDrawable(requireContext(), R.drawable.shop_image3)!!),
-            ShopListData("부부가발", "서울 도봉구 마들로 11길 73 103호", "#가발 #기성가발 #맞춤가발", ContextCompat.getDrawable(requireContext(), R.drawable.shop_image4)!!),
-            ShopListData("모웰 상봉점", "서울 중랑구 망우로 316 이지팰리스 402호", "#가발", ContextCompat.getDrawable(requireContext(), R.drawable.shop_image5)!!),
-            ShopListData("다온모", "서울 중랑구 면목로94길 9 203호", "#가발 #맞춤가발 #남자", ContextCompat.getDrawable(requireContext(), R.drawable.shop_image6)!!),
-            ShopListData("가발백화점", "서울 동대문구 왕산로 238 1층", "#가발 #맞춤가발 #타사가발관리 #가발관리 #당일착용 #여자 #남자", ContextCompat.getDrawable(requireContext(), R.drawable.shop_image7)!!),
-            // 필요한 만큼 더 추가
+    private fun setShopRecommendationList() {
+        binding.recyclerviewSalons.adapter = HairSalonListAdapter(
+            onClickItem = { salonModel ->
+                Intent(requireContext(), SalonDetailActivity::class.java).let {
+                    it.putExtra(
+                        MapFragment.SALON_DETAIL_KEY,
+                        salonModel
+                    )
+                    startActivity(it)
+                }
+            }
         )
 
-        // 어댑터 초기화 및 ListView에 설정
-        adapter = ShopListAdapter(requireContext(), shopList as ArrayList<ShopListData>)
-        listView.adapter = adapter
+        collectWhenStarted(viewModel.recommendations) { recommendations ->
+            (binding.recyclerviewSalons.adapter as HairSalonListAdapter).submitList(recommendations)
+        }
+    }
 
-        return view
+    companion object {
+        const val TAG: String = "상품페이지 로그"
 
-
+        fun newInstance(): HairFragment {
+            return HairFragment()
+        }
     }
 }

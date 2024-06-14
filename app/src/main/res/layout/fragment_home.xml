@@ -181,7 +181,7 @@
                 android:id="@+id/empty_area"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="기능 기획중 ..."
+                android:text="아직 진행중인 이벤트가 없어요!"
                 android:fontFamily="@font/spoqa_han_sans_neo_medium"
                 android:textSize="20dp"
                 android:layout_marginTop="35dp"
