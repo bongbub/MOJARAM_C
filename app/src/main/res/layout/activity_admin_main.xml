@@ -33,58 +33,38 @@
                     android:layout_margin="10dp"
                     android:fontFamily="@font/spoqa_han_sans_neo_medium"
                     android:text="예약 목록 확인"
+                    android:textStyle="bold"
                     android:textSize="20sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview_image"
-                        android:layout_width="230dp"
-                        android:layout_height="wrap_content"
-                        android:elevation="0dp"
-                        app:cardCornerRadius="15dp">
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/imageview_salon"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:foreground="@color/alpha10_black"
-                            android:scaleType="centerCrop" />
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
-
                 <TextView
-                    android:id="@+id/reser_userinfomation"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="15dp"
-                    android:elevation="2dp"
-                    android:fontFamily="@font/spoqa_han_sans_neo_bold"
-                    android:textColor="@color/white"
-                    android:textSize="18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintWidth_percent="0.75"
-                    tools:text="예약자 정보" />
-
-                <TextView
-                    android:id="@+id/shopupdate_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:fontFamily="@font/spoqa_han_sans_neo_medium"
-                    android:text="나의 매장"
-                    android:textSize="20sp" />
+                    android:text="test1"
+                    android:id="@+id/test1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test2"
+                    android:id="@+id/test2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test3"
+                    android:id="@+id/test3"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerviewReservation"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:clipToPadding="false"
+                    android:paddingTop="16dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:spanCount="1"
+                    app:layout_constraintTop_toBottomOf="@+id/reserlist_text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                </androidx.recyclerview.widget.RecyclerView>
 
             </LinearLayout>
 
