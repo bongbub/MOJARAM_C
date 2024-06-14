@@ -17,7 +17,7 @@ class PreferenceManager @Inject constructor(
     }
 
     fun getUserName(): String {
-       return sharedPreferences.getString("USER_NAME", "") ?: ""
+        return sharedPreferences.getString("USER_NAME", "") ?: ""
     }
 
     fun getUserId(): String {

@@ -16,6 +16,7 @@ import kotlin.random.Random
 class HomeViewModel @Inject constructor(
     private val firebaseDataSource: FirebaseDataSource
 ): ViewModel() {
+
     init {
         getRecommendations()
     }

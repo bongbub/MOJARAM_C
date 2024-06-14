@@ -94,7 +94,7 @@ class ReservationActivity: AppCompatActivity() {
     }
 
     private fun completeReservation() {
-        binding.btnConfirmReservation.setOnClickListener {
+        binding.textviewReservation.setOnClickListener {
             viewModel.reservation { result ->
                 if(result) {
                     Toast.makeText(this, "예약이 완료되었습니다.", Toast.LENGTH_SHORT).show()
