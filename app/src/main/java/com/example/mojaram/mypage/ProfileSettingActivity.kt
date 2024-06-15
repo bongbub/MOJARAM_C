@@ -92,7 +92,7 @@ class ProfileSettingActivity: AppCompatActivity() {
     }
     private fun updateUI(nickname: String?, email: String?) {
         binding.textviewName.text = nickname ?: "No nickname"
-        binding.textviewEmail.text = email ?: "No Email"}
+        binding.textviewId.text = email ?: "No Email"}
 
 //    private fun loadDetailedUserInfo(nickname: String?, email: String?, userGender: String?) {
 //        // 파베에서 상세 유저 정보 가져오기
