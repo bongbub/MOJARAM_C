@@ -90,7 +90,7 @@ class ReservationViewModel @Inject constructor(
             _reservationTimeSections.value = updatedList
         }
     }
-
+// 또롤백 ㅅㅂ ㄷ체 어케하는건데
     fun getReservations() {
         viewModelScope.launch {
             firebaseDataSource.getReservations(
