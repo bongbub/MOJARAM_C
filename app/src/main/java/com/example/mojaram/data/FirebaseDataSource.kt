@@ -1,6 +1,7 @@
 package com.example.mojaram.data
 
 import android.net.Uri
+import android.util.Log
 import androidx.core.net.toFile
 import androidx.core.net.toUri
 import com.example.mojaram.map.SalonModel
@@ -72,6 +73,24 @@ class FirebaseDataSource @Inject constructor(
                 }
         )
     }
+
+    fun getUserNickName(userEmail: String): Flow<String> = flow {
+        Log.d("FirebaseDataSource", "Fetching nickname for email: $userEmail")
+        val userDocument = firestore.collection(COLLECTION_USER_CUSTOMER)
+            .whereEqualTo(DOCUMENT_EMAIL, userEmail)
+            .get()
+            .await()
+        val nickname = if (userDocument.documents.isNotEmpty()) {
+            val firstDocument = userDocument.documents[0]
+            firstDocument.getString(FIELD_NICKNAME) ?: ""
+        } else {
+            ""
+        }
+
+        Log.d("FirebaseDataSource", "Fetched nickname: $nickname")
+        emit(nickname)
+    }
+
 
     fun getReservations(shopId: Long, date: String): Flow<List<String>> = flow{
         firestore.collection(COLLECTION_RESERVATION)
@@ -151,6 +170,10 @@ class FirebaseDataSource @Inject constructor(
         private const val USER_ID = "userId"
         private const val DATE = "date"
         private const val RESERVATION_TIMES = "reservationTimes"
+
+        private const val COLLECTION_USER_CUSTOMER = "user_customer"
+        private const val DOCUMENT_EMAIL = "userEmail"
+        private const val FIELD_NICKNAME = "nickname"
     }
 }
 //    companion object {

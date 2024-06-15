@@ -35,9 +35,14 @@ class ReservationViewModel @Inject constructor(
     private val _reservations = MutableStateFlow<List<ReservationModel>>(emptyList())
     val reservations = _reservations.asStateFlow()
 
+    // 유저 닉네임 가져오기
+    private val _userNickName = MutableStateFlow<String>("")
+    val userNickName = _userNickName.asStateFlow()
+
     init {
         initReservationTimeSections()
         getReservations()
+        getUserNickName()
     }
 
     private fun initReservationTimeSections() {
@@ -48,6 +53,23 @@ class ReservationViewModel @Inject constructor(
             )
         }.let {
             _reservationTimeSections.value = it
+        }
+    }
+    
+    // 유저닉네임 가져오는 함수
+    private fun getUserNickName() {
+        viewModelScope.launch {
+            try {
+                val userEmail = preferenceManager.getUserEmail()
+                Log.d("ReservationViewModel", "User Email: $userEmail")
+
+                firebaseDataSource.getUserNickName(userEmail).collect { nickname ->
+                    _userNickName.value = nickname
+                    Log.d("ReservationViewModel", "User Nickname: $nickname")
+                }
+            } catch (e: Exception) {
+                Log.e("ReservationViewModel", "Error fetching user nickname", e)
+            }
         }
     }
 
@@ -96,7 +118,8 @@ class ReservationViewModel @Inject constructor(
                 date = selectedDate.value,
                 reservationTimes = reservationTimeSections.value
                     .filter { it.status == TimeTableStatusEnum.Selected }
-                    .map { it.time }
+                    .map { it.time },
+                userNickName = preferenceManager.getUserName()
             ),
             onCompleteListener = { result ->
                 onCompleteListener(result)

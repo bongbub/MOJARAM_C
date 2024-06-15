@@ -6,5 +6,6 @@ data class ReservationModel(
     val shopId: Long,
     val userId: String,
     val date: String,
-    val reservationTimes: List<String>
+    val reservationTimes: List<String>,
+    val userNickName: String
 )
