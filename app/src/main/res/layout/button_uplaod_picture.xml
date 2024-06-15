@@ -8,6 +8,7 @@
         <variable
             name="buttonText"
             type="String" />
+
         <import type="android.view.View"/>
     </data>
     <androidx.cardview.widget.CardView

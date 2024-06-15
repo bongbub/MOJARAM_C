@@ -106,6 +106,8 @@ dependencies {
 
     implementation("com.github.bumptech.glide:glide:4.7.1")
 
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+
     implementation("com.google.dagger:hilt-android:2.48")
     ksp("com.google.dagger:hilt-android-compiler:2.48")
 }
