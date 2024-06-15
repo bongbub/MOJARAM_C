@@ -21,6 +21,9 @@
         android:theme="@style/Theme.Mojaram"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ai.AiOutputActivity"
+            android:exported="false" />
+        <activity
             android:name=".ai.CreateStyleActivity"
             android:exported="false" />
         <activity
@@ -37,11 +40,9 @@
                 android:resource="@xml/filepaths" />
         </provider>
 
-
         <activity
             android:name=".admin.AdminMain"
             android:exported="false" />
-
         <activity
             android:name=".ui.login.vrPage"
             android:exported="false"
@@ -74,7 +75,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".salon.SalonDetailActivity"
             android:exported="false" />

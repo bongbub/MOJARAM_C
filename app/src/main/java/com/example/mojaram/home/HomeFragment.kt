@@ -18,6 +18,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.mojaram.LogInActivity
+import com.example.mojaram.ai.ExampleActivity
 import com.example.mojaram.databinding.FragmentHomeBinding
 import com.example.mojaram.map.MapFragment
 import com.example.mojaram.map.SalonModel
@@ -60,7 +61,7 @@ class HomeFragment : Fragment() {
         setHairSalonRecommendationList()
         selectPicture()
         takePicture()
-
+        showProgress()
     }
 
     private fun setHairSalonRecommendationList() {
@@ -85,7 +86,9 @@ class HomeFragment : Fragment() {
     private fun selectPicture() {
         val galleryLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {  result: ActivityResult ->
             result.data?.data?.let { uri ->
-
+                viewModel.uploadImage(uri) { imageUrl ->
+                    navToAI(imageUrl)
+                }
             }
         }
 
@@ -109,7 +112,10 @@ class HomeFragment : Fragment() {
 
     private fun takePicture() {
         val cameraLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { isSaved ->
-            if(isSaved) {
+            if(isSaved && cameraFileUri != null) {
+                viewModel.uploadImage(cameraFileUri!!) { imageUrl ->
+                    navToAI(imageUrl)
+                }
             }
         }
 
@@ -132,41 +138,32 @@ class HomeFragment : Fragment() {
         }
     }
 
-
-    private fun openFileChooser() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent, PICK_IMAGE_REQUEST)  // 이미지 선택
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
-            val imageUri = data.data
-            uploadImageToFirebase(imageUri)  // 선택한 이미지를 업로드
-        }
-    }
-
-    private fun uploadImageToFirebase(imageUri: Uri?) {
-        imageUri?.let {
-            val fileReference = storageRef.child("images/${System.currentTimeMillis()}.jpg")
-
-            fileReference.putFile(imageUri)
-                .addOnSuccessListener {
-                    Toast.makeText(requireContext(), "이미지 업로드 성공", Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(requireContext(), "이미지 업로드 실패", Toast.LENGTH_SHORT).show()
-                }
-        }
-    }
-
-        companion object {
-            const val TAG: String = "홈 로그"
-
-            fun newInstance(): HomeFragment {
-                return HomeFragment()
+    private fun showProgress() {
+        collectWhenStarted(viewModel.onLoading) { onLoading ->
+            binding.layoutProgress.visibility = if(onLoading) {
+                View.VISIBLE
+            } else {
+                View.GONE
             }
         }
+    }
+
+    private fun navToAI(faceImage: String) {
+        Intent(requireContext(), ExampleActivity::class.java).let {
+            it.putExtra(FACE_IMG, faceImage)
+            startActivity(it)
+        }
+    }
+
+    companion object {
+        const val FACE_IMG = "FACE_IMG"
+        const val SHAPE_IMG = "SHAPE_IMG"
+        const val COLOR_IMG = "COLOR_IMG"
+        const val TAG: String = "홈 로그"
+
+        fun newInstance(): HomeFragment {
+            return HomeFragment()
+        }
+    }
 
 }

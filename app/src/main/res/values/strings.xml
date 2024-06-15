@@ -49,6 +49,9 @@
     <string name="community">이벤트 공지</string>
     <string name="dummy_salon_info">양재역 8번 출구 바로 앞 살롱드라피네 양재역점입니다.\n\n100%정품 제품만을 사용하고 합리적인 가격으로 고객의 아름다움 뿐 아니라 고객의 건강한 두피/모발까지도 섬세하게 관리해드립니다.</string>
 
+    <string name="hair_style">헤어스타일</string>
+    <string name="dyeing">염색</string>
+    <string name="on_image_uploading">사진을 업로드 하고 있어요.\n잠시만 기다려주세요!</string>
 
     <string-array name="selectreservetime">
         <item>10:00</item>
