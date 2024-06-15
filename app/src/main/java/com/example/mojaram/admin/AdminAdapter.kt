@@ -23,7 +23,7 @@ class AdminAdapter(private val reservationList : ArrayList<Reservation>) : Recyc
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val reserv = reservationList[position]
         holder.reservationDates.text = reserv.date
-        holder.reservationName.text = reserv.userId
+        holder.reservationName.text = reserv.userName
         holder.reservationTimes.text = reserv.reservationTimes.joinToString(", ")
     }
 //    override fun onBindViewHolder(holder: AdminAdapter.MyViewHolder, position: Int) {
