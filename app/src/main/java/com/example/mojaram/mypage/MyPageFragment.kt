@@ -44,38 +44,62 @@ class MyPageFragment: Fragment() {
     }
 
     // 유저 정보 로드하는 함수 선언
-    private fun loadUserInfo(){
+    private fun loadUserInfo() {
         val user = auth.currentUser
-        if(user != null){
+        if (user != null) {
             // Firestore에서 사용자 기본 정보를 가져와, userType과 userGender를 확인
-            val userBasicInfoRef = db.collection("users").document(user.uid)
+            val userBasicInfoRef = db.collection("user_customer").document(user.email!!)
             userBasicInfoRef.get().addOnSuccessListener { document ->
-                if(document != null && document.exists()){
-                    val userType = document.getString("userType") ?: "일반회원"
-                    val userGender = document.getString("userGender") ?: "male"
-                    loadDetailedUserInfo(userType, userGender, user.email!!)
-                }else{
+                if (document != null && document.exists()) {
+                    val nickname = document.getString("nickname")
+                    val email = document.getString("email")
+                    val userGender = document.getString("userGender")
+                    loadDetailedUserInfo(nickname, email, userGender)
+                } else {
                     Log.d("Firestore", "해당 정보 찾을 수 없음")
                 }
             }.addOnFailureListener { e ->
                 Log.w("Firestore", "파이어스토어 기본 정보 가져오기 오류", e)
             }
-        }else {
+        } else {
             Log.d("Firestore", "해당 유저 없음")
         }
     }
 
-    private fun loadDetailedUserInfo(userType: String, userGender: String, email: String) {
-        // 파베에서 상세 유저 정보 가져오기
-        val userDocRef = db.collection("users").document(userType)
-            .collection("userGender").document(userGender)
-            .collection(email).document("profile")
 
+//    private fun loadUserInfo(){
+//        val user = auth.currentUser
+//        if(user != null){
+//            // Firestore에서 사용자 기본 정보를 가져와, userType과 userGender를 확인
+//            val userBasicInfoRef = db.collection("user_customer").document(user.uid)
+//            userBasicInfoRef.get().addOnSuccessListener { document ->
+//                if(document != null && document.exists()){
+//                    val userType = document.getString("userType") ?: "일반회원"
+//                    val userGender = document.getString("userGender") ?: "male"
+//                    loadDetailedUserInfo(userType, userGender, user.email!!)
+//                }else{
+//                    Log.d("Firestore", "해당 정보 찾을 수 없음")
+//                }
+//            }.addOnFailureListener { e ->
+//                Log.w("Firestore", "파이어스토어 기본 정보 가져오기 오류", e)
+//            }
+//        }else {
+//            Log.d("Firestore", "해당 유저 없음")
+//        }
+//    }
+
+    private fun updateUI(nickname: String?, email: String?) {
+        binding.textviewName.text = nickname ?: "No nickname"
+        binding.textviewEmail.text = email ?: "No Email"}
+
+    private fun loadDetailedUserInfo(nickname: String?, email: String?, userGender: String?) {
+        // 파베에서 상세 유저 정보 가져오기
+        val userDocRef = db.collection("user_customer").document(email!!)
         userDocRef.get().addOnSuccessListener { document ->
             if (document != null && document.exists()) {
-                val nickname = document.getString("nickname")
-                val email = document.getString("email")
-                updateUI(nickname, email)
+                val detailedNickname = document.getString("nickname")
+                val detailedEmail = document.getString("email")
+                updateUI(detailedNickname, detailedEmail)
             } else {
                 Log.d("Firestore", "해당 문서 찾을 수 없음")
             }
@@ -83,10 +107,7 @@ class MyPageFragment: Fragment() {
             Log.w("Firestore", "파이어스토어 상세 정보 가져오기 오류", e)
         }
     }
-    private fun updateUI(nickname: String?, email: String?){
-        binding.textviewName.text = nickname ?: "No nickname"
-        binding.textviewEmail.text = email ?: "No Email"
-    }
+
 }
 
 /*

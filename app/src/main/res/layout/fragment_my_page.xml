@@ -49,6 +49,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+
                 <TextView
                     android:id="@+id/textview_name"
                     android:layout_width="wrap_content"
@@ -60,6 +61,18 @@
                     app:layout_constraintBottom_toTopOf="@id/textview_email"
                     app:layout_constraintStart_toEndOf="@id/imageview_profile_image"
                     app:layout_constraintTop_toTopOf="@id/imageview_profile_image"
+                    app:layout_constraintVertical_chainStyle="packed" />
+                <TextView
+                    android:id="@+id/textview_nim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/spoqa_han_sans_neo_bold"
+                    android:text="님"
+                    android:textSize="16dp"
+                    app:layout_constraintLeft_toRightOf= "@id/textview_name"
+                    app:layout_constraintTop_toTopOf="@id/textview_name"
+                    app:layout_constraintStart_toEndOf="@id/textview_name"
                     app:layout_constraintVertical_chainStyle="packed" />
 
                 <TextView
