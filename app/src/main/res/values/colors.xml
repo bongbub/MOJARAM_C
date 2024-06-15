@@ -14,6 +14,7 @@
     <color name="doubledarkgray">#FF696969</color>
     <color name="slategray">#708090</color>
     <color name="maincolor">#A8E8AE</color>
+    <color name="signupexampletext">#B0D6B8</color>
 
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>

@@ -61,12 +61,13 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="8dp"
                     android:backgroundTint="#FF000000"
-                    android:ems="10"
+                    android:ems="8"
                     android:layout_gravity="bottom"
                     android:hint="이상혁"
                     android:inputType="text"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#8DFFFFFF" />
+                    android:textColor="#FF000000"
+                    android:fontFamily="@font/spoqa_han_sans_neo_medium"
+                    android:textColorHint="#B0D6B8" />
             </FrameLayout>
         </LinearLayout>
 
@@ -102,8 +103,8 @@
                     android:layout_gravity="bottom"
                     android:hint="19960507"
                     android:inputType="date"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#8DFFFFFF" />
+                    android:textColor="#FF000000"
+                    android:textColorHint="#B0D6B8" />
             </FrameLayout>
         </LinearLayout>
 
@@ -173,8 +174,8 @@
                     android:layout_gravity="bottom"
                     android:hint="lol1996@gmail.com"
                     android:inputType="textEmailAddress"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#8DFFFFFF" />
+                    android:textColor="#FF000000"
+                    android:textColorHint="#B0D6B8" />
 
             </FrameLayout>
 
@@ -212,8 +213,8 @@
             android:hint="6글자 이상"
             android:inputType="textPassword"
             android:maxLength="20"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#8DFFFFFF" />
+            android:textColor="#FF000000"
+            android:textColorHint="#B0D6B8" />
         </FrameLayout>
     </LinearLayout>
 
