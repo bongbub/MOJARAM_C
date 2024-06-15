@@ -113,7 +113,7 @@
                 android:id="@+id/textview_create"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="예약하기"
+                android:text="생성하기"
                 android:fontFamily="@font/spoqa_han_sans_neo_medium"
                 android:textSize="16dp"
                 android:textColor="@color/white"
