@@ -1,19 +1,26 @@
 package com.example.mojaram.data
 
+import android.net.Uri
+import androidx.core.net.toFile
+import androidx.core.net.toUri
 import com.example.mojaram.map.SalonModel
 import com.example.mojaram.reservation.ReservationModel
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.firestore.Filter
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
-import java.util.Random
+import java.io.File
 import javax.inject.Inject
+import kotlin.random.Random
+
 
 class FirebaseDataSource @Inject constructor(
-    private val firestore: FirebaseFirestore
+    private val firestore: FirebaseFirestore,
+    private val firebaseStorage: FirebaseStorage
 ) {
+
+
     fun getRecommendations(): Flow<List<SalonModel>> = flow {
         emit(
             firestore.collection(COLLECTION_SHOP)
@@ -88,6 +95,21 @@ class FirebaseDataSource @Inject constructor(
             .addOnCompleteListener {
                 onCompleteListener(it.isSuccessful)
             }
+    }
+
+    fun postImage(imageUri: Uri): Flow<String> = flow {
+        kotlin.runCatching {
+            var imgRef = firebaseStorage.reference.child("${imageUri.path?.split("/")?.last()}_${Random.nextInt(0,10000)}")
+            val uploadTask = imgRef.putFile(imageUri).await()
+            if(uploadTask.task.isSuccessful) {
+                val downloadUri = imgRef.downloadUrl.await()
+                emit(downloadUri.toString())
+            } else {
+                emit("")
+            }
+        }.onFailure {
+            emit("")
+        }
     }
 
 
