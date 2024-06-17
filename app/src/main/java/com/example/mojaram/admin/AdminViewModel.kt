@@ -33,7 +33,7 @@ class AdminViewModel @Inject constructor(
     private fun getReservations() {
         viewModelScope.launch {
             Log.d("AdminViewModel", "getReservations called")
-            firestore.collection("reservation").get().addOnSuccessListener { result ->
+            firestore.collection("reservatoin").get().addOnSuccessListener { result ->
                 val reservations = result.map { document ->
                     val reservation = document.toObject(Reservation::class.java)
                     Log.d("AdminViewModel", "Fetched reservation: $reservation")

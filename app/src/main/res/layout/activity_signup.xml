@@ -101,6 +101,7 @@
                     android:backgroundTint="#FF000000"
                     android:ems="18"
                     android:layout_gravity="bottom"
+                    android:maxLength="10"
                     android:hint="19960507"
                     android:inputType="date"
                     android:textColor="#FF000000"
@@ -140,6 +141,45 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="여성" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/phone_number_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/spoqa_han_sans_neo_medium"
+                    android:layout_gravity="top|left"
+                    android:layout_marginBottom="34dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="전화번호"
+                    android:textColor="#FF000000"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:backgroundTint="#FF000000"
+                    android:ems="10"
+                    android:layout_gravity="bottom"
+                    android:hint="'-' 제외하고 입력 "
+                    android:textColor="#FF000000"
+                    android:textColorHint="#B0D6B8"
+                    android:inputType="phone"
+                    android:maxLength="13"/>
+
+            </FrameLayout>
+
         </LinearLayout>
 
         <LinearLayout

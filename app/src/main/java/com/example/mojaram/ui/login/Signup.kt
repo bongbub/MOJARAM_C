@@ -1,7 +1,9 @@
 package com.example.mojaram.ui.login
 
+import BirthTextWatcher
 import android.content.Intent
 import android.os.Bundle
+import android.telephony.PhoneNumberFormattingTextWatcher
 import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
@@ -9,7 +11,6 @@ import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mojaram.R
@@ -31,8 +32,10 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var editTextid: EditText
     private lateinit var editTextPassword: EditText
     private lateinit var btnSignUp: Button
+
     // 생년월일
     private lateinit var Userbirthday : EditText
+
     // 관리자 등급 분할
     private lateinit var radioGroup: RadioGroup
     private lateinit var radioAdmin: RadioButton
@@ -46,8 +49,11 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var dpSpinner: DatePicker // datepicker dialog (데이트정보)
 
 
-    // Firebase Realtime Database 연동을 위한 객체
-    //private lateinit var mDbRef: DatabaseReference
+    // 전화번호
+    private lateinit var phone_number : EditText
+    private val watcher = PhoneNumberFormattingTextWatcher()
+
+
     // Firebase FireStore 연동을 위한 객체
     private var db = Firebase.firestore
     // Firebase Authentication 연동을 위한 객체
@@ -57,8 +63,6 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        // Firebase RealtimeDatabase 초기화
-        //mDbRef = Firebase.database.reference
         // Firebase Authentication 초기화
         mAuth = Firebase.auth
 
@@ -69,6 +73,8 @@ class SignUpActivity : AppCompatActivity() {
 
         // 생년월일 가져오기
         Userbirthday = findViewById(R.id.birthText)
+        Userbirthday.addTextChangedListener(BirthTextWatcher(Userbirthday))
+
 
         // 등급 판별을 위한 변수
         radioGroup = findViewById(R.id.radioGroup)
@@ -78,6 +84,10 @@ class SignUpActivity : AppCompatActivity() {
         // 성별 판별
         checkMale = findViewById(R.id.malecheck)
         checkFemale = findViewById(R.id.femalecheck)
+
+        // 전화번호
+        phone_number = findViewById(R.id.phone_number)
+        phone_number.addTextChangedListener(watcher)  //전화번호 자동 하이픈 포맷
 
 /*
         // 날짜 및 캘린더 받아오기
@@ -90,32 +100,34 @@ class SignUpActivity : AppCompatActivity() {
 
         //dpSpinner = findViewById(R.id.dpSpinner)
 
+
+
         btnSignUp.setOnClickListener {
             // 회원가입 버튼을 클릭했을 때의 동작을 구현하세요.
-            val nickname = editTextUsername.text.toString().trim()
+            val UserName = editTextUsername.text.toString().trim()
             val useremail = editTextid.text.toString().trim()
             val password = editTextPassword.text.toString().trim()
             val userbirth = Userbirthday.text.toString().trim()
+            val phone_number = phone_number.text.toString().trim()
             // 등급 판별
             val userType = if(radioAdmin.isChecked) "admin" else "customer"  // 어드민 라디오를 체크하면 관리자 판별
             // 성별 판별
             val userGender = if(checkMale.isChecked) "male" else "female"
 
 
-            if (nickname.isEmpty() || useremail.isEmpty() || password.isEmpty() || userbirth.isEmpty()) {
+            if (UserName.isEmpty() || useremail.isEmpty() || password.isEmpty() || userbirth.isEmpty() || phone_number.isEmpty()) {
                 Toast.makeText(this, "모든 필드를 입력해 주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            Log.d("SignUpActivity", "Email: $useremail")
 
             // 회원가입 정보 Firebase RealtimeDatabase 연동
-            Register(nickname, useremail, password, userType, userGender, userbirth) //여기 순서 중요
+            Register(useremail,UserName,  password, userType, userGender, userbirth, phone_number) //여기 순서 중요
         }
     }
 
 
     //firebase Register 연동
-    private fun Register(nickname: String, useremail:String, password: String, userType: String, userGender: String, userbirth: String) {
+    private fun Register(useremail:String, UserName: String, password: String, userType: String, userGender: String, userbirth: String,phone_number: String) {
 
         mAuth.createUserWithEmailAndPassword(useremail, password)
             .addOnCompleteListener(this) { task ->
@@ -138,16 +150,15 @@ class SignUpActivity : AppCompatActivity() {
 
                     // User Class에 데이터를 담아서
                     // Firestore로 전송
-                    addUserToFirestore(nickname, useremail, password, userType, userGender, userbirth, mAuth.currentUser?.uid!!)
+                    addUserToFirestore(useremail, UserName, password, userType, userGender, userbirth, phone_number, mAuth.currentUser?.uid!!)
                 } else {
                     val errorMessage = task.exception?.message ?: "회원가입에 실패하였습니다. 다시 시도해주세요. 비밀번호는 6자 이상이어야 합니다."
                     Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
-                    Log.d("Sign Up", "Error: ${task.exception}")
                 }
             }
     }
-    private fun addUserToFirestore(nickname: String, useremail: String, password: String, userType: String, userGender: String, userbirth: String, uId: String){
-        val user = User(useremail, nickname,  password, userType, userGender,userbirth, uId)
+    private fun addUserToFirestore( useremail: String, UserName: String, password: String, userType: String, userGender: String, userbirth: String, phone_number:String, uId: String){
+        val user = User(useremail, UserName, password, userType, userGender,userbirth,phone_number, uId)
         val collection = if(userType == "admin") "user_admin" else "user_customer"
         db.collection(collection).document(useremail).set(user)
             .addOnSuccessListener {

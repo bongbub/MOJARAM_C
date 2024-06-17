@@ -35,6 +35,7 @@ class ReservationViewModel @Inject constructor(
     private val _reservations = MutableStateFlow<List<ReservationModel>>(emptyList())
     val reservations = _reservations.asStateFlow()
 
+
     init {
         initReservationTimeSections()
         getReservations()
@@ -50,6 +51,7 @@ class ReservationViewModel @Inject constructor(
             _reservationTimeSections.value = it
         }
     }
+
 
     fun changeSalonDetail(salonModel: SalonModel) {
         _salonDetail.value = salonModel
@@ -68,7 +70,7 @@ class ReservationViewModel @Inject constructor(
             _reservationTimeSections.value = updatedList
         }
     }
-
+// 또롤백 ㅅㅂ ㄷ체 어케하는건데
     fun getReservations() {
         viewModelScope.launch {
             firebaseDataSource.getReservations(
@@ -96,7 +98,8 @@ class ReservationViewModel @Inject constructor(
                 date = selectedDate.value,
                 reservationTimes = reservationTimeSections.value
                     .filter { it.status == TimeTableStatusEnum.Selected }
-                    .map { it.time }
+                    .map { it.time },
+                userNickName = preferenceManager.getUserName()
             ),
             onCompleteListener = { result ->
                 onCompleteListener(result)
