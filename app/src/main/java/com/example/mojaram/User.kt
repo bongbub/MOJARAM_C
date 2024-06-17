@@ -7,9 +7,10 @@ data class User(
     var userType: String? = null,
     var userGender: String? = null,
     var userbirth : String? = null,
-    var uId : String? = null
+    var phone_number : String? = null,
+    var uId : String? = null,
 
 
 ){
-    constructor():this("","","","","","","")
+    constructor():this("","","","","","","", "")
 }
