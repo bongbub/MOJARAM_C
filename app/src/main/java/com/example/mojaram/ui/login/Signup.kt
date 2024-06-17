@@ -46,8 +46,6 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var dpSpinner: DatePicker // datepicker dialog (데이트정보)
 
 
-    // Firebase Realtime Database 연동을 위한 객체
-    //private lateinit var mDbRef: DatabaseReference
     // Firebase FireStore 연동을 위한 객체
     private var db = Firebase.firestore
     // Firebase Authentication 연동을 위한 객체
@@ -57,8 +55,6 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        // Firebase RealtimeDatabase 초기화
-        //mDbRef = Firebase.database.reference
         // Firebase Authentication 초기화
         mAuth = Firebase.auth
 
@@ -92,7 +88,7 @@ class SignUpActivity : AppCompatActivity() {
 
         btnSignUp.setOnClickListener {
             // 회원가입 버튼을 클릭했을 때의 동작을 구현하세요.
-            val nickname = editTextUsername.text.toString().trim()
+            val UserName = editTextUsername.text.toString().trim()
             val useremail = editTextid.text.toString().trim()
             val password = editTextPassword.text.toString().trim()
             val userbirth = Userbirthday.text.toString().trim()
@@ -102,20 +98,20 @@ class SignUpActivity : AppCompatActivity() {
             val userGender = if(checkMale.isChecked) "male" else "female"
 
 
-            if (nickname.isEmpty() || useremail.isEmpty() || password.isEmpty() || userbirth.isEmpty()) {
+            if (UserName.isEmpty() || useremail.isEmpty() || password.isEmpty() || userbirth.isEmpty()) {
                 Toast.makeText(this, "모든 필드를 입력해 주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             Log.d("SignUpActivity", "Email: $useremail")
 
             // 회원가입 정보 Firebase RealtimeDatabase 연동
-            Register(nickname, useremail, password, userType, userGender, userbirth) //여기 순서 중요
+            Register(useremail,UserName,  password, userType, userGender, userbirth) //여기 순서 중요
         }
     }
 
 
     //firebase Register 연동
-    private fun Register(nickname: String, useremail:String, password: String, userType: String, userGender: String, userbirth: String) {
+    private fun Register(useremail:String, UserName: String, password: String, userType: String, userGender: String, userbirth: String) {
 
         mAuth.createUserWithEmailAndPassword(useremail, password)
             .addOnCompleteListener(this) { task ->
@@ -138,7 +134,7 @@ class SignUpActivity : AppCompatActivity() {
 
                     // User Class에 데이터를 담아서
                     // Firestore로 전송
-                    addUserToFirestore(nickname, useremail, password, userType, userGender, userbirth, mAuth.currentUser?.uid!!)
+                    addUserToFirestore(useremail, UserName, password, userType, userGender, userbirth, mAuth.currentUser?.uid!!)
                 } else {
                     val errorMessage = task.exception?.message ?: "회원가입에 실패하였습니다. 다시 시도해주세요. 비밀번호는 6자 이상이어야 합니다."
                     Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
@@ -146,8 +142,8 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
     }
-    private fun addUserToFirestore(nickname: String, useremail: String, password: String, userType: String, userGender: String, userbirth: String, uId: String){
-        val user = User(useremail, nickname,  password, userType, userGender,userbirth, uId)
+    private fun addUserToFirestore( useremail: String, UserName: String, password: String, userType: String, userGender: String, userbirth: String, uId: String){
+        val user = User(useremail, UserName, password, userType, userGender,userbirth, uId)
         val collection = if(userType == "admin") "user_admin" else "user_customer"
         db.collection(collection).document(useremail).set(user)
             .addOnSuccessListener {

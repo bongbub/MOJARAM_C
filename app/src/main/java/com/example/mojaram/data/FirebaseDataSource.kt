@@ -74,22 +74,6 @@ class FirebaseDataSource @Inject constructor(
         )
     }
 
-    fun getUserNickName(userEmail: String): Flow<String> = flow {
-        Log.d("FirebaseDataSource", "Fetching nickname for email: $userEmail")
-        val userDocument = firestore.collection(COLLECTION_USER_CUSTOMER)
-            .whereEqualTo(DOCUMENT_EMAIL, userEmail)
-            .get()
-            .await()
-        val nickname = if (userDocument.documents.isNotEmpty()) {
-            val firstDocument = userDocument.documents[0]
-            firstDocument.getString(FIELD_NICKNAME) ?: ""
-        } else {
-            ""
-        }
-
-        Log.d("FirebaseDataSource", "Fetched nickname: $nickname")
-        emit(nickname)
-    }
 
 
     fun getReservations(shopId: Long, date: String): Flow<List<String>> = flow{
@@ -108,13 +92,55 @@ class FirebaseDataSource @Inject constructor(
             }
     }
 
+    fun getUserNickName(userEmail: String): Flow<String> = flow {
+        Log.d("FirebaseDataSource", "Fetching nickname for email: $userEmail")
+        val userDocument = firestore.collection(COLLECTION_USER_CUSTOMER)
+            .whereEqualTo(DOCUMENT_EMAIL, userEmail)
+            .get()
+            .await()
+        val nickname = if (userDocument.documents.isNotEmpty()) {
+            val firstDocument = userDocument.documents[0]
+            firstDocument.getString(FIELD_NICKNAME) ?: ""
+        } else {
+            ""
+        }
+        emit(nickname)
+    }
+
     fun postReservation(reservation: ReservationModel, onCompleteListener: (Boolean) -> Unit) {
         firestore.collection(COLLECTION_RESERVATION)
             .add(reservation)
-            .addOnCompleteListener {
-                onCompleteListener(it.isSuccessful)
+            .addOnSuccessListener { documentReference ->
+                onCompleteListener(true)
+                Log.d("Firestore", "Reservation added with ID: ${documentReference.id}")
+
+                // 저장된 데이터를 다시 가져와서 로그로 출력
+                documentReference.get().addOnSuccessListener { documentSnapshot ->
+                    if (documentSnapshot.exists()) {
+                        val savedReservation = documentSnapshot.toObject(ReservationModel::class.java)
+                        Log.d("Firestore", "Saved reservation: $savedReservation")
+                        Log.d("Firestore", "User Nickname: ${savedReservation?.userNickName}")
+                    } else {
+                        Log.d("Firestore", "No such document")
+                    }
+                }.addOnFailureListener { e ->
+                    Log.w("Firestore", "Error getting document", e)
+                }
+            }
+            .addOnFailureListener { e ->
+                onCompleteListener(false)
+                Log.w("Firestore", "Error adding reservation", e)
             }
     }
+    // 해보고 복구할 것
+//    fun postReservation(reservation: ReservationModel, onCompleteListener: (Boolean) -> Unit) {
+//        firestore.collection(COLLECTION_RESERVATION)
+//            .add(reservation)
+//            .addOnCompleteListener {
+//                onCompleteListener(it.isSuccessful)
+//                Log.d("Firestore", "Reservation added with ID: ${documentReference.id}")
+//            }
+//    }
 
     fun postImage(imageUri: Uri): Flow<String> = flow {
         kotlin.runCatching {
@@ -165,7 +191,7 @@ class FirebaseDataSource @Inject constructor(
         private const val SHOP_KEYWORD = "shop_keyword"
         private const val SHOP_TIME = "shop_time"
 
-        private const val COLLECTION_RESERVATION = "reservatoin"
+        private const val COLLECTION_RESERVATION = "reservation"
         private const val SHOP_ID_RESERVATION = "shopId"
         private const val USER_ID = "userId"
         private const val DATE = "date"

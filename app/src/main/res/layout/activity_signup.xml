@@ -101,6 +101,7 @@
                     android:backgroundTint="#FF000000"
                     android:ems="18"
                     android:layout_gravity="bottom"
+                    android:maxLength="6"
                     android:hint="19960507"
                     android:inputType="date"
                     android:textColor="#FF000000"

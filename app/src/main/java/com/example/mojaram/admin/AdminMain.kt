@@ -56,7 +56,7 @@ class AdminMain : AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
         Log.d("AdminMain", "Firestore instance initialized")
 
-        firestore.collection("reservatoin")
+        firestore.collection("reservation")
             .addSnapshotListener { value, error ->
                 if (error != null) {
                     Log.e("Firebase Error", error.message.toString())
