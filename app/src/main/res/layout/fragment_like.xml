@@ -26,11 +26,13 @@
                 android:layout_marginEnd="224dp"
                 android:layout_marginBottom="18dp"
                 android:paddingLeft="40dp"
-                android:paddingTop="50dp"
+                android:paddingTop="30dp"
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:textStyle="bold"
                 android:text="나의 찜 목록"
+                android:textColor="@color/black"
+                android:fontFamily="@font/spoqa_han_sans_neo_bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +42,7 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/likeTablyout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="7dp"
             android:backgroundTint="@color/gray"
@@ -50,17 +52,21 @@
             app:tabTextAppearance="@style/tab_text"
             tools:ignore="MissingConstraints">
 
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="찜한 매장" />
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/likeshop" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/likehair" />
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="찜한 스타일" />
             </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="400dp" />
 
     </LinearLayout>
 

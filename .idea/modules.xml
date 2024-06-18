@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mojaram.iml" filepath="$PROJECT_DIR$/.idea/modules/mojaram.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mojaram.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mojaram.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mojaram.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mojaram.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mojaram.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mojaram.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mojaram.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mojaram.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>

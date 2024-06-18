@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".LogInActivity">
 
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -22,7 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.205" />
-
 
     <EditText
         android:id="@+id/editTextTextPassword"

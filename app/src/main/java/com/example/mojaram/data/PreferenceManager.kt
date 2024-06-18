@@ -8,8 +8,8 @@ class PreferenceManager @Inject constructor(
 ) {
     val editor = sharedPreferences.edit();
 
-    fun saveUserName(name: String) {
-        editor.putString("USER_NAME", name).apply()
+    fun saveUserName(UserName: String) {
+        editor.putString("USER_NAME", UserName).apply()
     }
 
     fun saveUserId(id: String) {
@@ -17,7 +17,7 @@ class PreferenceManager @Inject constructor(
     }
 
     fun getUserName(): String {
-       return sharedPreferences.getString("USER_NAME", "") ?: ""
+        return sharedPreferences.getString("USER_NAME", "") ?: ""
     }
 
     fun getUserId(): String {

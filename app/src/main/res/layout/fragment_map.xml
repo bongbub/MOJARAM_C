@@ -67,10 +67,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="15dp"
+            android:layout_marginBottom="19dp"
             android:fontFamily="@font/spoqa_han_sans_neo_regular"
             android:textColor="@color/black"
             android:textSize="12dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textview_salon_address"
             app:layout_constraintStart_toStartOf="@id/textview_salon_name"
             app:layout_constraintTop_toBottomOf="@id/textview_salon_name"
             tools:text="#가발  #맞춤가발  #부분가발" />
