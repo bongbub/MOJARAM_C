@@ -156,6 +156,7 @@ data class ChatResponse(val choices: List<Choice>)
 data class Choice(val message: Message)
 
 interface OpenAiApi {
+    @Headers("Authorization: Bearer sk-proj-wUKaJWBHBkykIvLShWbWT3BlbkFJQ8e4nveKyLJ1XeVr3PbL")
     @POST("v1/chat/completions")
     suspend fun chatCompletion(@Body request: ChatRequest): ChatResponse
 }
