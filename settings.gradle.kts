@@ -17,4 +17,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "mojaram"
 include(":app")
- 
