@@ -3,4 +3,32 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="logo">#CBFE33</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="gray">#FFF0F0F0</color>
+    <color name="littlegray">#FFDCDCDC</color>
+    <color name="moredarkgray">#FFBCBCBC</color>
+    <color name="doubledarkgray">#FF696969</color>
+    <color name="slategray">#708090</color>
+    <color name="maincolor">#A8E8AE</color>
+    <color name="signupexampletext">#B0D6B8</color>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorRateMovie">#ffb300</color>
+    <color name="yellow_fa">#FAF0BA</color>
+    <color name="colorVoteCount">#ff4081</color>
+    <color name="green_a8e">#A8E8AE</color>
+    <color name="red">#fd7683</color>
+    <color name="alpha10_black">#1A000000</color>
+    <color name="alpha20_black">#33000000</color>
+    <color name="background_color">#f8f8f8</color>
+    <color name="black_gray3">#c4c4c4</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="alpha80_black">#CC000000</color>
+
 </resources>

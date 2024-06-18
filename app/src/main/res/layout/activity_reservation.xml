@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <androidx.core.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/background_color"
+        tools:context=".reservation.ReservationActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageview_back"
+                android:layout_width="31dp"
+                android:layout_height="31dp"
+                android:padding="3dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_back_black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textview_salon_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="살롱드라피네 양재역점"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:fontFamily="@font/spoqa_han_sans_neo_medium"
+                android:layout_marginVertical="15dp"
+                android:layout_gravity="center"
+                app:layout_constraintTop_toTopOf="@id/imageview_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/imageview_back"/>
+
+            <TextView
+                android:id="@+id/textview_select_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="예약일 선택"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:fontFamily="@font/spoqa_han_sans_neo_bold"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toBottomOf="@id/textview_salon_name"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_calendar"
+                android:layout_width="0dp"
+                app:cardCornerRadius="10dp"
+                android:clipToOutline="true"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintTop_toBottomOf="@id/textview_select_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <CalendarView
+                    android:id="@+id/calendar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:theme="@style/Widget.CalendarView.Custom" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/textview_select_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시간 선택"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:fontFamily="@font/spoqa_han_sans_neo_bold"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toBottomOf="@id/cardview_calendar"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_timetables"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="16dp"
+                app:cardCornerRadius="10dp"
+                android:clipToOutline="true"
+                app:layout_constraintTop_toBottomOf="@id/textview_select_time"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <GridLayout
+                    android:id="@+id/gridlayout_time_tables"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="20dp"
+                    android:rowCount="3"
+                    android:columnCount="5"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/textview_select_time"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                </GridLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/textviewReservation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="예약하기"
+                android:fontFamily="@font/spoqa_han_sans_neo_medium"
+                android:textSize="16dp"
+                android:textColor="@color/white"
+                android:background="@drawable/rectangle_green_5dp"
+                android:elevation="5dp"
+                android:paddingVertical="15dp"
+                android:gravity="center"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintTop_toBottomOf="@id/cardview_timetables"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

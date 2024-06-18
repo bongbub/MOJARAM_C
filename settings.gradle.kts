@@ -10,9 +10,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
+        maven("https://naver.jfrog.io/artifactory/maven/")
     }
 }
 
 rootProject.name = "mojaram"
 include(":app")
- 

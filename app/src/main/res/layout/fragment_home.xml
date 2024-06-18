@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".home.HomeFragment"
+        android:background="@color/background_color">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_color"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/home_search_bar_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="25dp"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="12dp"
+                    android:background="@drawable/rectangle_white_10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/imageview_filter">
+
+                    <ImageView
+                        android:id="@+id/imageview_ic_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_search"/>
+
+                    <EditText
+                        android:id="@+id/eidttext_search_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spoqa_han_sans_neo_medium"
+                        android:hint="검색"
+                        android:textSize="18dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@null"/>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageview_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/ic_filter"
+                    app:layout_constraintTop_toTopOf="@id/home_search_bar_layout"
+                    app:layout_constraintStart_toEndOf="@id/home_search_bar_layout"
+                    app:layout_constraintBottom_toBottomOf="@id/home_search_bar_layout"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/textview_salon_recommendation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/salon_recommendation"
+                    android:fontFamily="@font/spoqa_han_sans_neo_bold"
+                    android:textSize="20dp"
+                    android:layout_marginTop="35dp"
+                    app:layout_constraintTop_toBottomOf="@id/home_search_bar_layout"
+                    app:layout_constraintStart_toStartOf="@id/home_search_bar_layout"/>
+
+                <TextView
+                    android:id="@+id/show_all_salons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_all_salons"
+                    android:fontFamily="@font/spoqa_han_sans_neo_regular"
+                    android:textSize="12dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintTop_toTopOf="@id/textview_salon_recommendation"
+                    app:layout_constraintBottom_toBottomOf="@id/textview_salon_recommendation"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview_salons"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@id/textview_salon_recommendation"
+                    app:layout_constraintTop_toBottomOf="@id/textview_salon_recommendation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:listitem="@layout/item_salon_recommendation"/>
+
+                <TextView
+                    android:id="@+id/textview_ai_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/do_ai_camera"
+                    android:fontFamily="@font/spoqa_han_sans_neo_bold"
+                    android:textSize="20dp"
+                    android:layout_marginTop="35dp"
+                    app:layout_constraintTop_toBottomOf="@id/recyclerview_salons"
+                    app:layout_constraintStart_toStartOf="@id/home_search_bar_layout"/>
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageview_ai_camera"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:shapeAppearance="@style/radius_5"
+                    android:src="@drawable/ai_thumbnail"
+                    app:layout_constraintDimensionRatio="1:1"
+                    android:layout_marginHorizontal="16dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintTop_toBottomOf="@id/textview_ai_camera"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/textview_take_picture"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/take_picture"
+                    android:fontFamily="@font/spoqa_han_sans_neo_medium"
+                    android:textSize="14dp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="15dp"
+                    android:textAlignment="center"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/rectangle_green_10dp"
+                    android:paddingVertical="15dp"
+                    app:layout_constraintTop_toBottomOf="@id/imageview_ai_camera"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/textview_select_picture"/>
+
+                <TextView
+                    android:id="@+id/textview_select_picture"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_picture"
+                    android:fontFamily="@font/spoqa_han_sans_neo_medium"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"
+                    android:background="@drawable/rectangle_green_10dp"
+                    android:textAlignment="center"
+                    android:layout_marginStart="16dp"
+                    android:paddingVertical="15dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintTop_toTopOf="@id/textview_take_picture"
+                    app:layout_constraintBottom_toBottomOf="@id/textview_take_picture"
+                    app:layout_constraintStart_toEndOf="@id/textview_take_picture"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/textview_community"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/community"
+                    android:fontFamily="@font/spoqa_han_sans_neo_bold"
+                    android:textSize="20dp"
+                    android:layout_marginTop="35dp"
+                    app:layout_constraintTop_toBottomOf="@id/textview_take_picture"
+                    app:layout_constraintStart_toStartOf="@id/textview_take_picture"/>
+
+                <TextView
+                    android:id="@+id/show_all_community"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_all_salons"
+                    android:fontFamily="@font/spoqa_han_sans_neo_regular"
+                    android:textSize="12dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintTop_toTopOf="@id/textview_community"
+                    app:layout_constraintBottom_toBottomOf="@id/textview_community"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/empty_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="아직 진행중인 이벤트가 없어요!"
+                    android:fontFamily="@font/spoqa_han_sans_neo_medium"
+                    android:textSize="20dp"
+                    android:layout_marginTop="35dp"
+                    android:textColor="@color/black_gray3"
+                    app:layout_constraintTop_toBottomOf="@id/textview_community"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="50dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/alpha20_black">
+
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:indeterminateTint="@color/green_a8e"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintBottom_toTopOf="@id/textview_in_progress"/>
+
+            <TextView
+                android:id="@+id/textview_in_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/on_image_uploading"
+                android:textColor="@color/white"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/spoqa_han_sans_neo_medium"
+                android:textSize="18dp"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/progressbar"
+                app:layout_constraintStart_toStartOf="@id/progressbar"
+                app:layout_constraintEnd_toEndOf="@id/progressbar"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>

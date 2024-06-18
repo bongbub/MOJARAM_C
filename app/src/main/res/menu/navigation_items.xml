@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/homeFragment"
+        android:title="@string/home"
+        android:icon="@drawable/home_selector"/>
+
+    <item android:id="@+id/mapFragment"
+        android:title="@string/location"
+        android:icon="@drawable/location_selector"/>
+
+    <item android:id="@+id/hairFragment"
+        android:title="@string/stylebook"
+        android:icon="@drawable/book_selector"/>
+
+    <item android:id="@+id/likeFragment"
+        android:title="@string/reservation"
+        android:icon="@drawable/reservation_selector"/>
+
+    <item android:id="@+id/myPageFragment"
+        android:title="@string/me"
+        android:icon="@drawable/me_selector"/>
+
+</menu>

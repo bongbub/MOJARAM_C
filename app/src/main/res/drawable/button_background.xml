@@ -1,4 +1,8 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
 
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-<corners android:radius="10dp"/>  <!-- 버튼의 모서리를 둥글게 만듭니다 -->
+    <solid android:color="#FFFFFF" />
+
+    <corners android:radius="8dp" />
+
 </shape>

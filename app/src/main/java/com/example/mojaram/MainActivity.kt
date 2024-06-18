@@ -1,92 +1,162 @@
 package com.example.mojaram
 
-import android.content.Intent
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
-import android.util.Log
+import android.view.MotionEvent
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mojaram.ui.login.SignUpActivity
-// FirebaseAuth 사용하기 위해 import
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mojaram.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
+import retrofit2.http.Headers
+import retrofit2.http.POST
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-
-    // Firebase Auth 인증 서비스 객체 생성
-    private lateinit var mAhth: FirebaseAuth
-
-    private lateinit var id: EditText
-    private lateinit var pwd: EditText
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
+    private lateinit var openAiApi: OpenAiApi
+    private lateinit var chatAdapter: ChatAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.Mojaram)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        id = findViewById(R.id.id)
-        pwd = findViewById(R.id.editTextTextPassword)
-        val btnM: Button = findViewById(R.id.btn_m)
-        val btnS: Button = findViewById(R.id.btn_s)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView2) as NavHostFragment
+        navController = navHostFragment.navController
 
-        // Firebase Auth 인증 객체 초기화
-        mAhth = Firebase.auth
+        val btnNav: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        btnNav.setupWithNavController(navController)
 
+        // Initialize Retrofit for OpenAI API
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://api.openai.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        openAiApi = retrofit.create(OpenAiApi::class.java)
 
-        btnM.setOnClickListener {
+        setupChatRecyclerView()
+        setupFloatingActionButton()
 
-            // text로 변환
-            var emailID = id.text.toString()
-            var passwd = pwd.text.toString()
-
-            //val intent = Intent(this, com.example.mojaram.LoginActivity::class.java)
-            //startActivity(intent)
-
-            // firebase Register
-            login(emailID, passwd)
-        }
-
-        btnS.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
+        binding.sendButton.setOnClickListener {
+            val userMessage = binding.chatEditText.text.toString()
+            if (checkInternetConnection(this)) {
+                sendMessageToChatbot(userMessage)
+                binding.chatEditText.text.clear() // 메시지 전송 후 EditText 비우기
+            } else {
+                showError("인터넷 연결 안됨")
+            }
         }
     }
 
-    // firebase login
-    fun login(emailID: String, pwd:String){
+    private fun setupChatRecyclerView() {
+        chatAdapter = ChatAdapter()
+        binding.chatRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.chatRecyclerView.adapter = chatAdapter
+    }
 
-        mAhth.signInWithEmailAndPassword(emailID, pwd)
-            .addOnCompleteListener(this) { task->
-                if(task.isSuccessful){
-                    // 로그인이 성공했을 때
-                    val intent: Intent = Intent(this@MainActivity,
-                        LoginActivity::class.java) // LoginActivity(로그인화면)으로 이동
-                    startActivity(intent) // 실행
+    private fun setupFloatingActionButton() {
+        val floatingActionButton = binding.floatingActionButton
+        floatingActionButton.setOnTouchListener(object : View.OnTouchListener {
+            var dX: Float = 0.0f
+            var dY: Float = 0.0f
+            var lastAction: Int = 0
 
-                    Toast.makeText(this,"성공적으로 로그인 하였습니다.",
-                        Toast.LENGTH_SHORT).show()
-                    finish() // 성공 시 액티비티 파괴
-
-                }else{
-                    // 로그인에 실패했을 때
-                    Toast.makeText(this,"로그인에 실패하였습니다.",
-                        Toast.LENGTH_SHORT).show()
-                    Log.d("Login Error", "Error: {${task.exception}")
+            override fun onTouch(view: View, event: MotionEvent): Boolean {
+                when (event.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        dX = view.x - event.rawX
+                        dY = view.y - event.rawY
+                        lastAction = event.action
+                        return true
+                    }
+                    MotionEvent.ACTION_MOVE -> {
+                        view.y = event.rawY + dY
+                        view.x = event.rawX + dX
+                        lastAction = event.action
+                        return true
+                    }
+                    MotionEvent.ACTION_UP -> {
+                        if (lastAction == MotionEvent.ACTION_DOWN) {
+                            toggleChatBox()
+                        }
+                        return true
+                    }
+                    else -> return false
                 }
             }
-    }
-    fun onFindIdClick(view: View?) {
-        val intent = Intent(this, Findid::class.java)
-        startActivity(intent)
+        })
     }
 
-    fun onFindPwdClick(view: View?) {
-        val intent = Intent(this, Findqw::class.java)
-        startActivity(intent)
+    private fun toggleChatBox() {
+        val chatBox = binding.chatBox
+        if (chatBox.visibility == View.GONE) {
+            chatBox.visibility = View.VISIBLE
+        } else {
+            chatBox.visibility = View.GONE
+        }
     }
+
+    private fun sendMessageToChatbot(message: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                chatAdapter.addMessage(Message("user", message)) // 사용자 메시지 추가
+                withContext(Dispatchers.Main) {
+                    chatAdapter.showTypingIndicator() // 작성중 표시 추가
+                }
+
+                val request = ChatRequest(
+                    model = "gpt-4-turbo",
+                    messages = listOf(Message("user", message))
+                )
+                val response = openAiApi.chatCompletion(request)
+                val reply = response.choices.firstOrNull()?.message?.content ?: "No response"
+
+                withContext(Dispatchers.Main) {
+                    chatAdapter.removeTypingIndicator() // 작성중 표시 제거
+                    chatAdapter.addMessage(Message("bot", reply)) // 챗봇 메시지 추가
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    showError("챗봇 응답 실패")
+                }
+            }
+        }
+    }
+
+    private fun showError(message: String) {
+        android.widget.Toast.makeText(this, message, android.widget.Toast.LENGTH_SHORT).show()
+    }
+
+    private fun checkInternetConnection(context: Context): Boolean {
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    }
+}
+
+data class ChatRequest(val model: String, val messages: List<Message>)
+data class Message(val role: String, val content: String)
+data class ChatResponse(val choices: List<Choice>)
+data class Choice(val message: Message)
+
+interface OpenAiApi {
+    @Headers("Authorization: Bearer sk-proj-wUKaJWBHBkykIvLShWbWT3BlbkFJQ8e4nveKyLJ1XeVr3PbL")
+    @POST("v1/chat/completions")
+    suspend fun chatCompletion(@Body request: ChatRequest): ChatResponse
 }
