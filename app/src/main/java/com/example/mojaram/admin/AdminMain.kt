@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.EventLog
 import android.util.Log
+import android.widget.Button
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.mojaram.LogInActivity
 import com.example.mojaram.R
 import com.example.mojaram.databinding.ActivityAdminMainBinding
 import com.example.mojaram.databinding.FragmentHairBinding
@@ -17,6 +20,7 @@ import com.example.mojaram.map.AdminModel
 import com.example.mojaram.model.Reservation
 import com.example.mojaram.utils.collectWhenStarted
 import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
@@ -32,6 +36,11 @@ class AdminMain : AppCompatActivity() {
     private lateinit var adminAdapter: AdminAdapter
     private lateinit var reservationList: ArrayList<Reservation>
     private lateinit var firestore: FirebaseFirestore
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+
+    // 로그아웃
+    private lateinit var fb: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +58,24 @@ class AdminMain : AppCompatActivity() {
         recyclerView.adapter = adminAdapter
 
         firestore = FirebaseFirestore.getInstance()
+
+        // 로그아웃
+        fb = FirebaseAuth.getInstance()
+        binding.adminLogoutBtn.setOnClickListener {
+            fb.signOut()
+            val intent = Intent(this, LogInActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            Log.d("AdminMain", "User logged out")
+        }
+
+
+        // 당겨서 새로고침을 위한 swiperefreshLayout 초기화 및 리스너 생성하기
+        swipeRefreshLayout = binding.refreshLayout
+        swipeRefreshLayout.setOnRefreshListener {
+            refreshData()
+        }
+
         EventChangeListener()
     }
 
@@ -56,7 +83,7 @@ class AdminMain : AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
         Log.d("AdminMain", "Firestore instance initialized")
 
-        firestore.collection("reservatoin")
+        firestore.collection("reservation")
             .addSnapshotListener { value, error ->
                 if (error != null) {
                     Log.e("Firebase Error", error.message.toString())
@@ -89,7 +116,13 @@ class AdminMain : AppCompatActivity() {
                 }
 
                 adminAdapter.notifyDataSetChanged()
+                // 당겨서 새로고침 리스너
+                swipeRefreshLayout.isRefreshing = false
             }
+    }
+    private fun refreshData(){
+        // 당겨서 새로고침 -> 데이터 갱신
+        EventChangeListener()
     }
 
 

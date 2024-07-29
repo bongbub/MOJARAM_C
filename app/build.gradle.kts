@@ -110,4 +110,7 @@ dependencies {
 
     implementation("com.google.dagger:hilt-android:2.48")
     ksp("com.google.dagger:hilt-android-compiler:2.48")
+
+    // 당겨서 새로고침 2024.07.29
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }

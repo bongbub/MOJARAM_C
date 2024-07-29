@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:1.7.3">
+  <library name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:1.7.3" external-system-id="GRADLE">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-test-jvm/1.7.3/89e34400f452dab68fbb3caa66d854c89aaafa07/kotlinx-coroutines-test-jvm-1.7.3.jar!/" />
     </CLASSES>
