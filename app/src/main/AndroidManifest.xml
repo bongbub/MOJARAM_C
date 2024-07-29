@@ -21,6 +21,9 @@
         android:theme="@style/Theme.Mojaram"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".admin.AdminSignUp"
+            android:exported="false" />
+        <activity
             android:name=".ai.AiOutputActivity"
             android:exported="false" />
         <activity
