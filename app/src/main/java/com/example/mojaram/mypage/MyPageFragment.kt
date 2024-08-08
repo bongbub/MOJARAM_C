@@ -34,7 +34,6 @@ class MyPageFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navToProfileSetting()
-        navToAdminSignUp()  // 관리자 회원으로 전환하기 누르면 넘어가는 함수 2024/7/29
         
         // 유저 정보 로드
         loadUserInfo()
@@ -46,12 +45,6 @@ class MyPageFragment: Fragment() {
         }
     }
 
-    // 관리자 회원으로 전환하는 함수
-    private fun navToAdminSignUp(){
-        binding.imageviewSugAdmin.setOnClickListener{
-            startActivity(Intent(requireContext(), AdminSignUp::class.java))
-        }
-    }
 
     // 유저 정보 로드하는 함수 선언
     private fun loadUserInfo() {

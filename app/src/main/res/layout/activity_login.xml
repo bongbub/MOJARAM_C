@@ -107,6 +107,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_my1" />
 
+    <Button
+        android:id="@+id/btn_admin"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/button_background"
+        android:gravity="center"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="관리자 회원가입"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:backgroundTint="#A8E8AE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_s" />
+
 
 
     <TextView
@@ -123,7 +144,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/btn_s" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_admin" />
 
     <TextView
         android:id="@+id/findid"
@@ -139,7 +160,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_s" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_admin" />
 
     <TextView
         android:id="@+id/textView5"
@@ -153,7 +174,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/findqw"
         app:layout_constraintStart_toEndOf="@+id/findid"
-        app:layout_constraintTop_toBottomOf="@+id/btn_s" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_admin" />
 
     <CheckBox
         android:id="@+id/checkBox"

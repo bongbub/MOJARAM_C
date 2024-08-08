@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mojaram.admin.AdminMain
+import com.example.mojaram.admin.AdminSignUp
 import com.example.mojaram.data.PreferenceManager
 import com.example.mojaram.ui.login.SignUpActivity
 import com.example.mojaram.utils.showToast
@@ -47,10 +48,11 @@ class LogInActivity : AppCompatActivity() {
 
         id = findViewById(R.id.id)
         pwd = findViewById(R.id.editTextTextPassword)
-        val btnM: Button = findViewById(R.id.btn_my1)
-        val btnS: Button = findViewById(R.id.btn_s)
+        val btnM: Button = findViewById(R.id.btn_my1)  // 로그인 버튼
+        val btnS: Button = findViewById(R.id.btn_s)    // 회원가입 버튼
         // activity_login.xml 파일에 있는 checkbox
         val check_Box: CheckBox = findViewById(R.id.checkBox)
+        val btnAdmin : Button = findViewById(R.id.btn_admin)   // 관리자 회원가입 버튼
 
 
         // SharedPreferences를 사용해서 로그인 상태 저장하기
@@ -95,6 +97,12 @@ class LogInActivity : AppCompatActivity() {
 
         btnS.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+        
+        // 관리자 회원가입 페이지로 이동
+        btnAdmin.setOnClickListener{
+            val intent = Intent(this, AdminSignUp::class.java)
             startActivity(intent)
         }
     }
