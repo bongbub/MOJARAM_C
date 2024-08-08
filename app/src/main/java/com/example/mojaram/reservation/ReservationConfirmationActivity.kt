@@ -6,6 +6,8 @@ import com.example.mojaram.databinding.ActivityReservationConfirmationBinding
 
 class ReservationConfirmationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReservationConfirmationBinding
+    
+    // 예약된 시간과 날짜를 표시하는 클래스
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
