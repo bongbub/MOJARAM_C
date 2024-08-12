@@ -146,7 +146,7 @@ class FirebaseDataSource @Inject constructor(
         private const val SHOP_KEYWORD = "shop_keyword"
         private const val SHOP_TIME = "shop_time"
 
-        private const val COLLECTION_RESERVATION = "reservatoin"
+        private const val COLLECTION_RESERVATION = "reservation"
         private const val SHOP_ID_RESERVATION = "shopId"
         private const val USER_ID = "userId"
         private const val DATE = "date"
