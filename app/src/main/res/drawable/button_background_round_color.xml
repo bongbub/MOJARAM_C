@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#FF018786" />
+    <corners android:radius="8dp" />
+    <stroke android:width="2dp"
+        android:color="@color/littlegray"/>
+    <padding
+        android:bottom="8dp"
+        android:left="8dp"
+        android:right="8dp"
+        android:top="8dp" />
+    <item>
+        <shape android:shape="rectangle">
+            <!-- 투명한 검정색 그림자 효과 -->
+            <solid android:color="#33000000" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+
+</shape>

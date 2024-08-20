@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.compose.ui:ui-geometry:1.4.0@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-4/40cdbc9ec18a56b2ca47b94657d334a6/transformed/jetified-ui-geometry-1.4.0/res" />
-      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-4/40cdbc9ec18a56b2ca47b94657d334a6/transformed/jetified-ui-geometry-1.4.0/AndroidManifest.xml" />
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-4/40cdbc9ec18a56b2ca47b94657d334a6/transformed/jetified-ui-geometry-1.4.0/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/fb37115de48a3a123b6f2025f46a082a/transformed/jetified-ui-geometry-1.4.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/fb37115de48a3a123b6f2025f46a082a/transformed/jetified-ui-geometry-1.4.0/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/fb37115de48a3a123b6f2025f46a082a/transformed/jetified-ui-geometry-1.4.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/androidx.compose.ui/ui-geometry/1.4.0/3fdbff3752b1decc89dad77535c364bf9d994fda/ui-geometry-1.4.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/modules-2/files-2.1/androidx.compose.ui/ui-geometry/1.4.0/3fdbff3752b1decc89dad77535c364bf9d994fda/ui-geometry-1.4.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

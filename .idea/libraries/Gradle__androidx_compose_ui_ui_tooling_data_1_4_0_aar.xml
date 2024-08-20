@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.compose.ui:ui-tooling-data:1.4.0@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-4/c6c49cbee8edd9f86bfb20b0d5cae152/transformed/jetified-ui-tooling-data-1.4.0/AndroidManifest.xml" />
-      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-4/c6c49cbee8edd9f86bfb20b0d5cae152/transformed/jetified-ui-tooling-data-1.4.0/res" />
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-4/c6c49cbee8edd9f86bfb20b0d5cae152/transformed/jetified-ui-tooling-data-1.4.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/6e3455232cef642da9817247aab927bc/transformed/jetified-ui-tooling-data-1.4.0/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/6e3455232cef642da9817247aab927bc/transformed/jetified-ui-tooling-data-1.4.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/6e3455232cef642da9817247aab927bc/transformed/jetified-ui-tooling-data-1.4.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/androidx.compose.ui/ui-tooling-data/1.4.0/1e7f6dea55635809a6e45355e4b1bc5a373deaf9/ui-tooling-data-1.4.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/modules-2/files-2.1/androidx.compose.ui/ui-tooling-data/1.4.0/1e7f6dea55635809a6e45355e4b1bc5a373deaf9/ui-tooling-data-1.4.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

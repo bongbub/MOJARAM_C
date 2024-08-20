@@ -1,6 +1,10 @@
 package com.example.mojaram.admin
 
 import android.os.Bundle
+import android.telephony.PhoneNumberFormattingTextWatcher
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +43,45 @@ class AdminSignUp : AppCompatActivity() {
             }else{
                 Toast.makeText(this,"모든 필드를 입력하세요.", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        // 전화번호 형식 추가
+        binding.editTextShopNum.addTextChangedListener(object : TextWatcher {
+            private var isFormatting: Boolean = false
+            private var prevText: String = ""
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // 저장된 이전 텍스트를 사용해 변화 감지
+                prevText = s.toString()
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // 변환 중 상태를 확인
+                if (isFormatting) return
+            }
+            override fun afterTextChanged(s: Editable?) {
+                if (isFormatting) return
+
+                isFormatting = true
+
+                // 기존 입력 텍스트하이픈 제거
+                val currentText = s.toString().replace("-", "")
+                // 입력된 텍스트 길이 파악 후 하이픈 추가
+                val formattedText = when {
+                    currentText.length > 7 -> "${currentText.substring(0, 3)}-${currentText.substring(3, 7)}-${currentText.substring(7)}"
+                    currentText.length > 3 -> "${currentText.substring(0, 3)}-${currentText.substring(3)}"
+                    else -> currentText
+                }
+                // 업데이트 시 이미 있는 텍스트의 커서 위치 조정
+                if (formattedText != prevText) {
+                    binding.editTextShopNum.setText(formattedText)
+                    binding.editTextShopNum.setSelection(formattedText.length)
+                }
+
+                isFormatting = false
+            }
+        })
+
+        binding.pricePlusbtn.setOnClickListener{
 
         }
     }
