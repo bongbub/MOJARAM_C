@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.compose.foundation:foundation:1.4.0@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/671262116fa2e79644c91c7689c8c582/transformed/jetified-foundation-1.4.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/671262116fa2e79644c91c7689c8c582/transformed/jetified-foundation-1.4.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/671262116fa2e79644c91c7689c8c582/transformed/jetified-foundation-1.4.0/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-4/fa4363b05b9af17e63ce9dcf2a9217ae/transformed/jetified-foundation-1.4.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-4/fa4363b05b9af17e63ce9dcf2a9217ae/transformed/jetified-foundation-1.4.0/res" />
+      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-4/fa4363b05b9af17e63ce9dcf2a9217ae/transformed/jetified-foundation-1.4.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.compose.foundation/foundation/1.4.0/18cc034c189d056093a41d90a274a4091a9b103c/foundation-1.4.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/androidx.compose.foundation/foundation/1.4.0/18cc034c189d056093a41d90a274a4091a9b103c/foundation-1.4.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

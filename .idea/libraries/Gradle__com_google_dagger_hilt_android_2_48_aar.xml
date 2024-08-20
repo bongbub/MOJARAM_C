@@ -1,14 +1,14 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.dagger:hilt-android:2.48@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/a1ce0c4b33296b7d4a53b2f37ce9de50/transformed/jetified-hilt-android-2.48/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a1ce0c4b33296b7d4a53b2f37ce9de50/transformed/jetified-hilt-android-2.48/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-4/e230d96b48988ae88bd47b08c4d3e01f/transformed/jetified-hilt-android-2.48/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-4/e230d96b48988ae88bd47b08c4d3e01f/transformed/jetified-hilt-android-2.48/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.dagger/hilt-android/2.48/62ac9f40bed7d8e34cbc672be93ac3368b44b1c4/hilt-android-2.48-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.google.dagger/hilt-android/2.48/62ac9f40bed7d8e34cbc672be93ac3368b44b1c4/hilt-android-2.48-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.dagger/hilt-android/2.48/1e8b2e13a0fe8b4a35f0f02ba6472207e6979422/hilt-android-2.48-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.google.dagger/hilt-android/2.48/1e8b2e13a0fe8b4a35f0f02ba6472207e6979422/hilt-android-2.48-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
