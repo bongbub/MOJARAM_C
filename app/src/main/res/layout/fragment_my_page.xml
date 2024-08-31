@@ -133,8 +133,7 @@
                 android:layout_height="wrap_content"
                 layout="@layout/button_mypage"
                 app:buttonIcon="@{@drawable/ic_review}"
-                app:buttonName="@{`내가 쓴 리뷰`}"
-                />
+                app:buttonName="@{`내가 쓴 리뷰`}"/>
 
             <include
                 android:id="@+id/button_my_reservation"
@@ -143,13 +142,7 @@
                 layout="@layout/button_mypage"
                 app:buttonIcon="@{@drawable/ic_reservation_list}"
                 app:buttonName="@{`예약 상태 확인`}"/>
-            <include
-                android:id="@+id/button_chat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                layout="@layout/button_mypage"
-                app:buttonIcon="@{@drawable/chat}"
-                app:buttonName="@{`채팅 문의 내역`}"/>
+
             <include
                 android:id="@+id/button_cs_center"
                 android:layout_width="match_parent"

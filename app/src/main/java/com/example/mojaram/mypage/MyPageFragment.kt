@@ -2,12 +2,13 @@ package com.example.mojaram.mypage
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Nickname
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.mojaram.ReviewWriteActivity
+import com.example.mojaram.admin.AdminSignUp
 import com.example.mojaram.databinding.FragmentMyPageBinding
 import com.example.mojaram.utils.AutoClearedValue
 import com.google.firebase.Firebase
@@ -36,14 +37,6 @@ class MyPageFragment: Fragment() {
         
         // 유저 정보 로드
         loadUserInfo()
-        initview()
-    }
-    fun initview(){
-        binding.buttonMyReviews.mypageMenuLayout.setOnClickListener({v ->
-            Log.d("SSSS","리뷰작성으로가기")
-
-            startActivity(Intent(requireContext(),ReviewWriteActivity::class.java))
-        })
     }
 
     private fun navToProfileSetting() {
