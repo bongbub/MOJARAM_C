@@ -177,7 +177,7 @@
                 android:scaleType="centerCrop" />
 
             <EditText
-                android:layout_width="875dp"
+                android:layout_width="270dp"
                 android:layout_height="249.6dp"
                 android:layout_marginLeft="10.35dp"
                 android:layout_marginTop="8dp"
