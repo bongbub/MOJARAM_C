@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 layout="@layout/button_mypage"
                 app:buttonIcon="@{@drawable/ic_review}"
-                app:buttonName="@{`내가 쓴 리뷰`}"
+                app:buttonName="@{`나의 리뷰`}"
                 />
 
             <include

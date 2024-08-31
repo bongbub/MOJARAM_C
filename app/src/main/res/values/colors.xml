@@ -29,5 +29,5 @@
     <color name="black_gray3">#c4c4c4</color>
     <color name="transparent">#00ffffff</color>
     <color name="alpha80_black">#CC000000</color>
-
+    <color name="mojaram_base">#274C77</color>
 </resources>

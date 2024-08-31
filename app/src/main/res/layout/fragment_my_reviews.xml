@@ -68,7 +68,7 @@
             android:background="@drawable/drawable_shape_1"
             android:gravity="center"
             android:includeFontPadding="false"
-            android:text="사진 첨부하기\n(선택사할)"
+            android:text="사진 첨부하기\n(선택사항)"
             android:textColor="#FF464646"
             android:textSize="14.95dp"
             android:textStyle="bold" />
@@ -151,10 +151,11 @@
 
             <RatingBar
                 android:id="@+id/ratingBar"
-                android:isIndicator="true"
+                android:isIndicator="false"
                 android:numStars="5"
-                android:rating="2.875"
+                android:rating="2.5"
                 android:max="5"
+                android:stepSize="0.5"
                 android:progressTint="@android:color/holo_blue_dark"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
@@ -175,8 +176,8 @@
                 android:background="@drawable/drawable_shape_6"
                 android:scaleType="centerCrop" />
 
-            <TextView
-                android:layout_width="273.7dp"
+            <EditText
+                android:layout_width="875dp"
                 android:layout_height="249.6dp"
                 android:layout_marginLeft="10.35dp"
                 android:layout_marginTop="8dp"
@@ -185,6 +186,8 @@
                 android:gravity="left|top"
                 android:includeFontPadding="false"
                 android:lineHeight="18.4dp"
+                android:maxLength="1000"
+                android:privateImeOptions="defaultInputmode=korean"
                 android:text="고객님의 리뷰가 다른 고객들에게 \n도움이 될수 있어요!"
                 android:textColor="#FF787878"
                 android:textSize="12.7dp" />
