@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.compose.material3:material3:1.0.0@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/cc1b59081f261643d08f639427296bbf/transformed/jetified-material3-1.0.0/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/cc1b59081f261643d08f639427296bbf/transformed/jetified-material3-1.0.0/res" />
-      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/cc1b59081f261643d08f639427296bbf/transformed/jetified-material3-1.0.0/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/41bc7b7e09c26e404aa9acce05ab05e8/transformed/jetified-material3-1.0.0/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/41bc7b7e09c26e404aa9acce05ab05e8/transformed/jetified-material3-1.0.0/res" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/41bc7b7e09c26e404aa9acce05ab05e8/transformed/jetified-material3-1.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/modules-2/files-2.1/androidx.compose.material3/material3/1.0.0/5fbf543f63fc69bb6e463069547f306491daef2f/material3-1.0.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/androidx.compose.material3/material3/1.0.0/5fbf543f63fc69bb6e463069547f306491daef2f/material3-1.0.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

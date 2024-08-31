@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.lifecycle:lifecycle-process:2.7.0@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/4548e7509bc242c26a1717a8bf7923c0/transformed/jetified-lifecycle-process-2.7.0/res" />
-      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/4548e7509bc242c26a1717a8bf7923c0/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml" />
-      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/4548e7509bc242c26a1717a8bf7923c0/transformed/jetified-lifecycle-process-2.7.0/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/9ee3fce70f65f52de2401ba2bfb3f455/transformed/jetified-lifecycle-process-2.7.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/9ee3fce70f65f52de2401ba2bfb3f455/transformed/jetified-lifecycle-process-2.7.0/res" />
+      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/9ee3fce70f65f52de2401ba2bfb3f455/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-process/2.7.0/f04655899d8080b83b40bf80dfd149b2723fb945/lifecycle-process-2.7.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-process/2.7.0/f04655899d8080b83b40bf80dfd149b2723fb945/lifecycle-process-2.7.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

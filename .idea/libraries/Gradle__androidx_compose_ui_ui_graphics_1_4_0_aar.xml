@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.compose.ui:ui-graphics:1.4.0@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/9130565d87018b3caeb5abd1b4deebd1/transformed/jetified-ui-graphics-1.4.0/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/9130565d87018b3caeb5abd1b4deebd1/transformed/jetified-ui-graphics-1.4.0/res" />
-      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/9130565d87018b3caeb5abd1b4deebd1/transformed/jetified-ui-graphics-1.4.0/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/396a0cf6e3f525af138a3e63a54fe6dd/transformed/jetified-ui-graphics-1.4.0/res" />
+      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/396a0cf6e3f525af138a3e63a54fe6dd/transformed/jetified-ui-graphics-1.4.0/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/396a0cf6e3f525af138a3e63a54fe6dd/transformed/jetified-ui-graphics-1.4.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/modules-2/files-2.1/androidx.compose.ui/ui-graphics/1.4.0/fa9e2484614e049152740afee47f228801d6fbbf/ui-graphics-1.4.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/androidx.compose.ui/ui-graphics/1.4.0/fa9e2484614e049152740afee47f228801d6fbbf/ui-graphics-1.4.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

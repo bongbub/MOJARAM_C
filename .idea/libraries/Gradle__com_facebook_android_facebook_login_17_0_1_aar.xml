@@ -1,15 +1,15 @@
 <component name="libraryTable">
   <library name="Gradle: com.facebook.android:facebook-login:17.0.1@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/06aa32007068b7fd6c47fae184cbaea4/transformed/jetified-facebook-login-17.0.1/res" />
-      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/06aa32007068b7fd6c47fae184cbaea4/transformed/jetified-facebook-login-17.0.1/AndroidManifest.xml" />
-      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/06aa32007068b7fd6c47fae184cbaea4/transformed/jetified-facebook-login-17.0.1/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/001bf0668857d1bc6addb97c214652f9/transformed/jetified-facebook-login-17.0.1/res" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/001bf0668857d1bc6addb97c214652f9/transformed/jetified-facebook-login-17.0.1/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/001bf0668857d1bc6addb97c214652f9/transformed/jetified-facebook-login-17.0.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/modules-2/files-2.1/com.facebook.android/facebook-login/17.0.1/d8f472392462fd21573db0c32a30c26ac4c8d0a6/facebook-login-17.0.1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.facebook.android/facebook-login/17.0.1/d8f472392462fd21573db0c32a30c26ac4c8d0a6/facebook-login-17.0.1-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/modules-2/files-2.1/com.facebook.android/facebook-login/17.0.1/669ee920d13a149fc3509538fc7f4184134a9d2c/facebook-login-17.0.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.facebook.android/facebook-login/17.0.1/669ee920d13a149fc3509538fc7f4184134a9d2c/facebook-login-17.0.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
