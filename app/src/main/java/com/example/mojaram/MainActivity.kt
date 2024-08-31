@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(){
         val btn_nav: BottomNavigationView=findViewById(R.id.bottom_navigation)
 
         btn_nav.setupWithNavController(navController)
-        btn_nav.itemIconTintList = null
+
 
     }
 

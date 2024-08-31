@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="Gradle: com.naver.maps:map-sdk:3.16.2@aar" external-system-id="GRADLE">
+    <ANNOTATIONS>
+      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/168051f926ce85ad1f75d5e3960511d7/transformed/jetified-map-sdk-3.16.2/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/168051f926ce85ad1f75d5e3960511d7/transformed/jetified-map-sdk-3.16.2/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/168051f926ce85ad1f75d5e3960511d7/transformed/jetified-map-sdk-3.16.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/168051f926ce85ad1f75d5e3960511d7/transformed/jetified-map-sdk-3.16.2/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/modules-2/files-2.1/com.naver.maps/map-sdk/3.16.2/8ea626409521994766c01548df3fa4c571e35f67/map-sdk-3.16.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.naver.maps/map-sdk/3.16.2/39cdd2e3337ba14af02c6988e49d9650cc1b2c9e/map-sdk-3.16.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

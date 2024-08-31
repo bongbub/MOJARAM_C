@@ -1,89 +1,33 @@
 package com.example.mojaram
 
-import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
-import com.example.mojaram.databinding.ActivityMyreviewssBinding
-import com.example.mojaram.databinding.ActivityReservationBinding
-import com.example.mojaram.databinding.FragmentMyReviewsBinding
-import com.example.mojaram.utils.UNDER_TIRAMISU_READ_EXTERNAL_STORAGE
-import com.example.mojaram.utils.UPPER_TIRAMISU_READ_EXTERNAL_STORAGE
-import com.example.mojaram.utils.checkIsUpperSdkVersion
 
 
-class MyReviews : AppCompatActivity() {
+class MyReviews : Fragment() {
 
-    private lateinit var galleryLauncher: ActivityResultLauncher<Intent>
-    private lateinit var requestGalleryPermission: ActivityResultLauncher<Array<String>>
+    // 기본 생성자 대신에 newInstance 메서드를 사용하여 프래그먼트 인스턴스 생성
+    companion object {
+        fun newInstance(): MyReviews {
+            return MyReviews()
+        }
+    }
 
-    private lateinit var binding: FragmentMyReviewsBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
+        override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentMyReviewsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        initview()
-    }
-    fun initview(){
-        setPicture()
-        binding.btnChooser.setOnClickListener({ v ->
-            val permissions = if (Build.VERSION_CODES.TIRAMISU.checkIsUpperSdkVersion()) UPPER_TIRAMISU_READ_EXTERNAL_STORAGE else UNDER_TIRAMISU_READ_EXTERNAL_STORAGE
-            requestGalleryPermission.launch(permissions)
-        })
-        binding.btnAdd.setOnClickListener({ v ->
+        arguments?.let {
 
-        })
-        binding.btnChange.setOnClickListener({ v ->
-            val permissions = if (Build.VERSION_CODES.TIRAMISU.checkIsUpperSdkVersion()) UPPER_TIRAMISU_READ_EXTERNAL_STORAGE else UNDER_TIRAMISU_READ_EXTERNAL_STORAGE
-            requestGalleryPermission.launch(permissions)
-        })
-        binding.btnRemove.setOnClickListener({ v ->
-            RemovePicture()
-        })
-    }
-
-    fun setPicture(){
-        galleryLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-            result.data?.data?.let { uri ->
-                binding.imageView8.setImageURI(uri)
-                binding.imageView8.visibility = View.VISIBLE
-                binding.btnChange.visibility = View.VISIBLE
-                binding.btnRemove.visibility = View.VISIBLE
-                binding.btnChooser.visibility = View.GONE
-
-            }
         }
-
-        requestGalleryPermission = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
-            if(permissions.all { it.value }) {
-                Intent(Intent.ACTION_PICK).apply {
-                    type = MediaStore.Images.Media.CONTENT_TYPE
-                    type = "image/*"
-                    galleryLauncher.launch(this)
-                }
-            } else {
-
-            }
-        }
-
     }
-    fun ChangePicture(){
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_my_reviews, container, false)
     }
-    fun RemovePicture(){
-        binding.imageView8.setImageURI(null)
-        binding.imageView8.visibility = View.GONE
-        binding.btnChange.visibility = View.GONE
-        binding.btnRemove.visibility = View.GONE
-        binding.btnChooser.visibility = View.VISIBLE
-    }
+
 }
