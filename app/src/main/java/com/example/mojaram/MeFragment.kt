@@ -8,18 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation.findNavController
 import com.example.mojaram.databinding.FragmentMeBinding
+import com.example.mojaram.utils.AutoClearedValue
 
 class MeFragment : Fragment() {
-
+    private var binding by AutoClearedValue<FragmentMeBinding>()
     companion object {
         const val TAG: String = "마이페이지 로그"
 
-        fun newInstance(): MeFragment {
+        /*fun newInstance(): MeFragment {
             return MeFragment()
-        }
+        }*/
     }
-    private var _binding: FragmentMeBinding? = null
-    private val binding get() = _binding!!
 
     // 프래그먼트와 레이아웃 연결
     override fun onCreateView(
@@ -29,7 +28,7 @@ class MeFragment : Fragment() {
     ): View? {
         Log.d(TAG, "MeFregment - OnCreateView() called")
 
-        _binding = FragmentMeBinding.inflate(inflater, container, false)
+        binding = FragmentMeBinding.inflate(inflater, container, false)
         return binding.root
         //val view = inflater.inflate(R.layout.fragment_me, container, false)
     }
