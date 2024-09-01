@@ -69,6 +69,12 @@
         <activity
             android:name=".Findid"
             android:exported="false" />
+        <activity android:name=".ReviewWriteActivity"
+            android:exported="true"
+            />
+        <activity android:name=".MyReviews"
+            android:exported="true"
+            />
         <activity
             android:name=".LogInActivity"
             android:exported="true">

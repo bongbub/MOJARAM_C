@@ -69,10 +69,10 @@
                     app:layout_constraintEnd_toEndOf="@id/home_search_bar_layout"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintVertical_bias="0.08"
+                    app:layout_constraintVertical_bias="0.1"
                     >
                     <ImageView
-                        android:id="@+id/event"
+                        android:id="@+id/event_img"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:src="@drawable/event"
@@ -161,14 +161,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/take_picture"
                     android:fontFamily="@font/spoqa_han_sans_neo_medium"
-                    android:textSize="16dp"
-                    android:textColor="@color/mojaram_base"
+                    android:textSize="14dp"
+                    android:textColor="#274C77"
                     android:layout_marginTop="15dp"
                     android:textAlignment="center"
-                    android:gravity="center"
                     android:layout_marginStart="16dp"
                     android:background="@drawable/rectangle_gray"
                     android:paddingVertical="15dp"
+                    android:gravity="center"
                     app:layout_constraintTop_toBottomOf="@id/imageview_ai_camera"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/textview_select_picture"/>
@@ -179,14 +179,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/select_picture"
                     android:fontFamily="@font/spoqa_han_sans_neo_medium"
-                    android:gravity="center"
-                    android:textSize="16dp"
-                    android:textColor="@color/mojaram_base"
+                    android:textSize="14dp"
+                    android:textColor="#274C77"
                     android:background="@drawable/rectangle_gray"
                     android:textAlignment="center"
                     android:layout_marginStart="16dp"
                     android:paddingVertical="15dp"
                     android:layout_marginEnd="16dp"
+                    android:gravity="center"
                     app:layout_constraintTop_toTopOf="@id/textview_take_picture"
                     app:layout_constraintBottom_toBottomOf="@id/textview_take_picture"
                     app:layout_constraintStart_toEndOf="@id/textview_take_picture"
@@ -201,7 +201,8 @@
                     android:textSize="20dp"
                     android:layout_marginTop="35dp"
                     app:layout_constraintTop_toBottomOf="@id/textview_take_picture"
-                    app:layout_constraintStart_toStartOf="@id/textview_take_picture"/>
+                    app:layout_constraintStart_toStartOf="@id/textview_take_picture"
+                    android:visibility="gone"/>
 
                 <TextView
                     android:id="@+id/show_all_community"
@@ -213,7 +214,8 @@
                     android:layout_marginEnd="16dp"
                     app:layout_constraintTop_toTopOf="@id/textview_community"
                     app:layout_constraintBottom_toBottomOf="@id/textview_community"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:visibility="gone"/>
 
                 <TextView
                     android:id="@+id/empty_area"
@@ -228,7 +230,9 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginBottom="50dp"/>
+                    android:layout_marginBottom="50dp"
+                    android:visibility="gone"
+                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

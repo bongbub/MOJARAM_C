@@ -1,18 +1,16 @@
 <component name="libraryTable">
   <library name="Gradle: com.naver.maps:map-sdk:3.16.2@aar" external-system-id="GRADLE">
     <ANNOTATIONS>
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/4c8d53e826baccf145c421204505fb6a/transformed/jetified-map-sdk-3.16.2/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/4c8d53e826baccf145c421204505fb6a/transformed/jetified-map-sdk-3.16.2/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/4c8d53e826baccf145c421204505fb6a/transformed/jetified-map-sdk-3.16.2/res" />
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/4c8d53e826baccf145c421204505fb6a/transformed/jetified-map-sdk-3.16.2/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/4c8d53e826baccf145c421204505fb6a/transformed/jetified-map-sdk-3.16.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/4c8d53e826baccf145c421204505fb6a/transformed/jetified-map-sdk-3.16.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4c8d53e826baccf145c421204505fb6a/transformed/jetified-map-sdk-3.16.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/4c8d53e826baccf145c421204505fb6a/transformed/jetified-map-sdk-3.16.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.naver.maps/map-sdk/3.16.2/8ea626409521994766c01548df3fa4c571e35f67/map-sdk-3.16.2-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.naver.maps/map-sdk/3.16.2/8ea626409521994766c01548df3fa4c571e35f67/map-sdk-3.16.2-javadoc.jar!/" />
     </JAVADOC>
-    <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.naver.maps/map-sdk/3.16.2/39cdd2e3337ba14af02c6988e49d9650cc1b2c9e/map-sdk-3.16.2-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

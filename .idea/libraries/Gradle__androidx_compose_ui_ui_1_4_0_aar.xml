@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.compose.ui:ui:1.4.0@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/b6c5f9d383836df05b64bdb0eb7b5817/transformed/jetified-ui-1.4.0/res" />
-      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/b6c5f9d383836df05b64bdb0eb7b5817/transformed/jetified-ui-1.4.0/AndroidManifest.xml" />
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/b6c5f9d383836df05b64bdb0eb7b5817/transformed/jetified-ui-1.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b6c5f9d383836df05b64bdb0eb7b5817/transformed/jetified-ui-1.4.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b6c5f9d383836df05b64bdb0eb7b5817/transformed/jetified-ui-1.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b6c5f9d383836df05b64bdb0eb7b5817/transformed/jetified-ui-1.4.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/androidx.compose.ui/ui/1.4.0/b6f5a4818ddba842f3d69085288785302500a89e/ui-1.4.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.compose.ui/ui/1.4.0/b6f5a4818ddba842f3d69085288785302500a89e/ui-1.4.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

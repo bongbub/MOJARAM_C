@@ -1,14 +1,14 @@
 <component name="libraryTable">
   <library name="Gradle: com.facebook.android:facebook-bolts:17.0.1@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/3c6f09e8c172e144c5e1e16e19a5285c/transformed/jetified-facebook-bolts-17.0.1/AndroidManifest.xml" />
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/3c6f09e8c172e144c5e1e16e19a5285c/transformed/jetified-facebook-bolts-17.0.1/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/3c6f09e8c172e144c5e1e16e19a5285c/transformed/jetified-facebook-bolts-17.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3c6f09e8c172e144c5e1e16e19a5285c/transformed/jetified-facebook-bolts-17.0.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.facebook.android/facebook-bolts/17.0.1/a805752c94dfc6caa5805d092c11d7b25c778d/facebook-bolts-17.0.1-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-bolts/17.0.1/a805752c94dfc6caa5805d092c11d7b25c778d/facebook-bolts-17.0.1-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.facebook.android/facebook-bolts/17.0.1/9a0d9dd799b76270ff60342705b28c918e071633/facebook-bolts-17.0.1-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-bolts/17.0.1/9a0d9dd799b76270ff60342705b28c918e071633/facebook-bolts-17.0.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
