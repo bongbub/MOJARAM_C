@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: com.google.firebase:firebase-database-collection:18.0.1@aar" external-system-id="GRADLE">
+  <library name="Gradle: com.google.firebase:firebase-database-collection:18.0.1@aar">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/e818c0e65d162e5d192fd5f878130ebd/transformed/jetified-firebase-database-collection-18.0.1/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/e818c0e65d162e5d192fd5f878130ebd/transformed/jetified-firebase-database-collection-18.0.1/AndroidManifest.xml" />

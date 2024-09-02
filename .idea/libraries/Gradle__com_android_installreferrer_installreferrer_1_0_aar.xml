@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: com.android.installreferrer:installreferrer:1.0@aar" external-system-id="GRADLE">
+  <library name="Gradle: com.android.installreferrer:installreferrer:1.0@aar">
     <ANNOTATIONS>
       <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/ca2d654e11fab4f21ff6986176f6272b/transformed/jetified-installreferrer-1.0/annotations.zip!/" />
     </ANNOTATIONS>

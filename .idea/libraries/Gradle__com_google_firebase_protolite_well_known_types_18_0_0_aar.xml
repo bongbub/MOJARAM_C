@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: com.google.firebase:protolite-well-known-types:18.0.0@aar" external-system-id="GRADLE">
+  <library name="Gradle: com.google.firebase:protolite-well-known-types:18.0.0@aar">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/2b020a4b2959c0e6f24b92be1be6284b/transformed/jetified-protolite-well-known-types-18.0.0/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/2b020a4b2959c0e6f24b92be1be6284b/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml" />

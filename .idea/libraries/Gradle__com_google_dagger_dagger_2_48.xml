@@ -1,6 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: com.google.dagger:dagger:2.48" type="java-imported" external-system-id="GRADLE">
-    <properties groupId="com.google.dagger" artifactId="dagger" version="2.48" />
+  <library name="Gradle: com.google.dagger:dagger:2.48">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.google.dagger/dagger/2.48/c4a5ecf0eb4df3a726179657f1b586290dc08d1b/dagger-2.48.jar!/" />
     </CLASSES>

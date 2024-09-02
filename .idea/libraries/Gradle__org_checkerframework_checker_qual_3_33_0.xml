@@ -1,6 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: org.checkerframework:checker-qual:3.33.0" type="java-imported" external-system-id="GRADLE">
-    <properties groupId="org.checkerframework" artifactId="checker-qual" version="3.33.0" />
+  <library name="Gradle: org.checkerframework:checker-qual:3.33.0">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/org.checkerframework/checker-qual/3.33.0/de2b60b62da487644fc11f734e73c8b0b431238f/checker-qual-3.33.0.jar!/" />
     </CLASSES>

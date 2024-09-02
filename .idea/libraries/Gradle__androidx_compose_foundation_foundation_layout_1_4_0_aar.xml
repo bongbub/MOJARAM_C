@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: androidx.compose.foundation:foundation-layout:1.4.0@aar" external-system-id="GRADLE">
+  <library name="Gradle: androidx.compose.foundation:foundation-layout:1.4.0@aar">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/767c59cc845283e4bbd58c8fb88921fc/transformed/jetified-foundation-layout-1.4.0/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/767c59cc845283e4bbd58c8fb88921fc/transformed/jetified-foundation-layout-1.4.0/res" />
