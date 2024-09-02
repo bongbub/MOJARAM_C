@@ -5,6 +5,8 @@ import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.provider.MediaStore
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -49,6 +51,20 @@ class MyReviews : AppCompatActivity() {
         binding.btnRemove.setOnClickListener({ v ->
             RemovePicture()
         })
+        binding.edReview.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+// 텍스트 변경 시 실행되는 메서드
+                val textLength = s?.length ?: 0 // 글자의 개수를 세기
+                binding.txtCount.text = "$textLength/ 1000" // 글자 수를 txt_count에 반영
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
+
     }
 
     fun setPicture(){
