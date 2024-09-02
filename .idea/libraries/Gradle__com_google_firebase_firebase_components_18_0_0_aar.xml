@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: com.google.firebase:firebase-components:18.0.0@aar" external-system-id="GRADLE">
+  <library name="Gradle: com.google.firebase:firebase-components:18.0.0@aar">
     <ANNOTATIONS>
       <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/5d9f2e8964cf3f16d7f6b129c7b594fe/transformed/jetified-firebase-components-18.0.0/annotations.zip!/" />
     </ANNOTATIONS>
