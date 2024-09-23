@@ -179,10 +179,7 @@ class SignUpActivity : AppCompatActivity() {
                 isFormatting = false
             }
         })
-
-
     }
-
 
     //firebase Register 연동
     private fun Register(nickname: String, useremail:String, password: String, editTextnumber:String, userGender: String, userbirth: String) {

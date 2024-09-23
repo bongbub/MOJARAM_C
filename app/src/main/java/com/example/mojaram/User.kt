@@ -9,7 +9,6 @@ data class User(
     var userbirth : String? = null,
     var uId : String? = null
 
-
 ){
     constructor():this("","","","","","","")
 }

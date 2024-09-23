@@ -65,7 +65,6 @@ class AdminSignUp : AppCompatActivity() {
             addAdminToFirestore(nickname, useremail, password, userGender, userbirth, shop_name, shop_addr, shop_addr2, shop_num, shop_auth, shop_hour, shop_price )
 
         }
-
 //        // 전화번호 형식 추가
 //        binding.editTextShopNum.addTextChangedListener(object : TextWatcher {
 //            private var isFormatting: Boolean = false
