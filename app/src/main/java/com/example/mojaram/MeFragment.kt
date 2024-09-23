@@ -37,36 +37,6 @@ class MeFragment : Fragment() {
         Log.d(TAG, "MeFregment - onViewCreated() called")
 
         val navController = findNavController(view)
-        /*
-        // 리뷰 내역
-        binding.btnMy1.setOnClickListener {
-            navController.navigate(R.id.action_me_to_myreviews)
-        }
-
-        // 예약 내역
-        binding.btnMy2.setOnClickListener {
-            val intent = Intent(requireContext(), ReservationHistory::class.java)
-            startActivity(intent)
-        }
-
-        // 상담 내역
-        binding.btnMy3.setOnClickListener {
-            val intent = Intent(requireContext(), consultationHistory::class.java)
-            startActivity(intent)
-        }
-
-        // 찜 목록 페이지
-        binding.btnMy4.setOnClickListener {
-            val intent = Intent(requireContext(), Bookmark::class.java)
-            startActivity(intent)
-        }
-
-        // 환경 설정 페이지
-        binding.btnMy5.setOnClickListener {
-            val intent = Intent(requireContext(), settingsPage::class.java)
-            startActivity(intent)
-
-        }*/
     }
 
 

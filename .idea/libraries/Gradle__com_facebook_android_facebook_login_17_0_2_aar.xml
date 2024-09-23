@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.facebook.android:facebook-login:17.0.2@aar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/7c4d9c6e30a06881b7fdf3d1db0ca651/transformed/jetified-facebook-login-17.0.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/7c4d9c6e30a06881b7fdf3d1db0ca651/transformed/jetified-facebook-login-17.0.2/res" />
+      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/7c4d9c6e30a06881b7fdf3d1db0ca651/transformed/jetified-facebook-login-17.0.2/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/modules-2/files-2.1/com.facebook.android/facebook-login/17.0.2/ecc9c3c902beebdfe7d6b2e424d18779a7e0c666/facebook-login-17.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/modules-2/files-2.1/com.facebook.android/facebook-login/17.0.2/23387529c05dd027fb47a204c0d0d2d0249a1119/facebook-login-17.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

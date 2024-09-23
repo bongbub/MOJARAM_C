@@ -40,11 +40,6 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var editTextpassword_check: EditText
     private lateinit var textview_passcheck:TextView //일치문자
 
-//    // 관리자 등급 분할
-//    private lateinit var radioGroup: RadioGroup
-//    private lateinit var radioAdmin: RadioButton
-//    private lateinit var radioUser: RadioButton
-
     // 성별
     private lateinit var checkMale : CheckBox
     private lateinit var checkFemale : CheckBox
@@ -52,10 +47,6 @@ class SignUpActivity : AppCompatActivity() {
     // 생년월일 날짜 정보 가져오기
     private lateinit var dpSpinner: DatePicker // datepicker dialog (데이트정보)
 
-
-    // Firebase Realtime Database 연동을 위한 객체
-    //private lateinit var mDbRef: DatabaseReference
-    // Firebase FireStore 연동을 위한 객체
     private var db = Firebase.firestore
     // Firebase Authentication 연동을 위한 객체
     private lateinit var mAuth: FirebaseAuth
@@ -64,9 +55,6 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        // Firebase RealtimeDatabase 초기화
-        //mDbRef = Firebase.database.reference
-        // Firebase Authentication 초기화
         mAuth = Firebase.auth
 
         editTextUsername = findViewById(R.id.editTextUsername)
@@ -79,23 +67,10 @@ class SignUpActivity : AppCompatActivity() {
         // 생년월일 가져오기
         Userbirthday = findViewById(R.id.birthText)
 
-//        // 등급 판별을 위한 변수
-//        radioGroup = findViewById(R.id.radioGroup)
-//        radioAdmin = findViewById(R.id.radioAdmin)
-//        radioUser = findViewById(R.id.radioUser)
-
         // 성별 판별
         checkMale = findViewById(R.id.malecheck)
         checkFemale = findViewById(R.id.femalecheck)
 
-/*
-        // 날짜 및 캘린더 받아오기
-        val cal = Calendar.getInstance()
-        val year = cal.get(Calendar.YEAR)
-        val month = cal.get(Calendar.MONTH)
-        val day = cal.get(Calendar.DAY_OF_MONTH)
-
- */
 
         // 비밀번호 일치 여부
         editTextpassword_check.addTextChangedListener(object : TextWatcher {
@@ -110,9 +85,6 @@ class SignUpActivity : AppCompatActivity() {
             }
             
         })
-        
-
-        //dpSpinner = findViewById(R.id.dpSpinner)
 
         btnSignUp.setOnClickListener {
             // 회원가입 버튼을 클릭했을 때의 동작을 구현하세요.
@@ -122,8 +94,6 @@ class SignUpActivity : AppCompatActivity() {
             val passwordCheck = textview_passcheck.text.toString().trim()
             val userbirth = Userbirthday.text.toString().trim()
 
-//            // 등급 판별
-//            val userType = if(radioAdmin.isChecked) "admin" else "customer"  // 어드민 라디오를 체크하면 관리자 판별
 
             // 성별 판별
             val userGender = if(checkMale.isChecked) "male" else "female"
@@ -133,8 +103,6 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this, "모든 필드를 입력해 주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            Log.d("SignUpActivity", "Email: $useremail")
-
             // 회원가입 정보 Firebase RealtimeDatabase 연동
             Register(nickname, useremail, password, userGender, userbirth) //여기 순서 중요
         }
