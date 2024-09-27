@@ -37,6 +37,11 @@ class MyReviews : AppCompatActivity() {
     }
     fun initview(){
         setPicture()
+
+        binding.imgGroup2.setOnClickListener {
+            finish()
+        }
+
         binding.btnChooser.setOnClickListener({ v ->
             val permissions = if (Build.VERSION_CODES.TIRAMISU.checkIsUpperSdkVersion()) UPPER_TIRAMISU_READ_EXTERNAL_STORAGE else UNDER_TIRAMISU_READ_EXTERNAL_STORAGE
             requestGalleryPermission.launch(permissions)

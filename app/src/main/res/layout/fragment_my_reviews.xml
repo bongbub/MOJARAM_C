@@ -12,6 +12,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/img_group2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_left"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_title"
+                app:layout_constraintEnd_toStartOf="@+id/txt_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txt_title"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="MissingConstraints" />
+
             <TextView
                 android:id="@+id/txt_title"
                 android:layout_width="wrap_content"

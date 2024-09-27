@@ -3,6 +3,7 @@ package com.example.mojaram.home
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import com.example.mojaram.R
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -36,6 +37,7 @@ import com.google.firebase.storage.StorageReference
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import kotlin.random.Random
+import androidx.navigation.fragment.findNavController
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -62,6 +64,10 @@ class HomeFragment : Fragment() {
         selectPicture()
         takePicture()
         showProgress()
+
+        binding.showAllSalons.setOnClickListener {
+            findNavController().navigate(R.id.hairFragment)
+        }
     }
 
     private fun setHairSalonRecommendationList() {
