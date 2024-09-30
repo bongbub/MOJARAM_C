@@ -1,14 +1,14 @@
 <component name="libraryTable">
   <library name="Gradle: com.facebook.android:facebook-core:17.0.2@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d512f6ebfb6439c9dd2848d229469864/transformed/jetified-facebook-core-17.0.2/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d512f6ebfb6439c9dd2848d229469864/transformed/jetified-facebook-core-17.0.2/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/d512f6ebfb6439c9dd2848d229469864/transformed/jetified-facebook-core-17.0.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/d512f6ebfb6439c9dd2848d229469864/transformed/jetified-facebook-core-17.0.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-core/17.0.2/5e28118ed6250775dcc0a52082242203e19c3474/facebook-core-17.0.2-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.facebook.android/facebook-core/17.0.2/5e28118ed6250775dcc0a52082242203e19c3474/facebook-core-17.0.2-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-core/17.0.2/daff0e4ce072192330abd8d8eb202e2e2f32e45e/facebook-core-17.0.2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.facebook.android/facebook-core/17.0.2/daff0e4ce072192330abd8d8eb202e2e2f32e45e/facebook-core-17.0.2-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

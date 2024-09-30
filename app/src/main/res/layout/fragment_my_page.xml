@@ -149,14 +149,7 @@
                 android:layout_height="wrap_content"
                 layout="@layout/button_mypage"
                 app:buttonIcon="@{@drawable/chat}"
-                app:buttonName="@{`채팅 문의 내역`}"/>
-            <include
-                android:id="@+id/button_cs_center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                layout="@layout/button_mypage"
-                app:buttonIcon="@{@drawable/ic_cs_center}"
-                app:buttonName="@{`고객센터`}"/>
+                app:buttonName="@{`쿠폰함`}"/>
 
             <include
                 android:id="@+id/button_setting"
