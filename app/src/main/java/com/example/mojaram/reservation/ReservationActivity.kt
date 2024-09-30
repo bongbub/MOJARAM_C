@@ -7,6 +7,7 @@ import android.widget.GridLayout
 import android.widget.GridLayout.LayoutParams
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import com.example.mojaram.R
@@ -32,6 +33,7 @@ class ReservationActivity: AppCompatActivity() {
         setBackButton()
         setDateSelectListener()
         setTimeTables()
+        setRecurringOptions()  // 정기 예약 옵션 추가함
         completeReservation()
     }
 
@@ -105,6 +107,52 @@ class ReservationActivity: AppCompatActivity() {
             binding.gridlayoutTimeTables.requestLayout()
         }
     }
+
+
+    // 정기 예약 확인 및 팝업
+    private fun setRecurringOptions() {
+        binding.buttonOneMonth.setOnClickListener {
+            showConfirmationDialog(
+                durationType = ReservationViewModel.DurationTypeEnum.OneMonth,
+                durationText = "1개월"
+            )
+        }
+
+        binding.buttonThreeMonths.setOnClickListener {
+            showConfirmationDialog(
+                durationType = ReservationViewModel.DurationTypeEnum.ThreeMonths,
+                durationText = "3개월"
+            )
+        }
+
+        binding.buttonSixMonths.setOnClickListener {
+            showConfirmationDialog(
+                durationType = ReservationViewModel.DurationTypeEnum.SixMonths,
+                durationText = "6개월"
+            )
+        }
+    }
+    private fun showConfirmationDialog(durationType: ReservationViewModel.DurationTypeEnum, durationText: String) {
+        val selectedDay = viewModel.selectedDate.value  // 선택한 날짜 가져오기
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("정기 예약 확인")
+        builder.setMessage("${durationText} 동안 매주 예약을 신청하시겠습니까?")
+
+        builder.setPositiveButton("예") { _, _ ->
+            viewModel.makeRecurringReservation(selectedDay, durationType)  // 사용자가 확인을 누르면 예약 처리
+            Toast.makeText(this, "정기 예약이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+
+        builder.setNegativeButton("아니오") { dialog, _ ->
+            dialog.dismiss()  // 취소를 누르면 팝업을 닫음
+        }
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+
 
     private fun completeReservation() {
         binding.textviewReservation.setOnClickListener {

@@ -13,6 +13,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
 import javax.inject.Inject
 
@@ -104,6 +106,78 @@ class ReservationViewModel @Inject constructor(
             }
         }
     }
+
+
+
+
+
+
+    // 정기 예약 날짜 계산
+    fun getRecurringDates(startDate: String, weeks: Int): List<String> {
+        val recurringDates = mutableListOf<String>()
+        val calendar = Calendar.getInstance()
+
+        // 선택된 날짜를 calendar로 변환
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+        calendar.time = dateFormat.parse(startDate)
+
+        // 첫 번째 선택한 날짜 추가
+        recurringDates.add(dateFormat.format(calendar.time))
+
+        // 주별로 반복되는 예약 날짜 계산 (첫 주 제외하고 나머지 주 계산)
+        for (i in 1 until weeks) {
+            calendar.add(Calendar.DATE, 7)  // 7일씩 더함
+            recurringDates.add(dateFormat.format(calendar.time))
+        }
+
+        return recurringDates
+    }
+
+    // 정기 예약 서버 전송
+    fun postRecurringReservation(recurringDates: List<String>) {
+        viewModelScope.launch {
+            recurringDates.forEach { date ->
+                firebaseDataSource.postReservation(
+                    ReservationModel(
+                        shopId = salonDetail.value?.shopId ?: -1,
+                        userId = preferenceManager.getUserId(),
+                        date = date,
+                        reservationTimes = reservationTimeSections.value
+                            .filter { it.status == TimeTableStatusEnum.Selected }
+                            .map { it.time }
+                    ),
+                    onCompleteListener = { result ->
+                        if (!result) {
+                            Log.e("Reservation", "정기 예약 실패: $date")
+                        }
+                    }
+                )
+            }
+        }
+    }
+    enum class DurationTypeEnum {
+        OneMonth,
+        ThreeMonths,
+        SixMonths
+    }
+
+
+    // 예약 데이터 전송 및 처리
+    fun makeRecurringReservation(startDate: String, durationType: DurationTypeEnum) {
+        val weeks = when (durationType) {
+            DurationTypeEnum.OneMonth -> 4
+            DurationTypeEnum.ThreeMonths -> 12
+            DurationTypeEnum.SixMonths -> 24
+        }
+
+        val recurringDates = getRecurringDates(startDate, weeks)
+
+        // 서버로 예약 전송
+        postRecurringReservation(recurringDates) // 직접호출
+    }
+
+
+
 
     
     // 예약 요청 전송 및 결과 처리
