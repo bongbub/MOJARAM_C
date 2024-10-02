@@ -47,8 +47,8 @@ class AdminMain : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_admin_main)
 
         FirebaseApp.initializeApp(this)
-        Log.d("AdminMain", "FirebaseApp initialized")
 
+        // 리사이클러뷰 및 어댑터 초기화하기
         recyclerView = binding.recyclerviewReservation
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
@@ -58,6 +58,10 @@ class AdminMain : AppCompatActivity() {
         recyclerView.adapter = adminAdapter
 
         firestore = FirebaseFirestore.getInstance()
+
+
+        // 현재 로그인 유저의 role 가져오기
+        fetchUserRole()
 
         // 로그아웃
         fb = FirebaseAuth.getInstance()
@@ -75,15 +79,92 @@ class AdminMain : AppCompatActivity() {
         swipeRefreshLayout.setOnRefreshListener {
             refreshData()
         }
-
-        EventChangeListener()
     }
 
-    private fun EventChangeListener() {
-        firestore = FirebaseFirestore.getInstance()
-        Log.d("AdminMain", "Firestore instance initialized")
+    private fun fetchUserRole() {
+        // 현재 로그인된 사용자의 이메일 가져오기
+        val currentUserEmail = FirebaseAuth.getInstance().currentUser?.email
+        Log.d("AdminMain", "Current User Email: $currentUserEmail")
 
+        if (currentUserEmail != null) {
+            // 이메일을 사용하여 user_admin에서 문서 가져오기
+            firestore.collection("user_admin").document(currentUserEmail).get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        val userRole = document.getString("role")
+                        Log.d("AdminMain", "User role: $userRole")
+                        findShopByRole(userRole) // 역할에 따라 매장 찾기
+                    } else {
+                        Log.d("AdminMain", "User document does not exist")
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.e("AdminMain", "Error fetching user role", exception)
+                }
+        } else {
+            Log.d("AdminMain", "Current user is null or not logged in")
+        }
+    }
+
+    private fun fetchReservations(shopId: Number) {
         firestore.collection("reservation")
+            .whereEqualTo("shopId", shopId) // shopId가 일치하는 예약만 가져옴
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                reservationList.clear() // 예약 리스트 초기화
+                if (!querySnapshot.isEmpty) {
+                    for (document in querySnapshot.documents) {
+                        val reservation = document.toObject(Reservation::class.java)
+                        if (reservation != null) {
+                            reservationList.add(reservation)
+                            Log.d("AdminMain", "Reservation: $reservation")
+                        } else {
+                            Log.w("AdminMain", "Reservation document is null for document: ${document.id}")
+                        }
+                    }
+                    adminAdapter.notifyDataSetChanged()
+                } else {
+                    Log.d("AdminMain", "No reservations found for shop ID: $shopId")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("AdminMain", "Error fetching reservations", exception)
+            }
+    }
+
+    private fun findShopByRole(userRole: String?) {
+        if (userRole == null) return
+
+        firestore.collection("shop")
+            .whereEqualTo("role", userRole)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (!querySnapshot.isEmpty) {
+                    val shopIdField = querySnapshot.documents[0].get("shop_id") // shop_id를 가져옴
+                    val shopId = when (shopIdField) {
+                        is Number -> shopIdField // 숫자인 경우
+                        else -> null
+                    }
+
+                    if (shopId != null) {
+                        Log.d("AdminMain", "Shop ID: $shopId")
+                        fetchReservations(shopId) // 해당 매장의 예약 정보를 가져오기
+                        EventChangeListener(shopId) // EventChangeListener에 shopId 전달
+                    } else {
+                        Log.e("AdminMain", "shop_id is not a valid type")
+                    }
+                } else {
+                    Log.d("AdminMain", "No shops found for role: $userRole")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("AdminMain", "Error fetching shop", exception)
+            }
+    }
+
+    private fun EventChangeListener(shopId: Number) {
+        firestore.collection("reservation")
+            .whereEqualTo("shopId", shopId) // shopId가 일치하는 예약만 가져옴
             .addSnapshotListener { value, error ->
                 if (error != null) {
                     Log.e("Firebase Error", error.message.toString())
@@ -91,143 +172,35 @@ class AdminMain : AppCompatActivity() {
                 }
                 reservationList.clear()
 
-                for (dc in value?.documentChanges!!) {
+                value?.documentChanges?.forEach { dc ->
                     when (dc.type) {
                         DocumentChange.Type.ADDED -> {
-                            var reservation = dc.document.toObject(Reservation::class.java)
-                            reservation.shopId = dc.document.getLong("shopId") ?: 0
+                            val reservation = dc.document.toObject(Reservation::class.java)
                             reservationList.add(reservation)
                             Log.d("Firestore", "Added reservation: $reservation")
                         }
-
                         DocumentChange.Type.MODIFIED -> {
-                            var reservation = dc.document.toObject(Reservation::class.java)
-                            reservation.shopId = dc.document.getLong("shopId") ?: 0
-                            // Perform any necessary update logic if needed
-                            Log.d("Firestore", "Modified reservation: $reservation")
+                            // 여기서 예약을 업데이트하는 로직을 추가해야 합니다.
+                            Log.d("Firestore", "Modified reservation: ${dc.document.id}")
                         }
-
                         DocumentChange.Type.REMOVED -> {
-                            var reservation = dc.document.toObject(Reservation::class.java)
-                            // Perform any necessary removal logic if needed
-                            Log.d("Firestore", "Removed reservation: $reservation")
+                            // 여기서 예약을 삭제하는 로직을 추가해야 합니다.
+                            Log.d("Firestore", "Removed reservation: ${dc.document.id}")
                         }
                     }
                 }
 
                 adminAdapter.notifyDataSetChanged()
-                // 당겨서 새로고침 리스너
                 swipeRefreshLayout.isRefreshing = false
             }
     }
-    private fun refreshData(){
+
+    private fun refreshData() {
         // 당겨서 새로고침 -> 데이터 갱신
-        EventChangeListener()
+        // shopId를 인자로 전달
+        fetchUserRole() // 역할에 따라 매장 찾기
     }
 
+    // fetchUserRole 메서드 내에서 EventChangeListener를 호출하도록 수정
 
-//    private lateinit var recyclerView: RecyclerView
-//    private lateinit var userArrayList: ArrayList<Reservation>
-//    private lateinit var adminAdapter: AdminAdapter
-//    private lateinit var db: FirebaseFirestore
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-////        setContentView(R.layout.activity_admin_main)
-//        val binding: ActivityAdminMainBinding =
-//            DataBindingUtil.setContentView(this, R.layout.activity_admin_main)
-//
-//        FirebaseApp.initializeApp(this)
-//        Log.d("AdminMain", "FirebaseApp initialized")
-//
-//        recyclerView = findViewById(R.id.recyclerviewReservation)
-//        recyclerView.layoutManager = LinearLayoutManager(this)
-//        recyclerView.setHasFixedSize(true)
-//
-//        userArrayList = arrayListOf()
-//
-//        adminAdapter = AdminAdapter(userArrayList)
-//
-//        recyclerView.adapter = adminAdapter
-//
-//        // Initialize Firestore
-//        db = FirebaseFirestore.getInstance()
-//        EventChangeListener()
-//
-//    }
-//
-//    private fun EventChangeListener() {
-//        db = FirebaseFirestore.getInstance()
-//        Log.d("AdminMain", "Firestore instance initialized")
-//
-//        db.collection("reservatoin")
-//            .addSnapshotListener { value, error ->
-//                if (error != null) {
-//                    Log.e("Firebase Error", error.message.toString())
-//                    return@addSnapshotListener
-//                }
-//                userArrayList.clear()
-//
-//                for (dc in value?.documentChanges!!) {
-//                    if (dc.type == DocumentChange.Type.ADDED) {
-//                        var reservation = dc.document.toObject(Reservation::class.java)
-//                        reservation.shopId = dc.document.getLong("shopId") ?: 0
-//                        userArrayList.add(reservation)
-//                    }
-//                }
-//
-//                adminAdapter.notifyDataSetChanged()
-//            }
-//    }
 }
-//        db.collection("reservatoin")
-//            .addSnapshotListener(object : EventListener<QuerySnapshot> {
-//                override fun onEvent(
-//                    value: QuerySnapshot?,
-//                    error: FirebaseFirestoreException?
-//                ) {
-//                    if (error != null) {
-//                        Log.e("AdminMainFirebase Error", error.message.toString())
-//                        return
-//                    }
-//
-//                    if (value != null) {
-//                        for (dc: DocumentChange in value.documentChanges) {
-//                            if (dc.type == DocumentChange.Type.ADDED) {
-//                                userArrayList.add(dc.document.toObject(Reservation::class.java))
-//
-//                            }
-//                        }
-//                        Log.d("AdminMain", "Data fetched: ${userArrayList.size} items")
-//                        adminAdapter.notifyDataSetChanged()
-//                    } else {
-//                        Log.d("AdminMain", "No data received")
-//                    }
-//                }
-//            })
-
-
-
-
-//@AndroidEntryPoint
-//class AdminMain : AppCompatActivity() {
-//    private lateinit var binding: ActivityAdminMainBinding
-//    private val viewModel by viewModels<AdminViewModel>()
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        Log.d("AdminMain", "onCreate called")
-//
-//        binding = ActivityAdminMainBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//
-//        binding.recyclerviewReservation.layoutManager = LinearLayoutManager(this)
-//        val adapter = AdminAdapter()
-//        binding.recyclerviewReservation.adapter = adapter
-//
-//        viewModel.reservations.observe(this) { reservations ->
-//            Log.d("AdminMain", "Reservations received: $reservations")
-//            adapter.submitList(reservations)
-//        }
-//    }
-//}

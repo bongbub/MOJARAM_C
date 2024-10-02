@@ -47,29 +47,3 @@ class AdminViewModel @Inject constructor(
         }
     }
 }
-//@HiltViewModel
-//class AdminViewModel @Inject constructor{
-//    private val firebaseDataSource: FirebaseDataSource
-//    ): ViewModel() {
-//
-//        private val _reservations = MutableStateFlow<List<AdminListEntity>>(listOf())
-//        val reservations = _reservations.asStateFlow()
-//
-//        init {
-//            getReservations()
-//        }
-//
-//        private fun getReservations() {
-//            viewModelScope.launch {
-//                firebaseDataSource.getReservations().collect { it ->
-//                    _reservations.value = it.map { reservation ->
-//                        AdminListEntity(
-//                            reservationTime_pick = reservation,
-//                            reservation_check = Random.nextBoolean(),
-//                            reservation_count = Random.nextInt(0, 100) // 예약 카운트를 임의로 설정했습니다.
-//                        )
-//                    }
-//                }
-//            }
-//        }
-//    }

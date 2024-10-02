@@ -26,12 +26,6 @@ class AdminAdapter(private val reservationList : ArrayList<Reservation>) : Recyc
         holder.reservationName.text = reserv.userId
         holder.reservationTimes.text = reserv.reservationTimes.joinToString(", ")
     }
-//    override fun onBindViewHolder(holder: AdminAdapter.MyViewHolder, position: Int) {
-//        val reserv : Reservation = reservationList[position]
-//        holder.reservationDates.text = reserv.date
-//        holder.reservationName.text = reserv.userId
-//        holder.reservationTimes.text = reserv.reservationTimes.joinToString(",")
-//    }
 
     override fun getItemCount(): Int {
         return reservationList.size
@@ -45,36 +39,3 @@ class AdminAdapter(private val reservationList : ArrayList<Reservation>) : Recyc
     }
 }
 
-
-
-
-//class AdminAdapter : ListAdapter<Reservation, AdminAdapter.AdminViewHolder>(DiffCallback()) {
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdminViewHolder {
-//        val binding = ItemRecyclerReservlistAdminBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-//        return AdminViewHolder(binding)
-//    }
-//
-//    override fun onBindViewHolder(holder: AdminViewHolder, position: Int) {
-//        val reservation = getItem(position)
-//        holder.bind(reservation)
-//    }
-//
-//    class AdminViewHolder(private val binding: ItemRecyclerReservlistAdminBinding) : RecyclerView.ViewHolder(binding.root) {
-//        fun bind(reservation: Reservation) {
-//            binding.reservDate.text = reservation.date
-//            binding.reservTime.text = reservation.reservationTimes.joinToString(", ")
-//            binding.reservName.text = reservation.userId
-//        }
-//    }
-//
-//    class DiffCallback : DiffUtil.ItemCallback<Reservation>() {
-//        override fun areItemsTheSame(oldItem: Reservation, newItem: Reservation): Boolean {
-//            return oldItem.date == newItem.date && oldItem.userId == newItem.userId
-//        }
-//
-//        override fun areContentsTheSame(oldItem: Reservation, newItem: Reservation): Boolean {
-//            return oldItem == newItem
-//        }
-//    }
-//}
