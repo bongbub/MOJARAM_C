@@ -23,6 +23,34 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="예약자 : "
+                android:textSize="20sp"
+                android:textColor="@color/doubledarkgray"/>
+
+            <TextView
+                android:id="@+id/reservName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:text="이름" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="예약일 : "
+                android:textSize="20sp"
+                android:textColor="@color/doubledarkgray"/>
 
             <TextView
                 android:id="@+id/reservDate"
@@ -38,6 +66,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="예약시간 : "
+                android:textSize="20sp"
+                android:textColor="@color/doubledarkgray"/>
 
             <TextView
                 android:id="@+id/reservTime"
@@ -48,20 +82,27 @@
                 android:textSize="20sp"
                 android:text="시간" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="성별 : "
+                android:textSize="20sp"
+                android:textColor="@color/doubledarkgray"/>
 
             <TextView
-                android:id="@+id/reservName"
+                android:id="@+id/reservGender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:text="이름" />
+                android:text=" " />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

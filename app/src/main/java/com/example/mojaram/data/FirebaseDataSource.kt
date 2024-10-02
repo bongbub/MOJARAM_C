@@ -88,14 +88,32 @@ class FirebaseDataSource @Inject constructor(
                 emit(reservationTimes.flatten())
             }
     }
-
     fun postReservation(reservation: ReservationModel, onCompleteListener: (Boolean) -> Unit) {
+        // ReservationModel을 Map으로 변환
+        val reservationData = hashMapOf(
+            SHOP_ID_RESERVATION to reservation.shopId,
+            USER_ID to reservation.userId,
+            DATE to reservation.date,
+            RESERVATION_TIMES to reservation.reservationTimes,
+            "userEmail" to reservation.userEmail,
+            "nickname" to reservation.nickname, // 추가된 필드
+            "userGender" to reservation.userGender // 추가된 필드
+        )
+
         firestore.collection(COLLECTION_RESERVATION)
-            .add(reservation)
+            .add(reservationData)
             .addOnCompleteListener {
                 onCompleteListener(it.isSuccessful)
             }
     }
+
+//    fun postReservation(reservation: ReservationModel, onCompleteListener: (Boolean) -> Unit) {
+//        firestore.collection(COLLECTION_RESERVATION)
+//            .add(reservation)
+//            .addOnCompleteListener {
+//                onCompleteListener(it.isSuccessful)
+//            }
+//    }
 
     fun postImage(imageUri: Uri): Flow<String> = flow {
         kotlin.runCatching {
@@ -112,28 +130,6 @@ class FirebaseDataSource @Inject constructor(
         }
     }
 
-
-//        firestore.collection(COLLECTION_RESERVATION)
-//            .whereEqualTo(SHOP_ID_RESERVATION, shopId)
-//            .get()
-//            .await()
-//            .documents
-//            .let { snapshots ->
-//                val reservationTimes = snapshots.filter { snapshot ->
-//                    snapshot.data?.get(DATE) == date
-//                }.map {
-//                    it.data?.get(RESERVATION_TIMES) as List<String>
-//                }
-//                emit(reservationTimes.flatten())
-//            }
-
-
-//    fun postReservation(reservation: ReservationModel, onCompleteListener: (Boolean) -> Unit) {
-////        firestore.collection(COLLECTION_RESERVATION)
-////            .add(reservation)
-////            .addOnCompleteListener {
-////                onCompleteListener(it.isSuccessful)
-////            }
 
     companion object {
         private const val COLLECTION_SHOP = "shop"
@@ -153,20 +149,3 @@ class FirebaseDataSource @Inject constructor(
         private const val RESERVATION_TIMES = "reservationTimes"
     }
 }
-//    companion object {
-//        private const val COLLECTION_SHOP = "shop"
-//        private const val LATITUDE = "shop_lat"
-//        private const val LONGITUDE = "shop_long"
-//        private const val SHOP_NAME = "shop_name"
-//        private const val SHOP_IMAGE = "shop_img"
-//        private const val SHOP_ADDRESS = "shop_addr"
-//        private const val SHOP_ID = "shop_id"
-//        private const val SHOP_KEYWORD = "shop_keyword"
-//        private const val SHOP_TIME = "shop_time"
-//
-//        private const val COLLECTION_RESERVATION = "reservatoin"
-//        private const val SHOP_ID_RESERVATION = "shopId"
-//        private const val USER_ID = "userId"
-//        private const val DATE = "date"
-//        private const val RESERVATION_TIMES = "reservationTimes"
-//    }

@@ -15,7 +15,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 class AdminAdapter(private val reservationList : ArrayList<Reservation>) : RecyclerView.Adapter<AdminAdapter.MyViewHolder>(){
 
 
-
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val reservationDates : TextView = itemView.findViewById(R.id.reservDate)
+        val reservationTimes :TextView = itemView.findViewById(R.id.reservTime)
+        val reservationName : TextView = itemView.findViewById(R.id.reservName)
+        val reservationGender : TextView = itemView.findViewById(R.id.reservGender)
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_recycler_reservlist_admin, parent, false)
         return MyViewHolder(itemView)
@@ -23,19 +28,14 @@ class AdminAdapter(private val reservationList : ArrayList<Reservation>) : Recyc
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val reserv = reservationList[position]
         holder.reservationDates.text = reserv.date
-        holder.reservationName.text = reserv.userId
+        holder.reservationName.text = reserv.nickname
         holder.reservationTimes.text = reserv.reservationTimes.joinToString(", ")
+        holder.reservationGender.text = reserv.userGender
     }
 
     override fun getItemCount(): Int {
         return reservationList.size
     }
 
-
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val reservationDates : TextView = itemView.findViewById(R.id.reservDate)
-        val reservationTimes :TextView = itemView.findViewById(R.id.reservTime)
-        val reservationName : TextView = itemView.findViewById(R.id.reservName)
-    }
 }
 

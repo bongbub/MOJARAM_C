@@ -7,6 +7,7 @@ import com.example.mojaram.data.FirebaseDataSource
 import com.example.mojaram.data.PreferenceManager
 import com.example.mojaram.map.SalonModel
 import com.example.mojaram.utils.dateFormat
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -37,10 +38,6 @@ class ReservationViewModel @Inject constructor(
 
     private val _reservations = MutableStateFlow<List<ReservationModel>>(emptyList())
     val reservations = _reservations.asStateFlow()
-
-//    // 매장별 예약 분할 관리를 위한 코드 부여
-//    private val _shopCode = MutableStateFlow<String?>(null)
-//    val shopCode = _shopCode.asStateFlow()
 
 
     init {
@@ -135,6 +132,7 @@ class ReservationViewModel @Inject constructor(
 
     // 정기 예약 서버 전송
     fun postRecurringReservation(recurringDates: List<String>) {
+        val userEmail = FirebaseAuth.getInstance().currentUser?.email
         viewModelScope.launch {
             recurringDates.forEach { date ->
                 firebaseDataSource.postReservation(
@@ -144,7 +142,8 @@ class ReservationViewModel @Inject constructor(
                         date = date,
                         reservationTimes = reservationTimeSections.value
                             .filter { it.status == TimeTableStatusEnum.Selected }
-                            .map { it.time }
+                            .map { it.time },
+                        userEmail = userEmail
                     ),
                     onCompleteListener = { result ->
                         if (!result) {
@@ -182,6 +181,11 @@ class ReservationViewModel @Inject constructor(
     
     // 예약 요청 전송 및 결과 처리
     fun reservation(onCompleteListener: (Boolean) -> Unit) {
+
+        val userEmail = FirebaseAuth.getInstance().currentUser?.email
+        val nickname = preferenceManager.getNickname() // 닉네임 가져오는 메서드
+        val userGender = preferenceManager.getUserGender() // 성별 가져오는 메서드
+
         // FirebaseDataSource의 postReservation 메서드 호출, 예약 데이터를 서버로 전송
         firebaseDataSource.postReservation(
             ReservationModel(
@@ -190,7 +194,11 @@ class ReservationViewModel @Inject constructor(
                 date = selectedDate.value,
                 reservationTimes = reservationTimeSections.value
                     .filter { it.status == TimeTableStatusEnum.Selected }
-                    .map { it.time }
+                    .map { it.time },
+                userEmail = userEmail,
+                nickname = nickname, // 추가된 닉네임
+                userGender = userGender // 추가된 성별
+
             ),
             onCompleteListener = { result ->
                 onCompleteListener(result)

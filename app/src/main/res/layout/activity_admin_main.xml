@@ -18,6 +18,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:orientation="vertical"
+                android:layout_marginTop="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -47,6 +48,7 @@
 
 
                 <LinearLayout
+                    android:id="@+id/lililili"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right">
@@ -64,16 +66,33 @@
                         app:layout_constraintEnd_toEndOf="parent"/>
                     <ImageView
                         android:id="@+id/adminLogout_btn"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_marginTop="9dp"
                         android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="8dp"
                         android:background="@drawable/exit_icon"
                         app:layout_constraintTop_toTopOf="@id/reserlist_text"
                         app:layout_constraintStart_toEndOf="@id/reserlist_text"
-                        app:layout_constraintBottom_toBottomOf="@id/reserlist_text"
                         app:layout_constraintEnd_toEndOf="parent"/>
 
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/view_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:background="@color/littlegray"
+                        app:layout_constraintTop_toBottomOf="@id/lililili"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
 
                 </LinearLayout>
 
@@ -87,20 +106,31 @@
                     android:id="@+id/refreshLayout"
                     >
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerviewReservation"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:clipToPadding="false"
-                        android:paddingTop="16dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:spanCount="1"
-                        app:layout_constraintTop_toBottomOf="@+id/reserlist_text"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
+                        android:orientation="horizontal">
 
-                    </androidx.recyclerview.widget.RecyclerView>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerviewReservation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:paddingTop="16dp"
+                            android:layout_weight="1"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:spanCount="1"
+                            app:layout_constraintTop_toBottomOf="@+id/reserlist_text"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                    </LinearLayout>
+
 
 
                 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.dagger:hilt-core:2.48" external-system-id="GRADLE">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.google.dagger/hilt-core/2.48/b4568d616aefe08946cdeb1b7ad251d107a4a225/hilt-core-2.48.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.dagger/hilt-core/2.48/b4568d616aefe08946cdeb1b7ad251d107a4a225/hilt-core-2.48.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.google.dagger/hilt-core/2.48/a66221157b3bae609fa932fa56e84c3fd4cbd0ca/hilt-core-2.48-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.dagger/hilt-core/2.48/a66221157b3bae609fa932fa56e84c3fd4cbd0ca/hilt-core-2.48-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/com.google.dagger/hilt-core/2.48/ba1f1c07dbfa7d6f74c08a4fb7e2571440437346/hilt-core-2.48-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.dagger/hilt-core/2.48/ba1f1c07dbfa7d6f74c08a4fb7e2571440437346/hilt-core-2.48-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

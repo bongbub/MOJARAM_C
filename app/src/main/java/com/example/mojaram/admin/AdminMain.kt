@@ -106,29 +106,59 @@ class AdminMain : AppCompatActivity() {
         }
     }
 
-    private fun fetchReservations(shopId: Number) {
+    // fetchUserDetails 호출 시 null 체크 추가
+    private fun fetchReservations(shopId: Int) {
         firestore.collection("reservation")
-            .whereEqualTo("shopId", shopId) // shopId가 일치하는 예약만 가져옴
+            .whereEqualTo("shopId", shopId)
             .get()
             .addOnSuccessListener { querySnapshot ->
-                reservationList.clear() // 예약 리스트 초기화
+                reservationList.clear()
                 if (!querySnapshot.isEmpty) {
                     for (document in querySnapshot.documents) {
                         val reservation = document.toObject(Reservation::class.java)
                         if (reservation != null) {
-                            reservationList.add(reservation)
-                            Log.d("AdminMain", "Reservation: $reservation")
-                        } else {
-                            Log.w("AdminMain", "Reservation document is null for document: ${document.id}")
+                            val userEmail = reservation.userEmail // 이 부분 확인
+                            Log.d("AdminMain", "User Email from reservation: $userEmail")
+
+                            // userEmail이 null인지 체크하고 null이 아니면 fetchUserDetails 호출
+                            if (userEmail != null && userEmail.isNotBlank()) {
+                                fetchUserDetails(userEmail, reservation) // userEmail을 안전하게 전달
+                            } else {
+                                Log.e("AdminMain", "User email is null or blank for reservation")
+                            }
                         }
                     }
-                    adminAdapter.notifyDataSetChanged()
                 } else {
                     Log.d("AdminMain", "No reservations found for shop ID: $shopId")
                 }
             }
             .addOnFailureListener { exception ->
                 Log.e("AdminMain", "Error fetching reservations", exception)
+            }
+    }
+
+    private fun fetchUserDetails(userEmail: String, reservation: Reservation) {
+        Log.d("AdminMain", "Fetching details for user email: $userEmail")
+        firestore.collection("user_customer").document(userEmail) // userEmail로 문서 검색
+            .get()
+            .addOnSuccessListener { userDocument ->
+                if (userDocument.exists()) {
+                    val nickname = userDocument.getString("nickname") ?: "Unknown"
+                    val userGender = userDocument.getString("userGender") ?: "Unknown"
+
+                    // 예약 정보를 사용자 정보와 함께 추가
+                    reservation.nickname = nickname // Reservation 클래스에 nickname 필드 추가
+                    reservation.userGender = userGender // Reservation 클래스에 userGender 필드 추가
+
+                    // 예약 리스트에 추가
+                    reservationList.add(reservation)
+                    adminAdapter.notifyDataSetChanged()
+                } else {
+                    Log.d("AdminMain", "User document does not exist for email: $userEmail")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("AdminMain", "Error fetching user details", exception)
             }
     }
 
@@ -142,13 +172,13 @@ class AdminMain : AppCompatActivity() {
                 if (!querySnapshot.isEmpty) {
                     val shopIdField = querySnapshot.documents[0].get("shop_id") // shop_id를 가져옴
                     val shopId = when (shopIdField) {
-                        is Number -> shopIdField // 숫자인 경우
+                        is Number -> shopIdField.toInt() // 숫자인 경우 Int로 변환
                         else -> null
                     }
 
                     if (shopId != null) {
                         Log.d("AdminMain", "Shop ID: $shopId")
-                        fetchReservations(shopId) // 해당 매장의 예약 정보를 가져오기
+                        fetchReservations(shopId) // 예약 정보를 가져오기 위해 shopId를 Int로 전달
                         EventChangeListener(shopId) // EventChangeListener에 shopId 전달
                     } else {
                         Log.e("AdminMain", "shop_id is not a valid type")
@@ -176,20 +206,21 @@ class AdminMain : AppCompatActivity() {
                     when (dc.type) {
                         DocumentChange.Type.ADDED -> {
                             val reservation = dc.document.toObject(Reservation::class.java)
-                            reservationList.add(reservation)
-                            Log.d("Firestore", "Added reservation: $reservation")
+                            fetchUserDetails(reservation.userId, reservation) // 사용자 정보를 가져오고 예약 정보에 추가
+                            Log.d("AdminMain", "Added reservation: $reservation")
                         }
                         DocumentChange.Type.MODIFIED -> {
-                            // 여기서 예약을 업데이트하는 로직을 추가해야 합니다.
-                            Log.d("Firestore", "Modified reservation: ${dc.document.id}")
+                            // 예약 수정 로직 추가
+                            Log.d("AdminMain", "Modified reservation: ${dc.document.id}")
                         }
                         DocumentChange.Type.REMOVED -> {
-                            // 여기서 예약을 삭제하는 로직을 추가해야 합니다.
-                            Log.d("Firestore", "Removed reservation: ${dc.document.id}")
+                            // 예약 삭제 로직 추가
+                            Log.d("AdminMain", "Removed reservation: ${dc.document.id}")
                         }
                     }
                 }
 
+                // 어댑터에 데이터 변경 통지
                 adminAdapter.notifyDataSetChanged()
                 swipeRefreshLayout.isRefreshing = false
             }
@@ -197,10 +228,7 @@ class AdminMain : AppCompatActivity() {
 
     private fun refreshData() {
         // 당겨서 새로고침 -> 데이터 갱신
-        // shopId를 인자로 전달
         fetchUserRole() // 역할에 따라 매장 찾기
     }
-
-    // fetchUserRole 메서드 내에서 EventChangeListener를 호출하도록 수정
 
 }

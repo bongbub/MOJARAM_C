@@ -23,4 +23,11 @@ class PreferenceManager @Inject constructor(
     fun getUserId(): String {
         return sharedPreferences.getString("USER_ID", "") ?: ""
     }
+    fun getNickname(): String? {
+        return sharedPreferences.getString("nickname", null) // nickname을 가져오는 메서드
+    }
+
+    fun getUserGender(): String? {
+        return sharedPreferences.getString("userGender", null) // userGender를 가져오는 메서드
+    }
 }
