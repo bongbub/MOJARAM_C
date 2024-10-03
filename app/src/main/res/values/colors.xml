@@ -13,7 +13,7 @@
     <color name="moredarkgray">#FFBCBCBC</color>
     <color name="doubledarkgray">#FF696969</color>
     <color name="slategray">#708090</color>
-    <color name="maincolor">#A8E8AE</color>
+    <color name="maincolor">#a3cef1</color>
 
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
@@ -21,7 +21,7 @@
     <color name="colorRateMovie">#ffb300</color>
     <color name="yellow_fa">#FAF0BA</color>
     <color name="colorVoteCount">#ff4081</color>
-    <color name="green_a8e">#A8E8AE</color>
+    <color name="green_a8e">#002b4b</color>
     <color name="red">#fd7683</color>
     <color name="alpha10_black">#1A000000</color>
     <color name="alpha20_black">#33000000</color>
