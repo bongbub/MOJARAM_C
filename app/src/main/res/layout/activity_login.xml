@@ -77,7 +77,6 @@
         app:backgroundTint="#565656"
         app:layout_constraintBottom_toTopOf="@+id/btn_s"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
@@ -86,9 +85,9 @@
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginStart="105dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="105dp"
-        android:layout_marginBottom="205dp"
+        android:layout_marginBottom="150dp"
         android:background="@drawable/button_background"
         android:gravity="center"
         android:insetTop="0dp"
@@ -99,31 +98,8 @@
         app:backgroundTint="#063356"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_my1" />
-
-    <Button
-        android:id="@+id/btn_admin"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="105dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="105dp"
-        android:layout_marginBottom="150dp"
-        android:background="@drawable/button_background"
-        android:gravity="center"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="관리자 회원가입"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:backgroundTint="#063356"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_s" />
-
 
 
     <TextView
@@ -131,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="67dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="116dp"
         android:layout_marginBottom="97dp"
         android:text="비밀번호 찾기"
@@ -140,14 +116,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/btn_admin" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_s" />
 
     <TextView
         android:id="@+id/findid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="123dp"
-        android:layout_marginTop="66dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="97dp"
         android:text="아이디 찾기"
@@ -156,21 +132,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_admin" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_s" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="97dp"
         android:text="|"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/findqw"
         app:layout_constraintStart_toEndOf="@+id/findid"
-        app:layout_constraintTop_toBottomOf="@+id/btn_admin" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_s" />
 
     <CheckBox
         android:id="@+id/checkBox"
