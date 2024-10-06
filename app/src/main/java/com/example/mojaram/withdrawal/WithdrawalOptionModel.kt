@@ -7,6 +7,7 @@ import com.example.mojaram.BR
 data class WithdrawalOptionModel(
     var optionText: String,
     var isSelected: Boolean,
+    var isUserInput: Boolean,
 ): BaseObservable() {
 
     @Bindable

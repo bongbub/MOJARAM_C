@@ -36,32 +36,44 @@ class WithdrawalActivity : AppCompatActivity() {
     private fun getOptions(): List<WithdrawalOptionModel> {
         return arrayListOf(
             WithdrawalOptionModel(
-                optionText = "AI 체험이 기대에 미치지 못했어요",
+                optionText = "불편했던 부분을 직접 작성할게요.",
                 isSelected = false,
+                isUserInput = true,
             ),
             WithdrawalOptionModel(
-                optionText = "서비스를 자주 이용하지 않아요.",
+                optionText = "항공권을 구매해서 더 이상 안 필요해요",
                 isSelected = false,
+                isUserInput = false,
+            ),
+            WithdrawalOptionModel(
+                optionText = "여행 계획이 취소돼서 더 이상 안 필요해요",
+                isSelected = false,
+                isUserInput = false,
             ),
             WithdrawalOptionModel(
                 optionText = "이용 방법이 너무 복잡해요",
                 isSelected = false,
+                isUserInput = false,
             ),
             WithdrawalOptionModel(
                 optionText = "찾는 지역의 정보가 없어요",
                 isSelected = false,
+                isUserInput = false,
             ),
             WithdrawalOptionModel(
                 optionText = "찾는 일정의 정보가 없어요",
                 isSelected = false,
+                isUserInput = false,
             ),
             WithdrawalOptionModel(
                 optionText = "예약 방법이 너무 어려워요",
                 isSelected = false,
+                isUserInput = false,
             ),
             WithdrawalOptionModel(
-                optionText = "서비스가 불안정해요",
+                optionText = "서비스가 불안해요",
                 isSelected = false,
+                isUserInput = false,
             ),
         )
     }
