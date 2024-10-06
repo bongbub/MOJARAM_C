@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MOJARAMtest.app.mojaram.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MOJARAMtest.app.mojaram.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.mojaram.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.mojaram.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.mojaram.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.mojaram.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mojaram.iml" filepath="$PROJECT_DIR$/.idea/modules/mojaram.iml" />

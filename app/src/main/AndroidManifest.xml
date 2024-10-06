@@ -21,6 +21,27 @@
         android:theme="@style/Theme.Mojaram"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".withdrawal.WithdrawalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".serviceterm.ServiceTermActivity"
+            android:exported="false" />
+        <activity
+            android:name=".faq.FaqActivity"
+            android:exported="false" />
+        <activity
+            android:name=".inquiry.InquiryHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".inquiry.InquiryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".setting.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".coupon.CouponListActivity"
+            android:exported="false" />
+        <activity
             android:name=".admin.AdminSignUp"
             android:exported="false" />
         <activity
@@ -69,12 +90,12 @@
         <activity
             android:name=".Findid"
             android:exported="false" />
-        <activity android:name=".ReviewWriteActivity"
-            android:exported="true"
-            />
-        <activity android:name=".MyReviews"
-            android:exported="true"
-            />
+        <activity
+            android:name=".ReviewWriteActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MyReviews"
+            android:exported="true" />
         <activity
             android:name=".LogInActivity"
             android:exported="true">

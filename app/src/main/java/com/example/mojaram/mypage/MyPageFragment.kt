@@ -8,7 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mojaram.ReviewWriteActivity
+import com.example.mojaram.admin.AdminMain
+import com.example.mojaram.coupon.CouponListActivity
 import com.example.mojaram.databinding.FragmentMyPageBinding
+import com.example.mojaram.setting.SettingActivity
 import com.example.mojaram.utils.AutoClearedValue
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -33,7 +36,7 @@ class MyPageFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navToProfileSetting()
-        
+
         // 유저 정보 로드
         loadUserInfo()
         initview()
@@ -44,6 +47,24 @@ class MyPageFragment: Fragment() {
 
             startActivity(Intent(requireContext(),ReviewWriteActivity::class.java))
         })
+
+        // 예약 상태 확인
+        binding.buttonMyReservation.mypageMenuLayout.setOnClickListener { v ->
+            Log.d("SSSS", "예약 상태 확인 가기")
+            startActivity(Intent(requireContext(), AdminMain::class.java))
+        }
+
+        // 쿠폰함
+        binding.buttonChat.mypageMenuLayout.setOnClickListener { v ->
+            Log.d("SSSS", "쿠폰함 가기")
+            startActivity(Intent(requireContext(), CouponListActivity::class.java))
+        }
+
+        // 설정
+        binding.buttonSetting.mypageMenuLayout.setOnClickListener { v ->
+            Log.d("SSSS", "설정 가기")
+            startActivity(Intent(requireContext(), SettingActivity::class.java))
+        }
     }
 
     private fun navToProfileSetting() {
