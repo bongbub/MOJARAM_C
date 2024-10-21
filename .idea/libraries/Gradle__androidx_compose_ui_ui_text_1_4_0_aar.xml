@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.compose.ui:ui-text:1.4.0@aar">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/fcb6151c08dbf1a876d156f6b1425724/transformed/jetified-ui-text-1.4.0/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/fcb6151c08dbf1a876d156f6b1425724/transformed/jetified-ui-text-1.4.0/res" />
-      <root url="file://$PROJECT_DIR$/../gradle-8.1-all/caches/transforms-3/fcb6151c08dbf1a876d156f6b1425724/transformed/jetified-ui-text-1.4.0/AndroidManifest.xml" />
+      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/fcb6151c08dbf1a876d156f6b1425724/transformed/jetified-ui-text-1.4.0/res" />
+      <root url="file://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/fcb6151c08dbf1a876d156f6b1425724/transformed/jetified-ui-text-1.4.0/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/transforms-3/fcb6151c08dbf1a876d156f6b1425724/transformed/jetified-ui-text-1.4.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../gradle-8.1-all/caches/modules-2/files-2.1/androidx.compose.ui/ui-text/1.4.0/922d0dec1fab4945cdba37c5da8c240ad8086daa/ui-text-1.4.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Java/jdk1.8.0_211/caches/modules-2/files-2.1/androidx.compose.ui/ui-text/1.4.0/922d0dec1fab4945cdba37c5da8c240ad8086daa/ui-text-1.4.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

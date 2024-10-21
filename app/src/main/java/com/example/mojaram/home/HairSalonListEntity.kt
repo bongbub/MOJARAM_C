@@ -5,5 +5,5 @@ import com.example.mojaram.map.SalonModel
 data class HairSalonListEntity(
     val salonInfo: SalonModel,
     val liked: Boolean,
-    val likeCount: Int
+    var likeCount: Int
 )

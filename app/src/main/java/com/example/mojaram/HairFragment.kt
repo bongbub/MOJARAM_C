@@ -45,6 +45,13 @@ class HairFragment : Fragment() {
                     )
                     startActivity(it)
                 }
+            },
+            onLikeClick = { hairSalonListEntity, isLiked ->
+                if (isLiked) {
+                    viewModel.likeSalon(hairSalonListEntity.salonInfo)
+                } else {
+                    viewModel.unlikeSalon(hairSalonListEntity.salonInfo)
+                }
             }
         )
 

@@ -11,7 +11,8 @@ import com.example.mojaram.map.SalonModel
 import com.example.mojaram.utils.DiffCallback
 
 class HairSalonListAdapter(
-    private val onClickItem: (SalonModel) -> Unit
+    private val onClickItem: (SalonModel) -> Unit,
+    private val onLikeClick: (HairSalonListEntity, Boolean) -> Unit  // 찜 버튼 클릭 이벤트 !!!!
 ): ListAdapter<HairSalonListEntity, HairSalonListAdapter.HairSalonViewHolder>(
     DiffCallback<HairSalonListEntity>()
 ) {
@@ -31,9 +32,28 @@ class HairSalonListAdapter(
             textviewName.text = data.salonInfo.shopName
             textviewLikeCount.text = data.likeCount.toString()
             checkboxLike.isChecked = data.liked
+
+            // 이미지 로드하깅
             if(data.salonInfo.image.isNotEmpty()) {
                 imageviewSalon.load(data.salonInfo.image)
             }
+
+            // 찜 버튼 클릭 이벤트 처리하기!!!!!!
+            checkboxLike.setOnCheckedChangeListener { _, isChecked ->
+                onLikeClick(data, isChecked)
+
+                // 찜 카운트 업데이트
+                if (isChecked) {
+                    data.likeCount += 1
+                } else {
+                    data.likeCount -= 1
+                }
+                textviewLikeCount.text = data.likeCount.toString() // 텍스트 뷰 업데이트
+            }
+
         }
+
     }
+
+
 }

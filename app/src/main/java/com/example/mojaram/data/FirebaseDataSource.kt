@@ -40,7 +40,8 @@ class FirebaseDataSource @Inject constructor(
                             address = snapshot.data?.get(SHOP_ADDRESS) as String,
                             longitude = snapshot.data?.get(LONGITUDE) as Double?,
                             latitude = snapshot.data?.get(LATITUDE) as Double?,
-                            operationTime = snapshot.data?.get(SHOP_TIME) as String
+                            operationTime = snapshot.data?.get(SHOP_TIME) as String,
+
                         )
                     }.shuffled()
                         .take(6)

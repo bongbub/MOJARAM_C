@@ -7,6 +7,7 @@ import com.example.mojaram.data.AICreationDataSourceImpl
 import com.example.mojaram.data.FirebaseDataSource
 import com.example.mojaram.data.PreferenceManager
 import com.example.mojaram.network.RetrofitService
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -45,6 +46,10 @@ object DataSourceModule {
         firestore: FirebaseFirestore,
         firebaseStorage: FirebaseStorage
     ): FirebaseDataSource = FirebaseDataSource(firestore, firebaseStorage)
+
+    @Singleton
+    @Provides
+    fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance() // 추가된 메서드
 
     @Singleton
     @Provides
