@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/me_to_myreviews_nav"
+    app:startDestination="@id/meFragment"
+    tools:ignore="MissingDefaultResource">
+
+    <fragment
+        android:id="@+id/meFragment"
+        android:name="com.example.mojaram.MeFragment"
+        android:label="meFragment"
+        tools:layout="@layout/fragment_me" />
+
+    <fragment
+        android:id="@+id/myReviews"
+        android:name="com.example.mojaram.MyReviews"
+        android:label="fragment_my_reviews"
+        tools:layout="@layout/fragment_my_reviews" />
+
+    <action
+        android:id="@+id/action_me_to_myreviews"
+        app:destination="@id/myReviews"/>
+    <fragment
+        android:id="@+id/reservationHistory"
+        android:name="com.example.mojaram.ReservationHistory"
+        android:label="fragment_reservation_history"
+        tools:layout="@layout/fragment_reservation_history" />
+
+
+</navigation>

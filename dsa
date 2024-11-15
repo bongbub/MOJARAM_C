@@ -1,0 +1,61 @@
+[33m02c7f47[m[33m ([m[1;36mHEAD -> [m[1;32mfix_signup2[m[33m, [m[1;31morigin/fix_signup2[m[33m)[m HEAD@{0}: commit: 수정2
+[33mc321f39[m HEAD@{1}: commit: 수정2
+[33md1daf14[m HEAD@{2}: checkout: moving from d1daf14cac4719802de1a71f992c1fddde5c5f33 to fix_signup2
+[33md1daf14[m HEAD@{3}: reset: moving to d1daf14cac4719802de1a71f992c1fddde5c5f33
+[33mf759038[m HEAD@{4}: reset: moving to f759038bbdaa1d8e1e397b0a4dbc046d68484031
+[33m46007c7[m HEAD@{5}: commit (amend): 수정2
+[33md1daf14[m HEAD@{6}: checkout: moving from f759038bbdaa1d8e1e397b0a4dbc046d68484031 to d1daf14cac4719802de1a71f992c1fddde5c5f33
+[33mf759038[m HEAD@{7}: checkout: moving from d1daf14cac4719802de1a71f992c1fddde5c5f33 to f759038bbdaa1d8e1e397b0a4dbc046d68484031
+[33md1daf14[m HEAD@{8}: checkout: moving from fix_signup2 to d1daf14cac4719802de1a71f992c1fddde5c5f33
+[33md1daf14[m HEAD@{9}: rebase (abort): returning to refs/heads/fix_signup2
+[33mc161527[m HEAD@{10}: rebase (start): checkout c1615275f0c7ade7543ffe7dddf91dcc2cd0a32f
+[33md1daf14[m HEAD@{11}: checkout: moving from fix_signup2 to fix_signup2
+[33md1daf14[m HEAD@{12}: branch: Reset to origin/fix_signup2
+[33md1daf14[m HEAD@{13}: checkout: moving from d1daf14cac4719802de1a71f992c1fddde5c5f33 to fix_signup2
+[33md1daf14[m HEAD@{14}: checkout: moving from fix_signup2 to d1daf14cac4719802de1a71f992c1fddde5c5f33
+[33md1daf14[m HEAD@{15}: checkout: moving from fix_signup2 to fix_signup2
+[33md1daf14[m HEAD@{16}: branch: Reset to origin/fix_signup2
+[33mf759038[m HEAD@{17}: reset: moving to f759038bbdaa1d8e1e397b0a4dbc046d68484031
+[33mf759038[m HEAD@{18}: checkout: moving from fix_signup22 to fix_signup2
+[33mf759038[m HEAD@{19}: rebase (finish): returning to refs/heads/fix_signup22
+[33mf759038[m HEAD@{20}: rebase (start): checkout f759038bbdaa1d8e1e397b0a4dbc046d68484031
+[33md1daf14[m HEAD@{21}: checkout: moving from fix_signup2 to fix_signup22
+[33mf759038[m HEAD@{22}: checkout: moving from d1daf14cac4719802de1a71f992c1fddde5c5f33 to fix_signup2
+[33md1daf14[m HEAD@{23}: checkout: moving from fix_signup2 to d1daf14cac4719802de1a71f992c1fddde5c5f33
+[33mf759038[m HEAD@{24}: reset: moving to f759038bbdaa1d8e1e397b0a4dbc046d68484031
+[33m2219e75[m HEAD@{25}: commit (amend): 수정1
+[33m22369ae[m HEAD@{26}: commit (amend): 수정
+[33md1daf14[m HEAD@{27}: reset: moving to d1daf14cac4719802de1a71f992c1fddde5c5f33
+[33m884702e[m HEAD@{28}: revert: Revert "수정"
+[33md1daf14[m HEAD@{29}: reset: moving to d1daf14cac4719802de1a71f992c1fddde5c5f33
+[33md1daf14[m HEAD@{30}: rebase (finish): returning to refs/heads/fix_signup2
+[33md1daf14[m HEAD@{31}: rebase (start): checkout d1daf14cac4719802de1a71f992c1fddde5c5f33
+[33m28efe07[m HEAD@{32}: revert: Revert "수정"
+[33md1daf14[m HEAD@{33}: rebase (abort): returning to refs/heads/fix_signup2
+[33m32fcaeb[m HEAD@{34}: rebase (start): checkout f1753f9b8fd767569790df6922a0397b807a0b7d
+[33md1daf14[m HEAD@{35}: commit: 수정
+[33mf759038[m HEAD@{36}: merge origin/fix_signup2: Fast-forward
+[33mc161527[m HEAD@{37}: commit: 수정
+[33m1417866[m HEAD@{38}: commit: 수정
+[33m855d1da[m HEAD@{39}: commit: 수정
+[33m8634604[m HEAD@{40}: commit (merge): Merge remote-tracking branch 'origin/fix_signup2' into fix_signup2
+[33m32fcaeb[m HEAD@{41}: commit: 수정
+[33m3e32cf8[m HEAD@{42}: commit: 수정
+[33mf1753f9[m HEAD@{43}: merge origin/fix_signup2: Fast-forward
+[33m3a9957f[m HEAD@{44}: merge origin/fix_signup2: Fast-forward
+[33m7f6f0cc[m HEAD@{45}: commit: 로그인 로고수정
+[33m20dc10d[m HEAD@{46}: checkout: moving from testtset to fix_signup2
+[33mbcda98d[m HEAD@{47}: checkout: moving from fix_signup2test to testtset
+[33m20dc10d[m HEAD@{48}: checkout: moving from fix_signup2test to fix_signup2test
+[33m20dc10d[m HEAD@{49}: branch: Reset to fix_signup2^0
+[33mff03f0b[m HEAD@{50}: checkout: moving from fix_signup2 to fix_signup2test
+[33m20dc10d[m HEAD@{51}: merge origin/fix_signup2: Fast-forward
+[33mff03f0b[m HEAD@{52}: checkout: moving from fix_signup2test to fix_signup2
+[33mff03f0b[m HEAD@{53}: checkout: moving from testtset to fix_signup2test
+[33mbcda98d[m HEAD@{54}: checkout: moving from feature/home_ui to testtset
+[33m0e01e2b[m[33m ([m[1;31morigin/feature/home_ui[m[33m, [m[1;32mfeature/home_ui[m[33m)[m HEAD@{55}: checkout: moving from fix_signup2 to feature/home_ui
+[33mff03f0b[m HEAD@{56}: checkout: moving from testtset to fix_signup2
+[33mbcda98d[m HEAD@{57}: checkout: moving from fix_signup2 to testtset
+[33mff03f0b[m HEAD@{58}: checkout: moving from feature/home_ui to fix_signup2
+[33m0e01e2b[m[33m ([m[1;31morigin/feature/home_ui[m[33m, [m[1;32mfeature/home_ui[m[33m)[m HEAD@{59}: checkout: moving from main to feature/home_ui
+[33m95ecaef[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{60}: clone: from https://github.com/bongbub/MOJARAM.git

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/drawable_shape">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_group2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_left"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_title"
+                app:layout_constraintEnd_toStartOf="@+id/txt_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txt_title"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="27.6dp"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="리뷰 쓰기"
+                android:textColor="#FF464646"
+                android:textSize="16.1dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.12"
+                app:layout_constraintVertical_bias="0.03" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:alpha="0.5"
+                android:background="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_title"
+                app:layout_constraintWidth_percent="0.8"
+                />
+
+            <TextView
+                android:id="@+id/btn_chooser"
+                android:layout_width="133dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/layout_edit"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="사진 첨부하기\n(선택사항)"
+                android:textSize="13dp"
+                android:textColor="#274C77"
+                android:background="@drawable/basic_liner_border"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/layout_edit"
+                app:layout_constraintTop_toBottomOf="@+id/layout_edit"
+                app:layout_constraintVertical_bias="0.1" />
+
+            <TextView
+                android:id="@+id/btn_add"
+                android:layout_width="132.25dp"
+                android:layout_height="48.3dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="등록"
+                android:textColor="#274C77"
+                android:background="@drawable/basic_liner_border"
+                android:textSize="14.95dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/layout_edit"
+                app:layout_constraintTop_toBottomOf="@+id/layout_edit"
+                app:layout_constraintVertical_bias="0.1" />
+
+            <TextView
+                android:id="@+id/btn_change"
+                android:layout_width="132.25dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="사진 변경하기\n(선택사항)"
+                android:textColor="#274C77"
+                android:background="@drawable/basic_liner_border"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@+id/btn_add"
+                app:layout_constraintEnd_toEndOf="@+id/layout_edit"
+                app:layout_constraintVertical_bias="0.8" />
+
+            <TextView
+                android:id="@+id/btn_remove"
+                android:layout_width="132.25dp"
+                android:layout_height="48.3dp"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="사진 지우기"
+                android:textColor="#274C77"
+                android:background="@drawable/basic_liner_border"
+                android:textSize="14.95dp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@+id/btn_change"
+                app:layout_constraintEnd_toEndOf="@+id/layout_edit"
+                app:layout_constraintVertical_bias="0.8"
+                />
+
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.15"
+                app:layout_constraintWidth_percent="0.8"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="살롱드라피네 양재역점"
+                    android:textColor="#FF000000"
+                    android:textSize="16.1dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="98.9dp"
+                    android:layout_gravity="top"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="0dp"
+                    android:background="@drawable/drawable_shape_4"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:layout_width="167.9dp"
+                    android:layout_height="25.3dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="98dp"
+                    android:layout_marginBottom="0dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="별점을 눌러 평가해주세요"
+                    android:textColor="#FF000000"
+                    android:textSize="13.8dp" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:isIndicator="false"
+                    android:max="5"
+                    android:numStars="5"
+                    android:progressTint="@android:color/holo_blue_dark"
+                    android:rating="2.5" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/layout_edit"
+                android:layout_width="0dp"
+                android:layout_height="268.1dp"
+                android:background="@drawable/drawable_shape_5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.57"
+                app:layout_constraintWidth_percent="0.8"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="27.6dp"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="구매 후기(선택사항)"
+                    android:textColor="#FF464646"
+                    android:textSize="12.7dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/ed_review"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/drawable_shape_6"
+                    android:gravity="left|top"
+                    android:includeFontPadding="false"
+                    android:lineHeight="18.4dp"
+                    android:hint="고객님의 리뷰가 다른 고객들에게 \n도움이 될수 있어요!"
+                    android:textColor="#FF787878"
+                    android:textSize="12.7dp" />
+
+                <TextView
+                    android:id="@+id/txt_count"
+                    android:layout_width="79.35dp"
+                    android:layout_height="17.25dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="0/1000"
+                    android:textAlignment="textEnd"
+                    android:textColor="#FF787878"
+                    android:textSize="11.5dp"
+                    tools:ignore="RtlCompat" />
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:background="#000"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/layout_edit"
+                app:layout_constraintTop_toBottomOf="@+id/layout_edit"
+                app:layout_constraintVertical_bias="0.1"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>

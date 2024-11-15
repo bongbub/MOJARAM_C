@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color">
+
+        <ImageView
+            android:id="@+id/imageview_back"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:padding="3dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_back_black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="문의 내역"
+            android:fontFamily="@font/spoqa_han_sans_neo_bold"
+            android:textSize="18dp"
+            app:layout_constraintTop_toTopOf="@id/imageview_back"
+            app:layout_constraintBottom_toBottomOf="@id/imageview_back"
+            app:layout_constraintStart_toEndOf="@id/imageview_back" />
+
+        <!-- ScrollView 추가 -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/textview_mypage"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_inquiry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="문의 내역"
+                    android:textColor="@color/doubledarkgray"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_inquiry"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingBottom="32dp"
+                    android:textColor="@color/black"
+                    android:background="@drawable/box_5r_1s"
+                    android:inputType="textMultiLine"
+                    android:text="Q. 예약 시간에 미용실에 도착했는데, 예약이 확인되지 않았다고 하네요. 어떻게 해야 하나요?"
+                    android:maxLength="500"
+                    android:textSize="14sp"
+                    android:gravity="top"
+                    android:scrollbars="vertical"
+                    android:enabled="false"
+                    android:lineSpacingExtra="4dp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_inquiry" />
+
+                <TextView
+                    android:id="@+id/tv_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="답변"
+                    android:textColor="@color/doubledarkgray"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/et_inquiry" />
+
+                <EditText
+                    android:id="@+id/et_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingBottom="32dp"
+                    android:textColor="@color/black"
+                    android:background="@drawable/box_5r_1s"
+                    android:inputType="textMultiLine"
+                    android:text="A. 안녕하세요, 고객님. 불편을 드려 정말 죄송합니다. 예약 확인이 되지 않은 경우는 여러 가지 원인이 있을 수 있습니다.
+                    \n\n1. 예약 확인 : 예약 완료 후 발송되는 확인 이메일이나 문자 메시지를 꼭 확인해 주세요. 만약 확인 메시지를 받지 못하셨다면, 어플 내 '예약 내역 확인' 메뉴에서 예약 상태를 다시 확인해 주시기 바랍니다.
+                    \n2. 예약 시스템 점검 : 저희는 시스템 점검을 정기적으로 진행하고 있습니다. 만약 시스템 오류로 인해 예약이 누락되었다면, 즉시 개선하도록 하겠습니다.
+                    \n\n소중한 의견 감사합니다. 앞으로 더 나은 서비스 제공을 위해 노력하겠습니다."
+                    android:maxLength="500"
+                    android:textSize="14sp"
+                    android:gravity="top"
+                    android:scrollbars="vertical"
+                    android:enabled="false"
+                    android:lineSpacingExtra="4dp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_answer" />
+
+                <TextView
+                    android:id="@+id/tv_review_hint1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="답변 내용에 만족하셨나요?"
+                    android:textColor="@color/doubledarkgray"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/et_answer" />
+
+                <TextView
+                    android:id="@+id/tv_review_hint2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="만족도를 평가해주시면 서비스 개선에 도움이 됩니다."
+                    android:textColor="@color/doubledarkgray"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/tv_review_hint1" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_gravity="center"
+                    android:isIndicator="false"
+                    android:max="5"
+                    android:numStars="5"
+                    android:progressTint="@android:color/holo_blue_dark"
+                    android:rating="2.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_review_hint2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

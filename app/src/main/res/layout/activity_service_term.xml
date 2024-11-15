@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color">
+
+        <ImageView
+            android:id="@+id/imageview_back"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:padding="3dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_back_black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_mypage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="서비스 이용약관"
+            android:fontFamily="@font/spoqa_han_sans_neo_bold"
+            android:textSize="18dp"
+            app:layout_constraintTop_toTopOf="@id/imageview_back"
+            app:layout_constraintBottom_toBottomOf="@id/imageview_back"
+            app:layout_constraintStart_toEndOf="@id/imageview_back" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="24dp"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintTop_toBottomOf="@id/textview_mypage"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="제 1장 총칙"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="본 약관은 '모자람'(이하 '서비스'라 함)의 이용과 관련하여 사용자와 제공자 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="제 2 조 (용어의 정의)\n본 약관에서 사용하는 용어는 다음과 같이 정의한다."
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text= "'서비스'란 저희 앱에서 제공되는 모든 기능과 활동을 의미하며, 사용자에게 정보 제공, AI체험, 예약, 콘텐츠 생성 등 다양한 형태의 서비스를 포함합니다.'사용자'란 어플리케이션에 접속하여 서비스를 이용하는 회원을 말합니다.'제공자'란 개발자를 포함하여 서비스를 제공하는 주체를 의미하며, 이들은 사용자에게 다양한 기능과 정보를 제공하기 위해 서비스를 개발하고 운영하는 역할을 맡고 있습니다.'회원'이란 서비스에 개인정보를 제공하여 회원등록을 한 자로서, 서비스내에서 정보를 지속적으로 제공받으며 서비스를 계속적으로 이용할 수 있는 자를 말합니다.'멤버십'이란 회원등록을 한 자로서, 별도의 온/오프라인 상에서 추가 서비스를 제공 받을 수 있는 회원을 말합니다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="제 3 조 (이용약관의 효력 및 변경)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="본 약관은 서비스의 이용을 원하는 모든 사용자에게 고지함으로써 효력이 발생합니다.제공자는 본 약관을 변경할 수 있으며, 변경된 약관은 서비스 내 공지에 게시하여 효력을 발생합니다.사용자는 정기적으로 약관을 확인할 책임이 있으며, 변경된 약관에 동의하지 않을 경우 서비스 이용을 중단할 수 있습니다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="제 4 조 (회원 가입 및 계정 관리)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="사용자는 본 서비스를 이용하기 위해 회원 가입을 해야 합니다.회원 가입 시 제공한 정보는 정확하고 최신의 정보를 입력해야 하며, 이를 업데이트할 책임이 있습니다.사용자는 자신의 계정 정보를 안전하게 관리할 책임이 있으며, 타인에게 계정을 공유해서는 안 됩니다.계정의 부정 사용으로 인한 모든 책임은 해당 사용자에게 있습니다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="제 5 조 (서비스 이용의 의무)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="사용자는 서비스를 이용함에 있어 법령 및 본 약관을 준수해야 합니다.사용자는 다음의 행위를 해서는 안 됩니다\n
+타인의 개인정보를 무단으로 수집하거나 사용하는 행위\n
+서비스의 정상적인 운영을 방해하는 행위\n
+허위 정보 제공 또는 타인을 사칭하는 행위\n
+서비스 내의 콘텐츠를 무단으로 복제, 배포하는 행위"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="제 6 조 (결제 및 환불 정책)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="서비스 이용 시 요금은 다음과 같이 청구됩니다\n
+[매장 예약시 결제]\n
+결제 방법: 신용카드, 체크카드, 모바일 결제 등 다양한 결제 수단을 지원합니다.
+환불 요청은 서비스 이용 후 7일 이내에 가능하며, 환불 조건은 다음과 같습니다.\n
+[예약 취소 위약금 정책]\n
+예약 시간 30분 이후부터 발생되는 예약변경, 취소건의 경우 아래와 같이 위약금 수수료가 발생됩니다.\n
+1)시술 예약시간 2시간 전까지는 변경/취소 100% 환불\n
+2)시술 예약시간 2시간 이후 부터 변경/취소 시 90% 환불(10%의 취소 수수료 발생)
+3)취소 수수료 발생 10%를 판매자 위약금으로 책정함\n
+환불은 요청일로부터 7일 이내에 처리됩니다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="제 7 조 (개인정보 보호)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="제공자는 사용자의 개인정보를 [개인정보 처리방침]에 따라 처리합니다.\n
+[개인정보 처리 방침]
+\n수집하는 개인정보의 항목: 이름, 이메일, 전화번호 등
+\n개인정보의 수집 목적:서비스 제공,고객 관리,마케팅,통계 분석 등
+\n사용자는 자신의 개인정보에 대한 열람, 정정, 삭제 요청을 할 수 있으며, 제공자는 이에 대해 법적 의무를 다합니다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="제 8 조 (정책 변경)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="본 약관은 변경될 수 있으며, 변경 사항은 '공지 사항'을 통해 사용자에게 알립니다.사용자는 변경된 약관을 확인할 책임이 있으며, 변경된 약관에 동의하지 않을 경우 서비스 이용을 중단 될 수 있습니다."
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
